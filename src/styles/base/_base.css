@@ -1,0 +1,115 @@
+/* ==========================================================================
+   BASE · document defaults, focus, motion preferences, utilities
+   ========================================================================== */
+
+html {
+  color-scheme: light;
+  scroll-padding-block-start: var(--size-header);
+  /* Mobile / short screens: free scroll. Most sections are taller than the screen there,
+     and even «proximity» snapping pulls the page to a section start while reading */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Desktop with enough height: one section per screen */
+@media (min-width: 64em) and (min-height: 45em) {
+  html {
+    scroll-snap-type: y mandatory;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  min-block-size: 100vh;
+  min-block-size: 100dvh;
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  font-family: var(--font-family-text);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-body);
+  line-height: var(--line-height-body);
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-family-display);
+  line-height: var(--line-height-heading);
+  text-wrap: balance;
+}
+
+p,
+li {
+  text-wrap: pretty;
+}
+
+a {
+  color: var(--color-link);
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  text-decoration-thickness: 0.14em;
+}
+
+strong {
+  font-weight: var(--font-weight-strong);
+}
+
+code,
+kbd {
+  font-family: var(--font-family-mono);
+  font-size: 1em; /* same size as its text: the scale stays in base 8 */
+}
+
+/* Focus: 2px blue ring offset 2px (canon rules.focus) */
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+  border-radius: 0.25rem;
+}
+
+/* On accent (amber) surfaces blue fails contrast: black ring + light halo */
+.is-on-accent :focus-visible,
+.is-on-accent:focus-visible {
+  outline-color: var(--color-focus-on-accent);
+  box-shadow: 0 0 0 5px var(--color-focus-halo);
+}
+
+::selection {
+  background-color: var(--color-surface-accent);
+  color: var(--color-text-on-accent);
+}
+
+/* Everything stops with reduced motion (canon rule) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Visually hidden but available to assistive technology */
+.u-visually-hidden {
+  position: absolute !important;
+  inline-size: 1px;
+  block-size: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}

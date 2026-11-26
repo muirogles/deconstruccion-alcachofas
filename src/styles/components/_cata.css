@@ -1,0 +1,63 @@
+/* Tasting note of a step: the elaboration · how it is tasted · when it is
+   «en su punto». Fluid columns: one on mobile, three when they fit. */
+.cata {
+  /* Component tokens */
+  --cata-bg: var(--color-surface-raised);
+  --cata-fg: var(--color-text);
+  --cata-border: var(--color-border-subtle);
+  --cata-term: var(--color-text-muted);
+  --cata-point-bg: var(--color-surface-accent-soft);
+  --cata-point-border: var(--color-surface-accent);
+  --cata-point-term: var(--color-text-accent);
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16em), 1fr));
+  gap: var(--space-grid);
+}
+
+/* Wide: «Cómo se cata» is the longest of the three, so it gets more room */
+@media (min-width: 64rem) {
+  .cata {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr) minmax(0, 1fr);
+  }
+}
+
+.slide--inverse .cata {
+  --cata-bg: var(--color-surface-inverse-raised);
+  --cata-fg: var(--color-text-inverse);
+  --cata-border: var(--color-surface-inverse-raised);
+  --cata-term: var(--color-text-inverse-muted);
+}
+
+.cata__item {
+  display: grid;
+  align-content: start;
+  gap: var(--space-1);
+  padding: var(--space-3);
+  border: 1px solid var(--cata-border);
+  border-radius: var(--radius-card);
+  background-color: var(--cata-bg);
+  color: var(--cata-fg);
+}
+
+.cata__item--point {
+  border-color: var(--cata-point-border);
+  background-color: var(--cata-point-bg);
+  color: var(--color-text);
+}
+
+.cata__term {
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-strong);
+  letter-spacing: var(--letter-spacing-eyebrow);
+  text-transform: uppercase;
+  color: var(--cata-term);
+}
+
+.cata__item--point .cata__term {
+  color: var(--cata-point-term);
+}
+
+.cata__text {
+  margin: 0;
+}

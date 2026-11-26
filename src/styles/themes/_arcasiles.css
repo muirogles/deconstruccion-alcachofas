@@ -1,0 +1,131 @@
+/* ==========================================================================
+   THEME · Arcasiles
+   Values taken from the public Arcasiles canon v5.0.1
+   (brand.arcasiles.com/tokens.json and /tokens/*.tokens.json).
+   This file only holds VALUES. Component and layout CSS never reads
+   palette tokens directly: it reads semantic tokens (--color-*, --font-*…).
+   To reuse the landing for another talk, swap this file for another theme.
+   ========================================================================== */
+
+:root {
+  /* ---- Palette (theme primitives) -------------------------------------- */
+  --palette-ink: #272727;          /* color.neutral.black */
+  --palette-ink-raised: #303030;   /* local dark surface step (not in canon) */
+  --palette-mute: #5d5d5d;         /* ramps.neutral.900 */
+  --palette-line: #868686;         /* ramps.neutral.700 */
+  --palette-stone: #afafaf;        /* color.neutral.darkGray (decoration only) */
+  --palette-mist: #e9e9e9;         /* color.neutral.gray */
+  --palette-smoke: #f5f5f5;        /* color.neutral.whitesmoke */
+  --palette-paper: #faf9f7;        /* color.surface.paper */
+
+  --palette-amber: #f9be4a;        /* color.brand.primary */
+  --palette-amber-100: #fff8e7;    /* functional.calloutBgYellow */
+  --palette-amber-text: #8d5d27;   /* accent.amber.textSafe */
+  --palette-lila: #674a98;         /* color.brand.lila */
+  --palette-lila-100: #eae4f8;     /* ramps.lila.100 */
+  --palette-lila-text: #553d79;    /* accent.lila.textSafe */
+  --palette-blue: #2797c4;         /* color.brand.blue (focus ring) */
+  --palette-deep-blue: #114f82;    /* color.brand.deepBlue (links) */
+  --palette-green: #7fbf80;        /* color.brand.green */
+  --palette-green-text: #386848;   /* accent.green.textSafe */
+  --palette-pink: #e887a7;         /* color.brand.pink */
+  --palette-orange: #da7835;       /* color.brand.orange */
+  --palette-danger: #b3362a;       /* functional.danger */
+  --palette-white: #ffffff;
+  --palette-amber-glow: rgb(249 190 74 / 0.14); /* amber at 14 % (spotlight) */
+  --palette-ink-shadow: rgb(39 39 39 / 0.22);   /* ink at 22 % (ticket shadow) */
+  --palette-smoke-rule: rgb(245 245 245 / 0.3);  /* smoke at 30 % (rules on the guide red) */
+  --palette-ink-spine: rgb(39 39 39 / 0.25);     /* ink at 25 % (spine of the guide) */
+
+  /* ---- Semantic colour --------------------------------------------------- */
+  --color-surface: var(--palette-paper);
+  --color-surface-raised: #ffffff;
+  --color-surface-sunken: var(--palette-smoke);
+  --color-surface-inverse: var(--palette-ink);
+  --color-surface-inverse-raised: var(--palette-ink-raised);
+  --color-surface-accent: var(--palette-amber);
+  --color-surface-accent-soft: var(--palette-amber-100);
+  --color-surface-highlight: var(--palette-lila);
+  --color-surface-highlight-soft: var(--palette-lila-100);
+  --color-surface-pattern: var(--palette-green);
+  /* «Sala»: dark dining room where the dish is served (steps 7, guide, demo) */
+  --color-surface-sala: var(--palette-ink);
+  --color-surface-sala-glow: var(--palette-amber-glow);
+  /* Kitchen ticket (prompts) and storage label (files) */
+  --color-surface-ticket: var(--palette-white);
+  --color-surface-label: var(--palette-amber-100);
+  --color-border-ticket: var(--palette-stone);   /* decorative dashed rules */
+  --color-border-label: var(--palette-amber-text);
+  --color-decor-tape: var(--palette-amber);
+  --color-shadow: var(--palette-ink-shadow);
+  /* The red guide (MICHELIN section): the brand's red, with light text */
+  --color-surface-guide: var(--palette-danger);
+  --color-surface-guide-spine: var(--palette-ink-spine);
+  --color-text-on-guide: var(--palette-smoke);
+  --color-border-on-guide: var(--palette-smoke-rule);
+
+  --color-text: var(--palette-ink);
+  --color-text-muted: var(--palette-mute);
+  --color-text-inverse: var(--palette-smoke);
+  --color-text-inverse-muted: var(--palette-stone);
+  --color-text-accent: var(--palette-amber-text);
+  --color-text-highlight: var(--palette-lila-text);
+  --color-text-on-accent: var(--palette-ink);
+  --color-text-on-highlight: var(--palette-smoke);
+  --color-text-success: var(--palette-green-text);
+
+  --color-link: var(--palette-deep-blue);
+  --color-link-inverse: var(--palette-amber);
+
+  --color-border: var(--palette-line);
+  --color-border-subtle: var(--palette-mist);
+  --color-border-strong: var(--palette-ink);
+
+  --color-focus: var(--palette-blue);
+  --color-focus-on-accent: var(--palette-ink);
+  --color-focus-halo: rgb(245 245 245 / 0.85);
+
+  --color-decor-1: var(--palette-amber);
+  --color-decor-2: var(--palette-lila);
+  --color-decor-3: var(--palette-green);
+  --color-decor-4: var(--palette-pink);
+  --color-decor-5: var(--palette-orange);
+
+  /* ---- Illustration colours (own SVGs, brand palette) -------------------- */
+  --color-illustration-ink: var(--palette-ink);
+  --color-illustration-green: var(--palette-green);
+  --color-illustration-green-dark: var(--palette-green-text);
+  --color-illustration-lila: var(--palette-lila);
+  --color-illustration-amber: var(--palette-amber);
+  --color-illustration-amber-dark: var(--palette-amber-text);
+  --color-illustration-pink: var(--palette-pink);
+  --color-illustration-orange: var(--palette-orange);
+  --color-illustration-paper: var(--palette-paper);
+  --color-illustration-smoke: var(--palette-smoke);
+  --color-illustration-mist: var(--palette-mist);
+  --color-illustration-shine: var(--palette-white);
+  --color-illustration-stone: var(--palette-stone);
+
+  /* ---- Typography -------------------------------------------------------- */
+  /* Display text uses Lexend at heavy weights. */
+  --font-family-display: "Lexend", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-family-text: "Lexend", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-family-mono: ui-monospace, Menlo, Consolas, monospace;
+  --font-weight-display: 800;
+  --font-weight-heading: 700;
+  --font-weight-strong: 600;
+  --font-weight-body: 400;
+  --font-weight-light: 300;
+
+  /* ---- Motion ------------------------------------------------------------ */
+  --motion-ease: cubic-bezier(0.19, 1, 0.22, 1); /* motion.ease, the only curve */
+  --motion-duration-press: 120ms;                /* motion.durationPressMs */
+  --motion-duration-fast: 200ms;                 /* motion.durationFastMs */
+  --motion-duration-base: 480ms;                 /* motion.durationMs */
+  --motion-duration-slow: 720ms;                 /* motion.durationSlowMs */
+
+  /* ---- Shape ------------------------------------------------------------- */
+  --radius-pill: 100px;   /* radius.badge */
+  --radius-card: 0.75rem; /* radius.card 8pt ≈ 10.7px, rounded to the 4px grid: 12px */
+  --radius-field: 0.5rem;
+}

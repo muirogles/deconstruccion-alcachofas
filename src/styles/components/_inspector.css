@@ -1,0 +1,217 @@
+/* Inspector: the speaker arriving incognito. Her portrait (face, hair and
+   glasses, exported from Disaster System in _portrait.css) wearing a
+   double-breasted trench coat with wide lapels and a rain hat.
+   Pure HTML and CSS, decorative. Every part is placed in % of a 1:2 box, so
+   it scales cleanly; strokes use container units. The base state is the final
+   one; with JS the hat drops in once. */
+.inspector {
+  /* Component tokens */
+  --inspector-coat: var(--character-coat);
+  --inspector-coat-light: var(--character-coat-light);
+  --inspector-coat-shade: var(--character-coat-shade);
+  --inspector-belt: var(--character-coat-belt);
+  --inspector-button: var(--character-coat-button);
+  --inspector-hat-band: var(--character-coat-belt);
+  --inspector-trousers: var(--character-jeans);
+  --inspector-shoe: var(--character-shoe);
+  --inspector-shadow: var(--character-shadow);
+
+  container-type: inline-size;
+  position: relative;
+  inline-size: 100%;
+  aspect-ratio: 1 / 2;
+}
+
+.inspector > *,
+.inspector__coat > *,
+.inspector__hat > * {
+  position: absolute;
+  display: block;
+}
+
+.inspector__shadow {
+  inset: 96.5% 18% auto;
+  block-size: 3%;
+  border-radius: 50%;
+  background-color: var(--inspector-shadow);
+}
+
+.inspector__legs,
+.inspector__shoes {
+  display: flex;
+}
+
+.inspector__legs {
+  inset: 86% 40% auto;
+  block-size: 8%;
+  gap: 6%;
+}
+
+.inspector__leg {
+  flex: 1;
+  background-color: var(--inspector-trousers);
+}
+
+.inspector__shoes {
+  inset: 93.8% 33% auto;
+  block-size: 3.5%;
+  gap: 4%;
+}
+
+.inspector__shoe {
+  flex: 1;
+  border-radius: 50% 50% 18% 18% / 70% 70% 30% 30%;
+  background-color: var(--inspector-shoe);
+}
+
+/* Arms in sleeves, hands in the pockets */
+.inspector__arm {
+  inset-block: 49% 27%;
+  inline-size: 11%;
+  border-radius: 40% 40% 30% 30% / 10% 10% 8% 8%;
+  background-color: var(--inspector-coat-shade);
+}
+
+.inspector__arm--start {
+  inset-inline-start: 15%;
+  transform: rotate(7deg);
+  transform-origin: top center;
+}
+
+.inspector__arm--end {
+  inset-inline-end: 15%;
+  transform: rotate(-7deg);
+  transform-origin: top center;
+}
+
+/* Trench coat: flared to below the knee, with the back split */
+.inspector__coat {
+  inset: 47% 17% auto;
+  block-size: 39%;
+  background: linear-gradient(90deg, var(--inspector-coat-shade), var(--inspector-coat) 18% 82%, var(--inspector-coat-shade));
+  /* Slim trench: shoulders, a waist at the belt and a gentle flare */
+  clip-path: polygon(10% 4%, 20% 0, 80% 0, 90% 4%, 86% 44%, 98% 100%, 2% 100%, 14% 44%);
+}
+
+.inspector__split {
+  inset: 74% 47% 0;
+  background-color: var(--inspector-coat-shade);
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+/* Wide notched lapels meeting in a V */
+.inspector__lapel {
+  inset-block-start: 0;
+  inline-size: 30%;
+  block-size: 40%;
+  background-color: var(--inspector-coat-light);
+}
+
+.inspector__lapel--start {
+  inset-inline-start: 20%;
+  clip-path: polygon(30% 0, 100% 0, 100% 100%, 12% 40%, 26% 30%, 0 18%);
+}
+
+.inspector__lapel--end {
+  inset-inline-end: 20%;
+  clip-path: polygon(0 0, 70% 0, 100% 18%, 74% 30%, 88% 40%, 0 100%);
+}
+
+.inspector__epaulette {
+  inset-block-start: 2%;
+  inline-size: 18%;
+  block-size: 4%;
+  border-radius: 2cqi;
+  background-color: var(--inspector-coat-light);
+}
+
+.inspector__epaulette--start {
+  inset-inline-start: 10%;
+  transform: rotate(-8deg);
+}
+
+.inspector__epaulette--end {
+  inset-inline-end: 10%;
+  transform: rotate(8deg);
+}
+
+/* Double-breasted: two rows of buttons above the belt and one below */
+.inspector__buttons {
+  inset: 22% 32% 26%;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: auto auto 1fr auto;
+  row-gap: 6cqi;
+  justify-content: space-between;
+}
+
+.inspector__button:nth-child(n + 5) {
+  grid-row: 4;
+}
+
+.inspector__button {
+  inline-size: 4cqi;
+  aspect-ratio: 1;
+  border: 0.8cqi solid var(--inspector-coat-shade);
+  border-radius: 50%;
+  background-color: var(--inspector-button);
+}
+
+.inspector__belt {
+  inset: 47% 0 auto;
+  block-size: 6%;
+  background-color: var(--inspector-belt);
+}
+
+.inspector__buckle {
+  position: absolute;
+  inset: -15% 43%;
+  border: 1.2cqi solid var(--inspector-button);
+  border-radius: 1cqi;
+}
+
+/* The speaker’s exported portrait: its neck ends at the bottom of its box,
+   right where the coat collar starts. Above the coat, below the hat */
+.inspector__portrait {
+  inset: 6% 22% auto;
+  z-index: 1;
+}
+
+/* Rain hat: rounded crown, band and a brim that falls all round */
+.inspector__hat {
+  inset: 4% 14% auto;
+  block-size: 16%;
+  z-index: 2;
+}
+
+.inspector__hat-crown {
+  inset: 0 17% 28%;
+  border-radius: 48% 48% 14% 14% / 60% 60% 14% 14%;
+  background: linear-gradient(90deg, var(--inspector-coat-shade), var(--inspector-coat) 25% 75%, var(--inspector-coat-shade));
+}
+
+.inspector__hat-band {
+  inset: 56% 17% 28%;
+  background-color: var(--inspector-hat-band);
+}
+
+.inspector__hat-brim {
+  inset: 64% 0 -4%;
+  border-radius: 50% 50% 48% 48% / 30% 30% 70% 70%; /* falls all round, like a rain hat */
+  background-color: var(--inspector-coat-light);
+  box-shadow: inset 0 -1cqi 0 var(--inspector-coat-shade);
+}
+
+/* The hat drops in once when the scene appears */
+@media (prefers-reduced-motion: no-preference) {
+  .has-js .is-in-view .inspector__hat {
+    animation: inspector-hat var(--motion-duration-slow) var(--motion-ease) var(--motion-duration-fast) both;
+  }
+}
+
+@keyframes inspector-hat {
+  from {
+    opacity: 0;
+    transform: translateY(-60%);
+  }
+}

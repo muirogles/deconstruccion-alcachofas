@@ -1,0 +1,11 @@
+<svg viewBox="0 0 240 240" class="ill ill--copa-cava">
+  <!-- Sparkling wine flute with bubbles -->
+  <path class="ill-paper" d="M100 36 H140 L136 136 C134 148 128 154 120 154 C112 154 106 148 104 136 Z"/>
+  <path class="ill-amber" d="M101 60 H139 L136 136 C134 148 128 154 120 154 C112 154 106 148 104 136 Z"/>
+  <circle class="ill-paper" cx="114" cy="118" r="4"/>
+  <circle class="ill-paper" cx="125" cy="96" r="4"/>
+  <circle class="ill-paper" cx="116" cy="78" r="3"/>
+  <path class="ill-line" d="M100 36 H140 L136 136 C134 148 128 154 120 154 C112 154 106 148 104 136 Z"/>
+  <path class="ill-line" d="M120 154 V206"/>
+  <path class="ill-line" d="M94 210 H146"/>
+</svg>

@@ -1,0 +1,17 @@
+/* File tree: where each step saves its result */
+.file-tree {
+  margin: 0;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-card);
+  background-color: var(--color-surface-inverse);
+  color: var(--color-text-inverse);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-label);
+  line-height: var(--line-height-body);
+  overflow-x: auto;
+  white-space: pre;
+}
+
+.file-tree__comment {
+  color: var(--color-text-inverse-muted);
+}

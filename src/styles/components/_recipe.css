@@ -1,0 +1,81 @@
+/* Recipe sheet (ficha técnica) of the real dish */
+.recipe {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18em), 1fr));
+  gap: var(--space-grid);
+}
+
+/* Wide: the written recipe is narrower, the map of elaborations wider */
+@media (min-width: 64rem) {
+  .recipe {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  }
+}
+
+/* Full HD and projector: the map gets more room so each elaboration fits a line */
+@media (min-width: 100rem) {
+  .recipe {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 9fr);
+  }
+}
+
+.recipe__source {
+  font-size: var(--font-size-label);
+  color: var(--color-text-muted);
+}
+
+.recipe__steps {
+  display: grid;
+  gap: var(--space-1);
+  padding-inline-start: 1.5em;
+}
+
+/* Each elaboration with the audit step it maps to */
+.recipe__steps li > span:first-child {
+  margin-inline-end: var(--space-half);
+}
+
+/* The step chip and the note flow as one line of text */
+.recipe__note {
+  font-size: var(--font-size-body);
+}
+
+.recipe__note > .chip {
+  margin-inline-end: var(--space-1);
+  vertical-align: baseline;
+}
+
+.recipe__steps li::marker {
+  font-weight: var(--font-weight-heading);
+}
+
+.recipe__amount {
+  font-variant-numeric: tabular-nums;
+  font-weight: var(--font-weight-strong);
+}
+
+/* Ingredient list with icons */
+.recipe__ingredients {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 10em), 1fr));
+  gap: var(--space-1) var(--space-2);
+  padding: 0;
+  list-style: none;
+}
+
+.recipe__ingredient {
+  font-size: var(--font-size-body);
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: var(--space-1);
+  align-items: center;
+}
+
+.recipe__ingredient .illustration {
+  --illustration-size: 2.5rem;
+}
+
+.recipe__illustration {
+  --illustration-size: 9rem;
+  justify-self: center;
+}

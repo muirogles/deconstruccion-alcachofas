@@ -1,0 +1,41 @@
+/* Speech bubble: the maître (Alcachofil) talks */
+.bubble {
+  position: relative;
+  inline-size: max-content;
+  max-inline-size: 14em;
+  padding: var(--space-1) var(--space-2);
+  border: 2px solid var(--color-border-strong);
+  border-radius: var(--space-3);
+  background-color: var(--color-surface-ticket);
+  color: var(--color-text);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-heading);
+  line-height: var(--line-height-heading);
+  transform-origin: 80% 100%;
+}
+
+/* Tail pointing to the speaker */
+.bubble::after {
+  content: "";
+  position: absolute;
+  inset-block-start: 100%;
+  inset-inline-end: var(--space-3);
+  inline-size: var(--space-2);
+  block-size: var(--space-2);
+  border-inline-end: 2px solid var(--color-border-strong);
+  border-block-end: 2px solid var(--color-border-strong);
+  background-color: var(--color-surface-ticket);
+  transform: translateY(-50%) rotate(45deg);
+}
+
+/* Maître figure in other sections */
+.maitre {
+  position: relative;
+}
+
+.maitre__bubble {
+  position: absolute;
+  z-index: var(--layer-raised);
+  inset-block-start: 0;
+  inset-inline-start: 0;
+}

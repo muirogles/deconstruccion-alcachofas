@@ -1,0 +1,87 @@
+/* Prompt block as a kitchen ticket («comanda»): natural-language question
+   with editable slots and a copy button. Paper on any surface, zigzag edge. */
+.prompt {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  align-content: start;
+  gap: var(--space-2);
+  margin-block-end: var(--space-1); /* room for the torn edge */
+  padding: var(--space-3) var(--space-3) var(--space-2);
+  border-start-start-radius: var(--radius-field);
+  border-start-end-radius: var(--radius-field);
+  background-color: var(--color-surface-ticket);
+  color: var(--color-text);
+  filter: drop-shadow(0 var(--space-1) var(--space-2) var(--color-shadow));
+}
+
+/* Torn (zigzag) bottom edge, drawn with the ticket colour */
+.prompt::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  inset-block-start: 100%;
+  block-size: var(--space-1);
+  background: conic-gradient(from -45deg at 50% 100%, var(--color-surface-ticket) 90deg, transparent 0) 0 0 / var(--space-2) 100% repeat-x;
+}
+
+.prompt__label {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1);
+  padding-block-end: var(--space-2);
+  border-block-end: 2px dashed var(--color-border-ticket);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-heading);
+}
+
+/* Order number, like on a printed ticket */
+.prompt__order {
+  margin-inline-start: auto;
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-strong);
+  color: var(--color-text-muted);
+}
+
+.prompt__text {
+  margin: 0;
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  white-space: pre-line;
+}
+
+.prompt__slot {
+  padding-inline: 0.25em;
+  border-radius: 0.25em;
+  background-color: var(--color-surface-accent);
+  color: var(--color-text-on-accent);
+  font-weight: var(--font-weight-strong);
+  word-break: break-word;
+}
+
+.prompt__footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-1);
+  padding-block-start: var(--space-2);
+  border-block-start: 2px dashed var(--color-border-ticket);
+}
+
+.prompt__hint {
+  font-size: var(--font-size-label);
+  color: var(--color-text-muted);
+}
+
+a.prompt__hint {
+  color: var(--color-link);
+}
+
+/* Stub of the ticket in each step: the full prompt lives in the rail of
+   «El servicio». Same paper, no full text, so the step reads on a big screen */
+.prompt--stub {
+  grid-template-rows: auto;
+}

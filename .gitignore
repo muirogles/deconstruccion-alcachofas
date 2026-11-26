@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.DS_Store
+.playwright-mcp/
+
+# Never publish audit output, captures or secrets
+auditoria/
+.env
+.env.*
+
+# Local agent settings (permissions, MCP config) and personal notes
+.claude/
+CLAUDE.md
+CLAUDE.local.md

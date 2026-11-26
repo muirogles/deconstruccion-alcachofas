@@ -1,0 +1,61 @@
+/* Button: pill shape, 44px minimum target, em padding follows font size */
+.button {
+  --button-bg: var(--color-surface-inverse);
+  --button-fg: var(--color-text-inverse);
+  --button-border: var(--button-bg);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  min-block-size: var(--size-target);
+  padding: 0.5em 1.25em;
+  border: 2px solid var(--button-border);
+  border-radius: var(--radius-pill);
+  background-color: var(--button-bg);
+  color: var(--button-fg);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-strong);
+  line-height: 1.25;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    filter var(--motion-duration-fast) var(--motion-ease),
+    transform var(--motion-duration-fast) var(--motion-ease);
+}
+
+.button:hover {
+  filter: brightness(1.08);
+}
+
+.button:active {
+  transform: scale(0.98);
+  transition-duration: var(--motion-duration-press);
+}
+
+.button--accent {
+  --button-bg: var(--color-surface-accent);
+  --button-fg: var(--color-text-on-accent);
+}
+
+.button--highlight {
+  --button-bg: var(--color-surface-highlight);
+  --button-fg: var(--color-text-on-highlight);
+}
+
+.button--outline {
+  --button-bg: transparent;
+  --button-fg: currentColor;
+  --button-border: currentColor;
+}
+
+.button--small {
+  font-size: var(--font-size-label);
+  padding-inline: 1em;
+}
+
+.button__icon {
+  inline-size: 1.25em;
+  block-size: 1.25em;
+  flex: none;
+}

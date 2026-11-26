@@ -1,0 +1,224 @@
+/* Menu card: the mise en place (step 0) and the cycle in three courses */
+.menu {
+  position: relative;
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-4) clamp(var(--space-3), 4vw, var(--space-6));
+  border-radius: var(--radius-card);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  /* Double rule, like a printed menu card */
+  outline: 1px solid var(--color-border-strong);
+  outline-offset: calc(var(--space-1) * -1.5);
+  box-shadow: 0 var(--space-3) var(--space-6) var(--color-shadow);
+}
+
+/* Ornament and kicker share a line, the title goes below */
+.menu__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1) var(--space-2);
+  text-align: center;
+}
+
+.menu__header > .menu__title {
+  flex-basis: 100%;
+}
+
+.menu__ornament {
+  --illustration-size: calc(var(--font-size-body) * 2);
+  inline-size: var(--illustration-size);
+}
+
+.menu__kicker {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-strong);
+  letter-spacing: var(--letter-spacing-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-text-accent);
+}
+
+/* Thin rules on both sides of the kicker */
+.menu__kicker::before,
+.menu__kicker::after {
+  content: "";
+  inline-size: var(--space-4);
+  border-block-start: 1px solid currentColor;
+}
+
+.menu__title {
+  max-inline-size: 48em;
+  font-size: var(--font-size-lead);
+  font-weight: var(--font-weight-display);
+  line-height: var(--line-height-display);
+  letter-spacing: var(--letter-spacing-display);
+}
+
+
+.menu__courses {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-3);
+}
+
+/* Two columns read in order: 0 and I on the left; II, III and the rule on
+   the right. One column on small screens, in the same order */
+@media (min-width: 56em) {
+  .menu__courses {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: var(--space-6);
+  }
+
+  .menu__course--prep {
+    grid-area: 1 / 1;
+  }
+
+  .menu__course--main {
+    grid-area: 2 / 1 / span 2;
+  }
+
+  .menu__course--plating {
+    grid-area: 1 / 2;
+  }
+
+  .menu__course--rectify {
+    grid-area: 2 / 2;
+  }
+
+  .menu__courses > .menu__rule {
+    grid-area: 3 / 2;
+    align-self: end;
+  }
+}
+
+.menu__course {
+  display: grid;
+  align-content: start;
+  gap: var(--space-1);
+}
+
+/* Course title and its note share one ruled line */
+.menu__course-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0 var(--space-2);
+  padding-block-end: var(--space-half);
+  border-block-end: 1px solid var(--color-border-strong);
+}
+
+.menu__course-title {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-1);
+  font-size: var(--font-size-lead);
+  font-weight: var(--font-weight-display);
+}
+
+.menu__numeral {
+  color: var(--color-text-accent);
+}
+
+.menu__course-note {
+  font-size: var(--font-size-label);
+  color: var(--color-text-muted);
+}
+
+.menu__list {
+  display: grid;
+  padding: 0;
+  list-style: none;
+}
+
+.menu__link {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  align-items: center;
+  gap: var(--space-1) var(--space-2);
+  min-block-size: var(--size-target);
+  border-radius: var(--radius-field);
+  color: inherit;
+  text-decoration: none;
+}
+
+.menu__icon {
+  /* Same box for drawings and the loop sign: twice the body size (32 → 48 → 64, base 8) */
+  --illustration-size: calc(var(--font-size-body) * 2);
+  inline-size: var(--illustration-size);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .menu__icon {
+    transition: transform var(--motion-duration-fast) var(--motion-ease);
+  }
+
+  .menu__link:hover .menu__icon,
+  .menu__link:focus-visible .menu__icon {
+    transform: rotate(-8deg) scale(1.12);
+  }
+}
+
+.menu__icon--loop {
+  display: grid;
+  place-items: center;
+  block-size: var(--illustration-size);
+  border-radius: var(--radius-pill);
+  background-color: var(--color-surface-accent);
+  color: var(--color-text-on-accent);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-display);
+}
+
+.menu__dish {
+  display: grid;
+}
+
+.menu__line {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-1);
+}
+
+.menu__name {
+  font-weight: var(--font-weight-heading);
+  line-height: var(--line-height-heading);
+}
+
+.menu__link:hover .menu__name {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+/* Dotted leader between the dish and its step, like a price on a menu */
+.menu__leader {
+  flex: 1;
+  min-inline-size: var(--space-2);
+  border-block-end: 2px dotted var(--color-border);
+  transform: translateY(-0.3em);
+}
+
+.menu__step {
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-strong);
+  color: var(--color-text-accent);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.menu__desc {
+  font-size: var(--font-size-label);
+  line-height: var(--line-height-heading);
+  color: var(--color-text-muted);
+}
+
+/* Golden rule at the foot of the menu */
+.menu__rule {
+  padding-block-start: var(--space-2);
+  border-block-start: 1px solid var(--color-border-strong);
+}

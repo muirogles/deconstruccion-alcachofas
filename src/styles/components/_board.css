@@ -1,0 +1,171 @@
+/* Alcachofil's whiteboard («la pizarra»): who cooks what in each time of the
+   menu (without AI, your AI, you), written on the board of the illustration.
+   The art is cropped to the character and the board (the PNG keeps
+   transparent margins). On wide screens the table sits on the paper of the
+   board, tilted like it; on narrow screens it follows the art. The
+   illustration is never redrawn. */
+.board {
+  /* Component tokens */
+  --board-ink: var(--color-text);
+  --board-rule: var(--color-border);
+  --board-band: var(--color-surface-inverse);
+  --board-band-ink: var(--color-text-inverse);
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-2);
+  margin: 0;
+}
+
+/* Crop: the character and the board are 1330×870 of the 1600×1128 art,
+   from 155,140 */
+.board__art {
+  position: relative;
+  aspect-ratio: 1330 / 870;
+  overflow: hidden;
+}
+
+.board__img {
+  display: block;
+  inline-size: calc(100% * 1600 / 1330);
+  max-inline-size: none;
+  block-size: auto;
+  translate: -9.7% -12.4%;
+}
+
+/* The label on the dark band of the board, right of the hand, with its own
+   dark ground so it reads even without the art. Wide screens only: on
+   narrow ones it repeats the eyebrow and does not fit the band */
+.board__label {
+  display: none;
+  position: absolute;
+  inset-block-start: 6%;
+  inset-inline-start: 58%;
+  padding-inline: var(--space-1);
+  border-radius: var(--radius-field);
+  background-color: var(--board-band);
+  color: var(--board-band-ink);
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-display);
+  line-height: var(--line-height-heading);
+  letter-spacing: var(--letter-spacing-eyebrow);
+  text-transform: uppercase;
+}
+
+/* The table, written in ink: three times of the menu across, who cooks
+   down. «Tú» goes in bold: the responsibility is yours */
+.board__table {
+  inline-size: 100%;
+  border-collapse: collapse;
+  color: var(--board-ink);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-heading);
+}
+
+.board__table th,
+.board__table td {
+  padding: var(--space-half);
+  text-align: start;
+  vertical-align: top;
+  hyphens: auto; /* narrow screens: long words break, the page never scrolls sideways */
+  overflow-wrap: break-word;
+}
+
+.board__table thead th {
+  font-weight: var(--font-weight-heading);
+  border-block-end: 2px solid var(--board-ink);
+}
+
+.board__table tbody th {
+  font-weight: var(--font-weight-heading);
+}
+
+.board__table tbody tr + tr > * {
+  border-block-start: 1px dotted var(--board-rule);
+}
+
+.board__row--you > * {
+  font-weight: var(--font-weight-strong);
+}
+
+/* The golden rule, as if Alcachofil had just written it: next to the hand
+   with the pencil, under the board */
+.board__rule {
+  max-inline-size: var(--size-prose);
+  color: var(--board-ink);
+  font-weight: var(--font-weight-strong);
+  line-height: var(--line-height-heading);
+}
+
+/* Wide: the table is written on the paper of the board. Percent margins
+   resolve against the width of the board: 33.5% from the left edge and
+   15.5% (24% of its height, under the white stripe) from the top */
+@media (min-width: 64rem) {
+  .board__label {
+    display: block;
+  }
+
+  .board__table tbody th {
+    white-space: nowrap;
+  }
+
+  .board__table th,
+  .board__table td {
+    padding-inline: var(--space-1);
+    hyphens: manual;
+    overflow-wrap: normal;
+  }
+
+  .board__art,
+  .board__table,
+  .board__rule {
+    grid-area: 1 / 1;
+  }
+
+  /* Right of the hand (47% of the width) and under the board (84% of the
+     height of the art: 55% of its width) */
+  .board__rule {
+    align-self: start;
+    inline-size: 51%;
+    margin-block-start: 55%;
+    margin-inline-start: 47%;
+  }
+
+  .board__table {
+    align-self: start;
+    inline-size: 59%;
+    margin-block-start: 15.5%;
+    margin-inline-start: 33.5%;
+    rotate: -3deg;
+    transform-origin: 0 0;
+  }
+}
+
+/* Compact laptop band: keep the table clear of the golden rule at 1024 px */
+@media (min-width: 64rem) {
+  .board__table {
+    font-size: 0.875rem;
+  }
+}
+
+@media (min-width: 70rem) {
+  .board__table {
+    font-size: var(--font-size-body);
+  }
+}
+
+/* Projector text (24px) fills more of the board: the lines sit closer, the
+   table starts a little higher and takes the whole paper, so it stays clear
+   of the pencil */
+@media (min-width: 100rem) and (min-height: 62.5rem) {
+  .board__table {
+    inline-size: 61%;
+    margin-block-start: 15%;
+    line-height: var(--line-height-display);
+  }
+
+  .board__table th,
+  .board__table td {
+    padding-block: 0;
+  }
+}

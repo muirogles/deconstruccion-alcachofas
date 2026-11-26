@@ -1,0 +1,6 @@
+<svg viewBox="0 0 240 80" class="ill ill--plato-vacio">
+  <!-- Empty plate the brand character stands on -->
+  <ellipse class="ill-smoke ill-stroke" cx="120" cy="40" rx="112" ry="30"/>
+  <ellipse class="ill-paper" cx="120" cy="38" rx="80" ry="18"/>
+  <path class="ill-line ill-line--soft" d="M44 46 C70 58 170 58 196 46"/>
+</svg>

@@ -1,0 +1,29 @@
+/* Small pill label: references, standards, tags */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.25em 0.75em;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-surface-sunken);
+  border: 1px solid var(--color-border-subtle);
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-strong);
+  line-height: var(--line-height-heading);
+  color: var(--color-text);
+}
+
+.chip--accent {
+  background-color: var(--color-surface-accent);
+  border-color: var(--color-surface-accent);
+  color: var(--color-text-on-accent);
+}
+
+a.chip {
+  text-decoration: none;
+  min-block-size: 1.5rem;
+}
+
+a.chip:hover {
+  text-decoration: underline;
+}

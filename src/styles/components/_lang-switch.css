@@ -1,0 +1,66 @@
+/* Language switch: one control with both languages, the active one underlined.
+   Clicking it moves to the other language. */
+.lang-switch {
+  --lang-switch-color: var(--color-text);
+  --lang-switch-muted: var(--color-text-muted);
+  --lang-switch-bar: var(--color-text);
+  --lang-switch-label-size: 2.5rem;
+
+  display: inline-flex;
+  align-items: stretch;
+  min-block-size: var(--size-target);
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--lang-switch-color);
+  font: inherit;
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-strong);
+  letter-spacing: var(--letter-spacing-eyebrow);
+  cursor: pointer;
+}
+
+.lang-switch[hidden] {
+  display: none;
+}
+
+.lang-switch__label {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  min-inline-size: var(--lang-switch-label-size);
+  color: var(--lang-switch-muted);
+}
+
+.lang-switch__label[data-active="true"] {
+  color: var(--lang-switch-color);
+}
+
+/* Bar under the active language */
+.lang-switch__label::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0.5em;
+  inset-block-end: 0.375em;
+  block-size: 2px;
+  border-radius: 2px;
+  background-color: var(--lang-switch-bar);
+  opacity: 0;
+}
+
+.lang-switch__label[data-active="true"]::after {
+  opacity: 1;
+}
+
+.lang-switch:hover .lang-switch__label[data-active="false"] {
+  color: var(--lang-switch-color);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .lang-switch__label,
+  .lang-switch__label::after {
+    transition:
+      color var(--motion-duration-fast) var(--motion-ease),
+      opacity var(--motion-duration-fast) var(--motion-ease);
+  }
+}

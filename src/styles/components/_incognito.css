@@ -1,0 +1,97 @@
+/* «Cenamos de incógnito»: why we audit in production, like a MICHELIN
+   inspector. Three short ideas, the source of the comparison and a scene:
+   the inspector arrives incognito while the maître serves the deconstructed dish. */
+.incognito__list {
+  display: grid;
+  gap: var(--space-2);
+  padding: 0;
+  list-style: none;
+}
+
+.incognito__list strong {
+  display: block;
+  font-weight: var(--font-weight-heading);
+}
+
+.incognito__source {
+  font-size: var(--font-size-label);
+  color: var(--color-text-muted);
+}
+
+/* Scene: inspector · table with the deconstructed dish, cloche lifted ·
+   Alcachofil as maître. Fluid, never taller than the screen */
+.incognito__scene {
+  /* Component tokens */
+  --table-top: var(--color-surface-raised);
+  --table-edge: var(--color-border-strong);
+  --table-leg: var(--color-surface-inverse);
+
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 4fr) minmax(0, 3fr);
+  align-items: end;
+  gap: var(--space-1);
+  justify-self: center;
+  inline-size: min(100%, 56rem, 84vh);
+}
+
+/* The dish and the table top share one cell, so the plate rests on the table */
+.incognito__table {
+  display: grid;
+  justify-items: center;
+}
+
+.incognito__table > .incognito__dish,
+.incognito__table > .incognito__tabletop {
+  grid-area: 1 / 1;
+}
+
+/* The deconstructed dish: every elaboration apart on the plate.
+   The drawing leaves room above the plate for the lifted cloche */
+.incognito__dish {
+  position: relative;
+  z-index: 1;
+  inline-size: 100%;
+}
+
+.incognito__dish > .incognito__plate {
+  --illustration-size: 100%;
+  display: block;
+  aspect-ratio: 1;
+  translate: 0 10%; /* the drawing’s blank foot: the plate rests on the table top */
+}
+
+.incognito__dish > .incognito__dome {
+  --illustration-size: 40%;
+  position: absolute;
+  z-index: 2;
+  inset-block-start: 8%;
+  inset-inline-end: 4%;
+  aspect-ratio: 240 / 168;
+  transform: rotate(16deg);
+}
+
+.incognito__tabletop {
+  align-self: end;
+  inline-size: 112%;
+  block-size: var(--space-2);
+  border: 2px solid var(--table-edge);
+  border-radius: 50%;
+  background-color: var(--table-top);
+}
+
+/* The maître stands by the table, serving */
+.incognito__maitre {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+}
+
+.incognito__table-leg {
+  inline-size: var(--space-1);
+  block-size: clamp(var(--space-8), 10vh, 16rem); /* table top at the inspector’s waist */
+  background-color: var(--table-leg);
+  
+  @media (min-width: 64rem) {
+    block-size: clamp(var(--space-8), 16vh, 16rem); /* table top at the inspector’s waist */
+  }
+}

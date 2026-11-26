@@ -1,0 +1,74 @@
+/* Dot navigation: one dot per section, label visible on hover/focus */
+.dot-nav {
+  display: none; /* small or short screens: the index dialog replaces the dots */
+  position: fixed;
+  inset-inline-end: max(var(--space-1), env(safe-area-inset-right));
+  inset-block-start: calc(50% + var(--size-header) / 2); /* centred below the fixed header */
+  z-index: var(--layer-nav);
+  transform: translateY(-50%);
+}
+
+.dot-nav__list {
+  display: grid;
+  gap: 0;
+  padding: var(--space-half);
+  border-radius: var(--radius-pill);
+  /* Own surface so the dots stay readable on light, dark and pattern sections */
+  background-color: rgb(250 249 247 / 0.9);
+  box-shadow: 0 0 0 1px var(--color-border-subtle);
+}
+
+.dot-nav__link {
+  position: relative;
+  display: grid;
+  place-items: center;
+  inline-size: 1.5rem; /* 24px target (WCAG 2.5.8 and canon minimum); constant so the column fits */
+  block-size: 1.5rem;
+  border-radius: var(--radius-pill);
+  color: var(--color-text);
+}
+
+.dot-nav__link::before {
+  content: "";
+  inline-size: 0.5rem;
+  block-size: 0.5rem;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-border);
+  pointer-events: none;
+  transition:
+    transform var(--motion-duration-fast) var(--motion-ease),
+    background-color var(--motion-duration-fast) var(--motion-ease);
+}
+
+.dot-nav__link[aria-current="true"]::before {
+  background-color: var(--color-text);
+  transform: scale(1.5);
+}
+
+.dot-nav__label {
+  position: absolute;
+  inset-inline-end: calc(100% + var(--space-1));
+  padding: var(--space-half) var(--space-1);
+  border-radius: var(--radius-field);
+  background-color: var(--color-surface-inverse);
+  color: var(--color-text-inverse);
+  font-size: var(--font-size-label);
+  line-height: var(--line-height-heading);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--motion-duration-fast) var(--motion-ease);
+}
+
+.dot-nav__link:hover .dot-nav__label,
+.dot-nav__link:focus-visible .dot-nav__label {
+  opacity: 1;
+}
+
+/* Wide and tall enough: show the dots */
+/* 23 dots × 24px fit below the header from 720px of height */
+@media (min-width: 48em) and (min-height: 45em) {
+  .dot-nav {
+    display: block;
+  }
+}

@@ -1,0 +1,8 @@
+<svg viewBox="0 0 240 240" class="ill ill--copa-tinto">
+  <!-- Wine glass: red, the house wine -->
+  <path class="ill-paper" d="M78 40 H162 L158 110 C154 140 140 152 120 152 C100 152 86 140 82 110 Z"/>
+  <path class="ill-lila" d="M82 100 H158 L158 110 C154 140 140 152 120 152 C100 152 86 140 82 110 Z"/>
+  <path class="ill-line" d="M78 40 H162 L158 110 C154 140 140 152 120 152 C100 152 86 140 82 110 Z"/>
+  <path class="ill-line" d="M120 152 V204"/>
+  <path class="ill-line" d="M88 208 H152"/>
+</svg>

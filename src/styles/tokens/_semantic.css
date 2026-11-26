@@ -1,0 +1,130 @@
+/* ==========================================================================
+   SEMANTIC TOKENS · roles that point to primitives (DTCG layer 2)
+   Mobile first: each tier only overrides what changes, with min-width
+   (and min-height for the largest headings and the air between blocks).
+   Breakpoints in rem, so they follow browser zoom and text size.
+
+   Tiers: mobile (base) · phones ≥ 22.5rem · tablet ≥ 37.5rem · laptop ≥ 64rem
+          Full HD / projector ≥ 100rem · 2K / 4K ≥ 160rem
+
+   Containers are fluid: clamp() / min() between base-8 limits, and text
+   measures in ch or em so they grow with each tier. No fixed widths.
+   Colour roles live in the theme (themes/), next to the brand palette.
+   Component tokens live in each BEM block and point to these roles.
+   ========================================================================== */
+
+:root {
+  /* Five text roles, each with one job (bold, case and colour add the rest):
+     label · body · lead · title · display */
+  --font-size-label: var(--font-size-16);    /* eyebrows, kickers, numbers, help */
+  --font-size-body: var(--font-size-16);     /* text, cards, controls */
+  --font-size-lead: var(--font-size-24);     /* the key sentence of a section, the metaphor */
+  --font-size-title: var(--font-size-32);    /* h2 · one per section */
+  --font-size-display: var(--font-size-32);  /* h1 · 40 from 360px */
+
+  --line-height-display: var(--line-height-110);
+  --line-height-heading: var(--line-height-125);
+  --line-height-body: var(--line-height-160);
+
+  --letter-spacing-display: var(--letter-spacing-tight);
+  --letter-spacing-eyebrow: var(--letter-spacing-wide);
+
+  /* Spacing roles */
+  --space-section-block: var(--space-3);  /* 24 */
+  --space-section-inline: var(--space-2); /* 16 */
+  --space-stack: var(--space-3);          /* 24 · between blocks of a section */
+  --space-grid: var(--space-2);           /* 16 · between cards */
+
+  /* Fluid container roles: min · preferred · max (limits in base 8) */
+  --size-content: clamp(20rem, 85vw, 128rem);                /* 320 → 2048 */
+  --size-prose: 66ch;                                         /* ~66 characters at any size */
+  --size-heading: 64em;                                       /* section header: follows the body size; leads keep their own measure */
+  --size-illustration: clamp(6rem, min(14vw, 24vh), 20rem);  /* 96 → 320 */
+  --size-figure: clamp(16rem, min(28vw, 56vh), 40rem);       /* 256 → 640 · Alcachofil */
+  --size-header: var(--space-8);                              /* 64 · fixed site header */
+  --size-target: 2.75rem;                                     /* 44px touch target (WCAG minimum, not a layout step) */
+}
+
+/* Phones from 360px: the h1 fits at 40 */
+@media (min-width: 22.5rem) {
+  :root {
+    --font-size-display: var(--font-size-40);
+  }
+}
+
+/* Tablet */
+@media (min-width: 37.5rem) {
+  :root {
+    --font-size-title: var(--font-size-40);
+    --font-size-display: var(--font-size-56);
+
+    --space-section-block: var(--space-4);  /* 32 */
+    --space-section-inline: var(--space-4); /* 32 */
+    --space-stack: var(--space-4);          /* 32 */
+    --space-grid: var(--space-3);           /* 24 */
+  }
+}
+
+/* Laptop and desktop */
+@media (min-width: 64rem) {
+  :root {
+    --space-section-inline: var(--space-6); /* 48 */
+  }
+}
+
+/* Laptop and desktop with enough height (≥ 900px) for the largest headings;
+   a 1280×800 laptop keeps the tablet step so each section fits its screen */
+@media (min-width: 64rem) and (min-height: 56.25rem) {
+  :root {
+    --font-size-title: var(--font-size-48);
+    --font-size-display: var(--font-size-72);
+    --space-section-block: var(--space-6);  /* 48 */
+  }
+}
+
+/* Full HD and projector: the larger text needs the height too (≥ 1000px:
+   1920×1080, or 1707×1067 full screen). A wide window with the browser bars
+   (1707×937) keeps the laptop step, so each section still fits its screen */
+@media (min-width: 100rem) {
+  :root {
+    --space-section-inline: var(--space-10); /* 80 */
+  }
+}
+
+@media (min-width: 100rem) and (min-height: 62.5rem) {
+  :root {
+    --font-size-label: var(--font-size-24);
+    --font-size-body: var(--font-size-24);
+    --font-size-lead: var(--font-size-32);
+
+    --space-grid: var(--space-4);            /* 32 */
+    --size-header: var(--space-10);          /* 80 */
+
+    --font-size-title: var(--font-size-64);
+    --font-size-display: var(--font-size-96);
+    --space-section-block: var(--space-6);   /* 48 */
+    --space-stack: var(--space-5);           /* 40 */
+  }
+}
+
+/* 2K and 4K */
+@media (min-width: 160rem) {
+  :root {
+    --font-size-label: var(--font-size-32);
+    --font-size-body: var(--font-size-32);
+    --font-size-lead: var(--font-size-40);
+
+    --space-section-inline: var(--space-12); /* 96 */
+    --space-grid: var(--space-6);            /* 48 */
+    --size-header: var(--space-12);          /* 96 */
+  }
+}
+
+@media (min-width: 160rem) and (min-height: 50rem) {
+  :root {
+    --font-size-title: var(--font-size-80);
+    --font-size-display: var(--font-size-128);
+    --space-section-block: var(--space-10);  /* 80 */
+    --space-stack: var(--space-8);           /* 64 */
+  }
+}

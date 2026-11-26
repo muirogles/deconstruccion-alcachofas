@@ -1,0 +1,14 @@
+<svg viewBox="0 0 240 240" class="ill ill--salero">
+  <!-- Salt shaker: adjust a little and taste again -->
+  <g class="ill-part ill-part--shake" style="--i:0">
+    <path class="ill-ink" d="M92 44 C92 32 148 32 148 44 V64 H92Z"/>
+    <path class="ill-smoke ill-stroke" d="M88 64 H152 L160 176 C160 190 148 198 134 198 H106 C92 198 80 190 80 176Z"/>
+    <circle class="ill-smoke" cx="108" cy="50" r="3"/><circle class="ill-smoke" cx="120" cy="46" r="3"/><circle class="ill-smoke" cx="132" cy="50" r="3"/>
+    <path class="ill-line ill-line--light" d="M96 88 V168"/>
+  </g>
+  <g class="ill-grains">
+    <circle class="ill-stone ill-part ill-part--drop" style="--i:1" cx="60" cy="74" r="3"/>
+    <circle class="ill-stone ill-part ill-part--drop" style="--i:2" cx="48" cy="96" r="3"/>
+    <circle class="ill-stone ill-part ill-part--drop" style="--i:3" cx="66" cy="112" r="3"/>
+  </g>
+</svg>

@@ -1,0 +1,32 @@
+/* «Tu carpeta y las plantillas»: the header and the two templates on one
+   side, the folder tree on the other, so the screen holds all of it.
+   Mobile first: one column. */
+.files {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-grid);
+  align-items: start;
+}
+
+.files__intro {
+  display: grid;
+  gap: var(--space-stack);
+}
+
+@media (min-width: 64rem) {
+  .files {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  }
+}
+
+/* Wide: the header takes the whole column; the decorative recipe card stays
+   for narrower screens, where it does not cost the screen its fit */
+@media (min-width: 64rem) {
+  .files__intro .step__head {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .files__intro .step__head > .illustration {
+    display: none;
+  }
+}

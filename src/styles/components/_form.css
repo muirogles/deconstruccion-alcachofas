@@ -1,0 +1,71 @@
+/* Form fields for slots ([web], [sistema]) and the random sample draw */
+.form {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.form__row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18em), 1fr));
+  gap: var(--space-2);
+}
+
+.field {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.field__label {
+  font-weight: var(--font-weight-strong);
+}
+
+.field__help {
+  font-size: var(--font-size-label);
+  color: var(--color-text-muted);
+}
+
+.slide--inverse .field__help {
+  color: var(--color-text-inverse-muted);
+}
+
+/* Light cards inside a dark section keep the default muted text */
+.slide--inverse .card .field__help {
+  color: var(--color-text-muted);
+}
+
+.field__input {
+  inline-size: 100%;
+  min-block-size: var(--size-target);
+  padding: 0.5em 0.75em;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-field);
+  background-color: var(--color-surface-raised);
+  color: var(--color-text);
+}
+
+.field__input:hover {
+  border-color: var(--color-border-strong);
+}
+
+.form__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+/* Demo scope toggle */
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-block-size: var(--size-target);
+  font-weight: var(--font-weight-strong);
+  cursor: pointer;
+}
+
+.toggle__input {
+  inline-size: 1.5em;
+  block-size: 1.5em;
+  accent-color: var(--color-surface-accent);
+  flex: none;
+}

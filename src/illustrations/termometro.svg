@@ -1,0 +1,8 @@
+<svg viewBox="0 0 240 240" class="ill ill--termometro">
+  <!-- Thermometer reaching 60 ºC, low and slow -->
+  <rect class="ill-smoke ill-stroke" x="98" y="28" width="44" height="150" rx="22"/>
+  <rect class="ill-orange ill-part ill-part--fill" style="--i:0" x="110" y="80" width="20" height="104" rx="10"/>
+  <circle class="ill-orange ill-stroke" cx="120" cy="190" r="30"/>
+  <path class="ill-line" d="M142 60 H156 M142 84 H152 M142 108 H156 M142 132 H152"/>
+  <text class="ill-label" x="166" y="90">60º</text>
+</svg>

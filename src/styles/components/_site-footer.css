@@ -1,0 +1,42 @@
+/* Footer with credits */
+.site-footer {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-6) max(var(--space-section-inline), env(safe-area-inset-left));
+  padding-block-end: max(var(--space-6), env(safe-area-inset-bottom));
+  background-color: var(--color-surface-inverse);
+  color: var(--color-text-inverse);
+  scroll-snap-align: end;
+}
+
+.site-footer__inner {
+  display: grid;
+  gap: var(--space-2);
+  max-inline-size: var(--size-content);
+  margin-inline: auto;
+  inline-size: 100%;
+}
+
+.site-footer__credit {
+  font-size: var(--font-size-lead);
+  font-weight: var(--font-weight-strong);
+  line-height: var(--line-height-heading);
+}
+
+.site-footer a {
+  color: var(--color-link-inverse);
+}
+
+.site-footer__legal {
+  font-size: var(--font-size-label);
+  color: var(--color-text-inverse-muted);
+  max-inline-size: var(--size-prose);
+}
+
+.site-footer__thanks {
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-strong);
+  letter-spacing: var(--letter-spacing-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-link-inverse);
+}

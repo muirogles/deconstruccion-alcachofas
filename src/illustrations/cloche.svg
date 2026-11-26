@@ -1,0 +1,20 @@
+<svg viewBox="0 0 240 240" class="ill ill--cloche">
+  <!-- Plating: the cloche lifts and reveals the plated dish -->
+  <ellipse class="ill-smoke ill-stroke" cx="120" cy="196" rx="104" ry="30"/>
+  <ellipse class="ill-paper" cx="120" cy="193" rx="76" ry="18"/>
+  <ellipse class="ill-green ill-stroke" cx="120" cy="190" rx="46" ry="14"/>
+  <circle class="ill-amber ill-stroke" cx="120" cy="182" r="12"/>
+  <circle class="ill-amber-text" cx="94" cy="188" r="3"/><circle class="ill-amber-text" cx="146" cy="188" r="3"/><circle class="ill-amber-text" cx="104" cy="196" r="2.5"/><circle class="ill-amber-text" cx="136" cy="196" r="2.5"/>
+  <path class="ill-line ill-line--steam" style="--i:1" d="M100 160 C92 148 108 140 100 126"/>
+  <path class="ill-line ill-line--steam" style="--i:2" d="M120 156 C112 142 128 134 120 116"/>
+  <path class="ill-line ill-line--steam" style="--i:3" d="M140 160 C132 148 148 140 140 126"/>
+  <g class="ill-part ill-part--lift" style="--i:0">
+    <g transform="translate(-34 -112) rotate(-22 120 176)">
+      <rect class="ill-ink" x="112" y="106" width="16" height="18" rx="4"/>
+      <ellipse class="ill-ink" cx="120" cy="104" rx="18" ry="9"/>
+      <path class="ill-mist ill-stroke" d="M34 182 C34 140 72 120 120 120 C168 120 206 140 206 182Z"/>
+      <path class="ill-shine" d="M60 166 C64 148 80 136 102 130"/>
+      <rect class="ill-stone ill-stroke" x="24" y="178" width="192" height="14" rx="7"/>
+    </g>
+  </g>
+</svg>

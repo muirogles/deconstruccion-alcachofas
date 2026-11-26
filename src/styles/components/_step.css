@@ -1,0 +1,111 @@
+/* Audit step: ask your AI → test it yourself → write it down */
+.step {
+  display: grid;
+  gap: var(--space-stack);
+}
+
+.step__metaphor {
+  font-size: var(--font-size-lead);
+  line-height: var(--line-height-heading);
+  max-inline-size: var(--size-prose);
+}
+
+.step__metaphor em {
+  font-style: normal;
+  font-weight: var(--font-weight-heading);
+}
+
+.step__actions {
+  display: grid;
+  /* Comanda · Pruébalo · Guárdalo: one column on mobile, side by side when they fit */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16em), 1fr));
+  gap: var(--space-grid);
+}
+
+.step__action-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-heading);
+}
+
+.step__icon {
+  font-size: var(--font-size-lead);
+  line-height: 1;
+}
+
+.step__refs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1) var(--space-2);
+}
+
+/* Discreet link to this step’s ticket in «El servicio» */
+.step__order {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1); /* flex drops the spaces between the text and the arrow */
+  min-block-size: var(--size-target);
+  margin-inline-start: auto;
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-strong);
+}
+
+/* Header with illustration */
+.step__head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-2);
+  align-items: center;
+}
+
+.step__head > .illustration {
+  --illustration-size: var(--size-illustration);
+  order: -1;
+}
+
+@media (min-width: 48em) {
+  .step__head {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: var(--space-4);
+  }
+
+  .step__head > .illustration {
+    order: 0;
+    inline-size: var(--illustration-size);
+  }
+}
+
+.step__files {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--font-size-label);
+}
+
+.step__files code {
+  padding: 0.125em 0.5em;
+  border-radius: var(--radius-field);
+  background-color: var(--color-surface-highlight-soft);
+  color: var(--color-text-highlight);
+  font-weight: var(--font-weight-strong);
+  overflow-wrap: anywhere;
+}
+
+/* Brand character inside a step header stays the size of an illustration.
+   Hidden on small screens, where the text comes first */
+.step__head > .slide__figure {
+  display: none;
+  inline-size: min(var(--size-illustration), 40vw);
+  max-inline-size: var(--size-illustration);
+}
+
+@media (min-width: 48em) {
+  .step__head > .slide__figure {
+    display: block;
+  }
+}
+

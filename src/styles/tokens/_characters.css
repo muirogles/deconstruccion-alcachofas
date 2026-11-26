@@ -1,0 +1,110 @@
+/* ==========================================================================
+   CHARACTER PRIMITIVES · the speaker as an inspector (DTCG layer 1)
+   They describe the speaker (her face, exported from Disaster System) and
+   her coat and hat. The coat takes the closest brand colours to her real
+   one; the rest are local. Only the .inspector and .portrait blocks read
+   them, through their own component tokens.
+   ========================================================================== */
+
+:root {
+  /* Trench coat and rain hat: the dark green of her real coat (pears and
+     butterflies on a near-black green), in the closest brand colours */
+  --character-coat: var(--palette-green-text);      /* brand dark green #386848 */
+  --character-coat-light: #4d8160;                  /* local: lapels and brim, a step lighter */
+  --character-coat-shade: #284c34;                  /* local: folds and sleeves, a step darker */
+  --character-coat-belt: var(--palette-ink);        /* brand black, like the ground of the print */
+  --character-coat-button: var(--palette-amber);    /* brand amber, like the pears */
+  --character-jeans: #22385a;
+  --character-shoe: #1c1c1c;
+  --character-shadow: rgb(39 39 39 / 0.18);
+
+  /* Face of the portrait, exported from Disaster System (see _portrait.css) */
+  --character-face-01: rgba(255, 238, 224, 0.4);
+  --character-face-02: rgba(0, 0, 0, 0);
+  --character-face-03: rgba(255, 238, 224, 0.35);
+  --character-face-04: rgba(140, 75, 50, 0.14);
+  --character-face-05: rgba(230, 118, 112, 0.32);
+  --character-face-06: rgba(255, 236, 220, 0.38);
+  --character-face-07: rgba(130, 65, 45, 0.18);
+  --character-face-08: rgba(130, 65, 45, 0.25);
+  --character-face-09: rgba(130, 65, 45, 0.22);
+  --character-face-10: rgba(120, 60, 40, 0.3);
+  --character-face-11: rgb(243, 203, 171);
+  --character-face-12: rgb(223, 167, 129);
+  --character-face-13: rgb(187, 123, 88);
+  --character-face-14: rgba(120, 60, 40, 0.16);
+  --character-face-15: rgba(0, 0, 0, 0.6);
+  --character-face-16: rgba(70, 42, 20, 0.75);
+  --character-face-17: rgba(242, 212, 156, 0.55);
+  --character-face-18: rgba(242, 212, 156, 0.5);
+  --character-face-19: rgba(80, 52, 28, 0.5);
+  --character-face-20: rgb(138, 100, 64);
+  --character-face-21: rgb(168, 126, 82);
+  --character-face-22: rgb(185, 144, 98);
+  --character-face-23: rgb(154, 114, 72);
+  --character-face-24: rgba(90, 45, 20, 0.35);
+  --character-face-25: rgba(240, 212, 160, 0.4);
+  --character-face-26: rgba(90, 60, 30, 0.22);
+  --character-face-27: rgb(150, 88, 60);
+  --character-face-28: rgba(255, 255, 255, 0.06);
+  --character-face-29: rgba(0, 0, 0, 0.35);
+  --character-face-30: rgba(0, 0, 0, 0.55);
+  --character-face-31: rgba(0, 0, 0, 0.18);
+  --character-face-32: rgba(0, 0, 0, 0.2);
+  --character-face-33: rgba(255, 255, 255, 0.05);
+  --character-face-34: rgb(156, 77, 204);
+  --character-face-35: rgb(106, 27, 154);
+  --character-face-36: rgba(106, 27, 154, 0.45);
+  --character-face-37: rgba(106, 27, 154, 0.15);
+  --character-face-38: rgba(106, 27, 154, 0.12);
+  --character-face-39: rgb(212, 160, 23);
+  --character-face-40: rgb(74, 14, 110);
+  --character-face-41: rgba(40, 24, 12, 0.18);
+  --character-face-42: rgb(90, 61, 39);
+  --character-face-43: rgb(110, 76, 50);
+  --character-face-44: rgb(126, 90, 62);
+  --character-face-45: rgba(150, 95, 80, 0.28);
+  --character-face-46: rgba(140, 80, 60, 0.12);
+  --character-face-47: rgb(248, 244, 240);
+  --character-face-48: rgb(240, 236, 228);
+  --character-face-49: rgb(224, 216, 204);
+  --character-face-50: rgb(46, 28, 18);
+  --character-face-51: rgb(221, 168, 130);
+  --character-face-52: rgba(255, 240, 200, 0.07);
+  --character-face-53: rgb(42, 26, 12);
+  --character-face-54: rgb(168, 122, 52);
+  --character-face-55: rgb(185, 143, 69);
+  --character-face-56: rgb(125, 143, 74);
+  --character-face-57: rgb(94, 122, 60);
+  --character-face-58: rgb(63, 90, 42);
+  --character-face-59: rgb(29, 42, 18);
+  --character-face-60: rgb(18, 26, 10);
+  --character-face-61: rgba(0, 40, 10, 0.3);
+  --character-face-62: rgb(2, 8, 8);
+  --character-face-63: rgb(0, 0, 0);
+  --character-face-64: rgba(0, 0, 0, 0.8);
+  --character-face-65: rgba(255, 255, 255, 0.85);
+  --character-face-66: rgba(255, 255, 255, 0.5);
+  --character-face-67: rgb(201, 141, 108);
+  --character-face-68: rgba(255, 236, 222, 0.5);
+  --character-face-69: rgba(120, 60, 40, 0.2);
+  --character-face-70: rgba(120, 60, 40, 0.22);
+  --character-face-71: rgb(5, 5, 16);
+  --character-face-72: rgb(10, 16, 8);
+  --character-face-73: rgba(20, 40, 20, 0.8);
+  --character-face-74: rgba(255, 215, 210, 0.45);
+  --character-face-75: rgba(255, 215, 210, 0.35);
+  --character-face-76: rgb(204, 102, 112);
+  --character-face-77: rgb(162, 66, 78);
+  --character-face-78: rgba(150, 130, 120, 0.18);
+  --character-face-79: rgb(255, 250, 244);
+  --character-face-80: rgb(241, 233, 222);
+  --character-face-81: rgb(217, 196, 187);
+  --character-face-82: rgb(185, 138, 134);
+  --character-face-83: rgba(0, 0, 0, 0.25);
+  --character-face-84: rgba(255, 235, 235, 0.45);
+  --character-face-85: rgb(232, 151, 154);
+  --character-face-86: rgba(120, 60, 40, 0.35);
+  --character-face-87: rgba(120, 60, 40, 0.28);
+  --character-face-88: rgba(120, 60, 40, 0.32);
+}

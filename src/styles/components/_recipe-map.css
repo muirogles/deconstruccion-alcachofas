@@ -1,0 +1,66 @@
+/* Recipe ↔ audit map: each elaboration of the dish with its audit step.
+   The step number is the bullet, as in «La carta». Mobile first. */
+.recipe-map {
+  /* Component tokens */
+  --recipe-map-step: var(--color-link-inverse);
+  --recipe-map-muted: var(--color-text-inverse-muted);
+  --recipe-map-rule: var(--color-surface-inverse);
+
+  display: grid;
+  gap: var(--space-1);
+  padding: 0;
+  list-style: none;
+}
+
+.recipe-map__item {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0 var(--space-2);
+  align-items: baseline;
+  padding-block-end: var(--space-1);
+  border-block-end: 1px dashed var(--recipe-map-rule);
+}
+
+.recipe-map__step {
+  grid-row: span 2;
+  min-inline-size: 1.5ch;
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-lead);
+  font-weight: var(--font-weight-display);
+  line-height: var(--line-height-display);
+  color: var(--recipe-map-step);
+}
+
+.recipe-map__dish {
+  display: block;
+}
+
+/* Name and recipe text on one line when they fit */
+.recipe-map__name {
+  margin-inline-end: var(--space-1);
+  font-weight: var(--font-weight-heading);
+}
+
+.recipe-map__text {
+  color: var(--recipe-map-muted);
+}
+
+.recipe-map__layer {
+  font-weight: var(--font-weight-strong);
+  color: var(--recipe-map-step);
+}
+
+/* Wide: the audit layer sits on the right, one row per elaboration */
+@media (min-width: 64rem) {
+  .recipe-map__item {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+  }
+
+  .recipe-map__step {
+    grid-row: auto;
+  }
+
+  .recipe-map__layer {
+    text-align: end;
+  }
+}

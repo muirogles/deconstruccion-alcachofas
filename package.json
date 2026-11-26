@@ -1,0 +1,16 @@
+{
+  "name": "deconstruccion-alcachofas",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Landing de la charla «Deconstrucción de alcachofas con jamón: auditoría de sistemas de diseño en producción».",
+  "author": "María Rogles",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "7.3.8"
+  }
+}

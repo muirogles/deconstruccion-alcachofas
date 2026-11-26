@@ -1,0 +1,1063 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Deconstrucción de alcachofas con jamón · Auditoría de sistemas de diseño en producción</title>
+    <meta name="description" content="Metodología de María Rogles para auditar sistemas de diseño en producción, explicada como la receta de deconstrucción de alcachofas de la Vega Baja con jamón. Presentada en Diseño e IA by Arcasiles." />
+    <meta name="author" content="María Rogles" />
+    <meta name="theme-color" content="#faf9f7" />
+    <meta property="og:title" content="Deconstrucción de alcachofas con jamón" />
+    <meta property="og:description" content="Auditoría de sistemas de diseño en producción, paso a paso y con IA." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://muirogles.github.io/deconstruccion-alcachofas/" />
+    <meta property="og:image" content="https://muirogles.github.io/deconstruccion-alcachofas/og-image.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1314" />
+    <meta property="og:image:height" content="690" />
+    <meta property="og:image:alt" content="Portada de Deconstrucción de alcachofas con jamón, con Alcachofil celebrando sobre un plato." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Deconstrucción de alcachofas con jamón" />
+    <meta name="twitter:description" content="Auditoría de sistemas de diseño en producción, paso a paso y con IA." />
+    <meta name="twitter:image" content="https://muirogles.github.io/deconstruccion-alcachofas/og-image.png" />
+    <meta name="twitter:image:alt" content="Portada de Deconstrucción de alcachofas con jamón, con Alcachofil celebrando sobre un plato." />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <script type="module" src="./src/main.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido" data-i18n="ui.skip">Saltar al contenido</a>
+
+    <header class="site-header">
+      <a class="site-header__home" href="#inicio">
+        <span class="illustration illustration--small site-header__home-mark" data-illustration="alcachofa"></span>
+        <span class="site-header__home-label" data-i18n="ui.home">Deconstrucción de alcachofas</span>
+      </a>
+      <div class="site-header__actions">
+        <button class="lang-switch" type="button" data-lang-switcher hidden>
+          <span class="lang-switch__label" lang="es" data-lang-label="es" data-active="true">ES</span>
+          <span class="lang-switch__label" lang="en" data-lang-label="en" data-active="false">EN</span>
+          <span class="u-visually-hidden" data-i18n="ui.langSwitch">Español. Cambiar a English</span>
+        </button>
+        <button
+          class="button button--outline button--small"
+          type="button"
+          hidden
+          data-open-qr
+          data-qr-src="./qr/qr-landing.png"
+          data-qr-alt="Código QR que abre esta landing"
+          data-qr-title="Llévate la receta"
+          data-qr-caption="muirogles.github.io/deconstruccion-alcachofas"
+          data-i18n-attr="data-qr-title:ui.qrLandingTitle;data-qr-alt:ui.qrLandingAlt"
+        >
+          <span data-i18n="ui.qr">QR</span>
+        </button>
+        <button class="button button--small" type="button" data-open-index hidden aria-haspopup="dialog">
+          <span data-i18n="ui.index">La carta</span>
+        </button>
+      </div>
+    </header>
+
+    <nav class="dot-nav" aria-label="Secciones" data-i18n-attr="aria-label:ui.sections" hidden>
+      <ol class="dot-nav__list" role="list" data-dot-nav-list></ol>
+    </nav>
+
+    <main class="page" id="contenido">
+      <!-- ================================================================
+           PARTE 1 · METODOLOGÍA
+           ================================================================ -->
+
+      <section class="slide slide--opening" id="inicio" data-nav-label="Inicio" data-part="Metodología" aria-labelledby="inicio-title" data-i18n-attr="data-nav-label:nav.inicio;data-part:nav.partMethod">
+        <div class="slide__inner slide__inner--split">
+          <div class="hero reveal">
+            <p class="slide__eyebrow" data-i18n="hero.eyebrow">Una receta para auditar</p>
+            <h1 class="hero__title" id="inicio-title" data-i18n="hero.title">
+              Deconstrucción de <span class="hero__title-mark">alcachofas</span> con jamón
+            </h1>
+            <p class="hero__subtitle" data-i18n="hero.subtitle">Auditoría de sistemas de diseño en producción</p>
+            <p class="hero__description" data-i18n="hero.description">
+              Sobre el papel, el diseño de nuestro producto parece un plato con estrella Michelin; pero al salir de cocina y llegar a producción, la realidad cambia y el sabor a veces no es el esperado.
+            </p>
+          </div>
+          <figure class="hero__stage">
+            <span class="illustration hero__float hero__float--start" data-illustration="jamon"></span>
+            <span class="illustration hero__float hero__float--end" data-illustration="alcachofa"></span>
+            <p class="bubble hero__bubble" data-i18n="hero.bubble">¿Mesa para auditar?</p>
+            <span class="illustration hero__plate" data-illustration="plato-vacio"></span>
+            <img class="hero__character" src="./characters/alcachofil-celebrating.png" width="1600" height="2312" alt="" fetchpriority="high" />
+            <span class="illustration hero__dome" data-illustration="cupula"></span>
+          </figure>
+        </div>
+      </section>
+
+      <section class="slide slide--sunken" id="idea" data-nav-label="La idea" data-part="Metodología" aria-labelledby="idea-title" data-i18n-attr="data-nav-label:nav.idea;data-part:nav.partMethod">
+        <div class="slide__inner slide__inner--split">
+          <div class="slide__header reveal">
+            <p class="slide__eyebrow" data-i18n="recipe.eyebrow">La idea</p>
+            <h2 class="slide__title" id="idea-title" data-i18n="recipe.adriaTitle">Deconstruir, como en la alta cocina</h2>
+            <p class="slide__lead" data-i18n="recipe.lead">Deconstruir es separar el plato en sus elaboraciones y probar cada una por separado: ¿sabe a lo que promete su receta?</p>
+            <div class="quote">
+              <span class="illustration quote__mark" data-illustration="cuchillo"></span>
+              <div class="quote__body">
+                <p class="quote__text" data-i18n="recipe.adria">Ferran Adrià popularizó la deconstrucción: separar los elementos de un plato y servirlos de otra forma. Nosotros separamos la web para catar cada parte.</p>
+              </div>
+            </div>
+          </div>
+          <span class="illustration illustration--figure reveal" data-illustration="plato"></span>
+        </div>
+      </section>
+
+      <section class="slide" id="receta" data-nav-label="El plato y su ficha técnica" data-part="Metodología" aria-labelledby="receta-title" data-i18n-attr="data-nav-label:nav.receta;data-part:nav.partMethod">
+        <div class="slide__inner">
+          <header class="slide__header reveal">
+            <p class="slide__eyebrow" data-i18n="recipe.sheetEyebrow">La receta</p>
+            <h2 class="slide__title" id="receta-title" data-i18n="recipe.title">El plato y su ficha técnica</h2>
+          </header>
+
+          <div class="recipe">
+            <article class="card">
+              <p class="card__kicker" data-i18n="recipe.sheetKicker">Sobre el papel · la ficha técnica = tu sistema</p>
+              <h3 class="card__title" data-i18n="recipe.sheetTitle">Alcachofas de la Vega Baja con jamón</h3>
+              <p class="recipe__note" data-i18n="recipe.sheetNote"><span class="chip chip--accent">Paso 0</span> Ingredientes = tokens, con origen y medida.</p>
+              <ul class="recipe__ingredients" role="list">
+                <li class="recipe__ingredient"><span class="illustration" data-illustration="alcachofa"></span><span data-i18n="recipe.ing1"><span class="recipe__amount">8</span> alcachofas de la Vega Baja</span></li>
+                <li class="recipe__ingredient"><span class="illustration" data-illustration="yema"></span><span data-i18n="recipe.ing2"><span class="recipe__amount">4</span> yemas de huevo</span></li>
+                <li class="recipe__ingredient"><span class="illustration" data-illustration="olla"></span><span data-i18n="recipe.ing3"><span class="recipe__amount">200 cl</span> de caldo de jamón</span></li>
+                <li class="recipe__ingredient"><span class="illustration" data-illustration="migas"></span><span data-i18n="recipe.ing4"><span class="recipe__amount">50 g</span> de migas de tocino</span></li>
+                <li class="recipe__ingredient"><span class="illustration" data-illustration="salero"></span><span data-i18n="recipe.ing5">Perejil, hierbabuena, aceite, pimienta y sal</span></li>
+              </ul>
+              <p class="recipe__source" data-i18n="recipe.source">
+                Receta de la <a href="https://alcachofavegabaja.com/receta/alcachofas-de-la-vega-baja-con-jamon/">Asociación Alcachofa Vega Baja</a>, elaborada por la Bodega La Venganza de Orihuela.
+              </p>
+            </article>
+
+            <article class="card card--inverse">
+              <p class="card__kicker" data-i18n="recipe.methodKicker">Al salir de cocina · el plato servido = tu web</p>
+              <h3 class="card__title" data-i18n="recipe.methodTitle">Cada elaboración, por separado</h3>
+              <ol class="recipe-map" role="list" data-i18n="recipe.map">
+                <li class="recipe-map__item"><span class="recipe-map__step" aria-hidden="true">1</span><span class="recipe-map__dish"><span class="recipe-map__name"><span class="u-visually-hidden">Paso 1: </span>Cucharadas de caldo</span><span class="recipe-map__text">Hierve los huesos hasta reducir el líquido a la mitad y pruébalo a cucharadas.</span></span><span class="recipe-map__layer"><span aria-hidden="true">→</span> la muestra y los tokens en uso</span></li>
+                <li class="recipe-map__item"><span class="recipe-map__step" aria-hidden="true">2</span><span class="recipe-map__dish"><span class="recipe-map__name"><span class="u-visually-hidden">Paso 2: </span>Puré</span><span class="recipe-map__text">Cuece cuatro alcachofas con perejil y tritúralas.</span></span><span class="recipe-map__layer"><span aria-hidden="true">→</span> los componentes</span></li>
+                <li class="recipe-map__item"><span class="recipe-map__step" aria-hidden="true">3</span><span class="recipe-map__dish"><span class="recipe-map__name"><span class="u-visually-hidden">Paso 3: </span>Yema y migas</span><span class="recipe-map__text">El centro del plato y su sabor: sofríe ajo y tocino; añade el pan.</span></span><span class="recipe-map__layer"><span aria-hidden="true">→</span> los patrones y la voz</span></li>
+                <li class="recipe-map__item"><span class="recipe-map__step" aria-hidden="true">4</span><span class="recipe-map__dish"><span class="recipe-map__name"><span class="u-visually-hidden">Paso 4: </span>Baja temperatura</span><span class="recipe-map__text">Cuatro alcachofas al vacío con hierbabuena, a 60 ºC durante 30 minutos.</span></span><span class="recipe-map__layer"><span aria-hidden="true">→</span> el comportamiento</span></li>
+                <li class="recipe-map__item"><span class="recipe-map__step" aria-hidden="true">5</span><span class="recipe-map__dish"><span class="recipe-map__name"><span class="u-visually-hidden">Paso 5: </span>Emplatado</span><span class="recipe-map__text">Puré, yema, migas, alcachofas y, por último, el caldo.</span></span><span class="recipe-map__layer"><span aria-hidden="true">→</span> el diagnóstico</span></li>
+              </ol>
+            </article>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="slide slide--inverse slide--sala" id="ciclo" data-nav-label="La carta" data-part="Metodología" aria-labelledby="ciclo-title" data-i18n-attr="data-nav-label:nav.ciclo;data-part:nav.partMethod">
+        <div class="slide__inner">
+          <div class="menu reveal">
+            <header class="menu__header">
+              <span class="illustration menu__ornament" data-illustration="alcachofa"></span>
+              <p class="menu__kicker" data-i18n="cycle.eyebrow">Menú degustación · para cualquier sistema de diseño</p>
+              <h2 class="menu__title" id="ciclo-title" data-i18n="cycle.title">La metodología: mise en place y ciclo en tres tiempos</h2>
+            </header>
+            <div class="menu__courses">
+            <section class="menu__course menu__course--prep" aria-labelledby="course-c0">
+              <div class="menu__course-head">
+                <h3 class="menu__course-title" id="course-c0"><span class="menu__numeral" aria-hidden="true">0</span> <span data-i18n="cycle.c0Title">Antes de cocinar</span></h3>
+              </div>
+              <ol class="menu__list" role="list">
+                  <li><a class="menu__link" href="#ingredientes"><span class="illustration menu__icon" data-illustration="alcachofa"></span><span class="menu__dish"><span class="menu__line"><span class="menu__name" data-i18n="cycle.s0name">Ingredientes</span><span class="menu__leader" aria-hidden="true"></span><span class="menu__step">Paso 0</span></span><span class="menu__desc" data-i18n="cycle.s0layer">El sistema: tokens primitivos y semánticos, assets y guías</span></span></a></li>
+              </ol>
+            </section>
+            <section class="menu__course menu__course--main" aria-labelledby="course-c1">
+              <div class="menu__course-head">
+                <h3 class="menu__course-title" id="course-c1"><span class="menu__numeral" aria-hidden="true">I</span> <span data-i18n="cycle.c1Title">Deconstruir</span></h3>
+                <p class="menu__course-note" data-i18n="cycle.c1Note">Separar el plato servido en sus elaboraciones.</p>
+              </div>
+              <ol class="menu__list" role="list">
+                  <li><a class="menu__link" href="#cucharadas"><span class="illustration menu__icon" data-illustration="cuchara"></span><span class="menu__dish"><span class="menu__line"><span class="menu__name" data-i18n="cycle.s1name">Cucharadas de caldo</span><span class="menu__leader" aria-hidden="true"></span><span class="menu__step">Paso 1</span></span><span class="menu__desc" data-i18n="cycle.s1layer">Muestra, captura única y uso de los tokens</span></span></a></li>
+                  <li><a class="menu__link" href="#pure"><span class="illustration menu__icon" data-illustration="pure"></span><span class="menu__dish"><span class="menu__line"><span class="menu__name" data-i18n="cycle.s2name">Puré</span><span class="menu__leader" aria-hidden="true"></span><span class="menu__step">Paso 2</span></span><span class="menu__desc" data-i18n="cycle.s2layer">Componentes: anatomía, variantes y tamaños</span></span></a></li>
+                  <li><a class="menu__link" href="#yema"><span class="illustration menu__icon" data-illustration="yema"></span><span class="menu__dish"><span class="menu__line"><span class="menu__name" data-i18n="cycle.s3name">Yema y migas</span><span class="menu__leader" aria-hidden="true"></span><span class="menu__step">Paso 3</span></span><span class="menu__desc" data-i18n="cycle.s3layer">Patrones, contenido y voz</span></span></a></li>
+                  <li><a class="menu__link" href="#baja-temperatura"><span class="illustration menu__icon" data-illustration="termometro"></span><span class="menu__dish"><span class="menu__line"><span class="menu__name" data-i18n="cycle.s4name">Baja temperatura</span><span class="menu__leader" aria-hidden="true"></span><span class="menu__step">Paso 4</span></span><span class="menu__desc" data-i18n="cycle.s4layer">Comportamiento: estados, accesibilidad y movimiento</span></span></a></li>
+              </ol>
+            </section>
+            <section class="menu__course menu__course--plating" aria-labelledby="course-c2">
+              <div class="menu__course-head">
+                <h3 class="menu__course-title" id="course-c2"><span class="menu__numeral" aria-hidden="true">II</span> <span data-i18n="cycle.c2Title">Emplatar</span></h3>
+                <p class="menu__course-note" data-i18n="cycle.c2Note">Recomponer el diagnóstico, con pruebas.</p>
+              </div>
+              <ol class="menu__list" role="list">
+                  <li><a class="menu__link" href="#emplatado"><span class="illustration menu__icon" data-illustration="cloche"></span><span class="menu__dish"><span class="menu__line"><span class="menu__name" data-i18n="cycle.s5name">Emplatado</span><span class="menu__leader" aria-hidden="true"></span><span class="menu__step">Paso 5</span></span><span class="menu__desc" data-i18n="cycle.s5layer">Diagnóstico y estrellas Michelin</span></span></a></li>
+              </ol>
+            </section>
+            <section class="menu__course menu__course--rectify" aria-labelledby="course-c3">
+              <div class="menu__course-head">
+                <h3 class="menu__course-title" id="course-c3"><span class="menu__numeral" aria-hidden="true">III</span> <span data-i18n="cycle.c3Title">Rectificar y pase</span></h3>
+                <p class="menu__course-note" data-i18n="cycle.c3Note">Corregir, volver a probar y repetir.</p>
+              </div>
+              <ol class="menu__list" role="list">
+                  <li><a class="menu__link" href="#rectificar"><span class="illustration menu__icon" data-illustration="salero"></span><span class="menu__dish"><span class="menu__line"><span class="menu__name" data-i18n="cycle.s6name">Rectificar y pase</span><span class="menu__leader" aria-hidden="true"></span><span class="menu__step">Paso 6</span></span><span class="menu__desc" data-i18n="cycle.s6layer">Dónde se corrige y cómo se queda corregido</span></span></a></li>
+                  <li><a class="menu__link menu__link--loop" href="#cucharadas"><span class="menu__icon menu__icon--loop" aria-hidden="true">↺</span><span class="menu__dish"><span class="menu__line"><span class="menu__name" data-i18n="cycle.loopName">Vuelta a empezar</span><span class="menu__leader" aria-hidden="true"></span><span class="menu__step">Paso 1</span></span><span class="menu__desc" data-i18n="cycle.loopLayer">Nueva cata con la siguiente muestra</span></span></a></li>
+              </ol>
+            </section>
+            <p class="menu__rule" data-i18n="cycle.rule"><strong>Regla de oro:</strong> tu IA cocina, pero el plato lo pruebas tú. Y cada paso se guarda en <code>auditoria/</code>.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------- Paso 0 · Ingredientes ---------- -->
+      <section class="slide slide--sunken" id="ingredientes" data-nav-label="0 · Ingredientes" data-part="Metodología" aria-labelledby="ingredientes-title" data-i18n-attr="data-nav-label:nav.ingredientes;data-part:nav.partMethod">
+        <div class="slide__inner step">
+          <div class="step__head">
+            <header class="slide__header reveal">
+              <p class="slide__eyebrow" data-i18n="s0.eyebrow">Antes de cocinar · Paso 0 · Ingredientes</p>
+              <h2 class="slide__title" id="ingredientes-title" data-i18n="s0.title">El sistema: tokens, assets y guías</h2>
+              <p class="step__metaphor" data-i18n="s0.metaphor">La receta no dice «alcachofas»: dice <em>«alcachofas de la Vega Baja»</em>. Un buen ingrediente tiene origen. Un buen token, también. Aquí se lee todo el sistema, una sola vez.</p>
+            </header>
+            <span class="illustration" data-illustration="alcachofa"></span>
+          </div>
+          <dl class="cata">
+            <div class="cata__item">
+              <dt class="cata__term" data-i18n="ui.cataElaboration">Qué se cata</dt>
+              <dd class="cata__text" data-i18n="s0.cataElaboration">Cada ingrediente de la despensa: su archivo, su documentación y su origen.</dd>
+            </div>
+            <div class="cata__item">
+              <dt class="cata__term" data-i18n="ui.cataHow">Cómo se cata</dt>
+              <dd class="cata__text" data-i18n="s0.cataHow">Dónde se publica, si está tipado y si cada semántico apunta a un primitivo.</dd>
+            </div>
+            <div class="cata__item cata__item--point">
+              <dt class="cata__term" data-i18n="ui.cataPoint">En su punto</dt>
+              <dd class="cata__text" data-i18n="s0.cataPoint">Cada token tiene origen, tipo y medida, y la documentación dice lo mismo que el archivo.</dd>
+            </div>
+          </dl>
+          <p class="step__refs"><a class="chip" href="#referencias">DTCG 2025.10</a> <a class="step__order" href="#comanda-00"><span data-i18n="ui.orderLink">Su comanda, en el servicio</span> · Nº 00 <span aria-hidden="true">→</span></a></p>
+        </div>
+      </section>
+
+      <!-- ---------- Paso 1 · Cucharadas de caldo ---------- -->
+      <section class="slide" id="cucharadas" data-nav-label="1 · Cucharadas de caldo" data-part="Metodología" aria-labelledby="cucharadas-title" data-i18n-attr="data-nav-label:nav.cucharadas;data-part:nav.partMethod">
+        <div class="slide__inner step">
+          <div class="step__head">
+            <header class="slide__header reveal">
+              <p class="slide__eyebrow" data-i18n="s1.eyebrow">I · Deconstruir · Paso 1 · Cucharadas de caldo</p>
+              <h2 class="slide__title" id="cucharadas-title" data-i18n="s1.title">Muestra, captura única y uso de los tokens</h2>
+              <p class="step__metaphor" data-i18n="s1.metaphor">Para saber si el guiso está bien de sal no te comes la olla entera: <em>pruebas unas cucharadas bien elegidas</em> y las sirves en cuencos, para no volver a la olla. Y el caldo, los tokens reducidos a decisiones: <em>¿riega todo el plato o es agua del grifo?</em></p>
+            </header>
+            <span class="illustration" data-illustration="cuchara"></span>
+          </div>
+          <dl class="cata">
+            <div class="cata__item">
+              <dt class="cata__term" data-i18n="ui.cataElaboration">Qué se cata</dt>
+              <dd class="cata__text" data-i18n="s1.cataElaboration">Cada página de la muestra y cada valor que se ve: color, tipografía, espaciado, radios, sombras, bordes, duraciones y curvas.</dd>
+            </div>
+            <div class="cata__item">
+              <dt class="cata__term" data-i18n="ui.cataHow">Cómo se cata</dt>
+              <dd class="cata__text" data-i18n="s1.cataHow">Tú apruebas la muestra; después, cada página se captura una sola vez y cada valor se sigue hasta su origen: ¿token semántico, primitivo o escrito a mano?</dd>
+            </div>
+            <div class="cata__item cata__item--point">
+              <dt class="cata__term" data-i18n="ui.cataPoint">En su punto</dt>
+              <dd class="cata__text" data-i18n="s1.cataPoint">La muestra representa la web y todo lo que se ve sale de los tokens semánticos del sistema.</dd>
+            </div>
+          </dl>
+          <p class="step__refs"><a class="chip" href="#referencias">WCAG-EM 2</a> <a class="chip" href="#referencias">DTCG 2025.10 · alias</a> <a class="step__order" href="#comanda-01"><span data-i18n="ui.orderLink">Su comanda, en el servicio</span> · Nº 01 <span aria-hidden="true">→</span></a></p>
+        </div>
+      </section>
+
+      <!-- ---------- Paso 2 · Puré ---------- -->
+      <section class="slide slide--sunken" id="pure" data-nav-label="2 · Puré" data-part="Metodología" aria-labelledby="pure-title" data-i18n-attr="data-nav-label:nav.pure;data-part:nav.partMethod">
+        <div class="slide__inner step">
+          <div class="step__head">
+            <header class="slide__header reveal">
+              <p class="slide__eyebrow" data-i18n="s2.eyebrow">I · Deconstruir · Paso 2 · Puré</p>
+              <h2 class="slide__title" id="pure-title" data-i18n="s2.title">Componentes: anatomía, variantes y tamaños</h2>
+              <p class="step__metaphor" data-i18n="s2.metaphor">Triturar la interfaz en piezas: <em>¿cuántas versiones del mismo componente hay y cuáles vienen del sistema?</em></p>
+            </header>
+            <span class="illustration" data-illustration="pure"></span>
+          </div>
+          <dl class="cata">
+            <div class="cata__item">
+              <dt class="cata__term" data-i18n="ui.cataElaboration">Qué se cata</dt>
+              <dd class="cata__text" data-i18n="s2.cataElaboration">Cada pieza de la interfaz: botones, campos, tarjetas, menús, iconos…</dd>
+            </div>
+            <div class="cata__item">
+              <dt class="cata__term" data-i18n="ui.cataHow">Cómo se cata</dt>
+              <dd class="cata__text" data-i18n="s2.cataHow">Inventario de interfaz: se agrupa lo que debería ser el mismo componente y se compara con su ficha en el sistema.</dd>
+            </div>
+            <div class="cata__item cata__item--point">
+              <dt class="cata__term" data-i18n="ui.cataPoint">En su punto</dt>
+              <dd class="cata__text" data-i18n="s2.cataPoint">Cada componente de la web existe en el sistema, con sus variantes documentadas.</dd>
+            </div>
+          </dl>
+          <p class="step__refs"><a class="chip" href="#referencias" data-i18n="s2.ref">Inventario de interfaz · Brad Frost</a> <a class="step__order" href="#comanda-02"><span data-i18n="ui.orderLink">Su comanda, en el servicio</span> · Nº 02 <span aria-hidden="true">→</span></a></p>
+        </div>
+      </section>
+
+      <!-- ---------- Paso 3 · Yema y migas ---------- -->
+      <section class="slide" id="yema" data-nav-label="3 · Yema y migas" data-part="Metodología" aria-labelledby="yema-title" data-i18n-attr="data-nav-label:nav.yema;data-part:nav.partMethod">
+        <div class="slide__inner step">
+          <div class="step__head">
+            <header class="slide__header reveal">
+              <p class="slide__eyebrow" data-i18n="s3.eyebrow">I · Deconstruir · Paso 3 · Yema y migas</p>
+              <h2 class="slide__title" id="yema-title" data-i18n="s3.title">Patrones, contenido y voz</h2>
+              <p class="step__metaphor" data-i18n="s3.metaphor">La yema es el centro del plato: <em>lo que la gente viene a hacer.</em> Las migas le dan el sabor. Como en unas migas con huevo, se prueban juntas: <em>¿la tarea se resuelve igual en todas partes y suena a la marca?</em></p>
+            </header>
+            <span class="illustration" data-illustration="yema"></span>
+          </div>
+          <dl class="cata">
+            <div class="cata__item">
+              <dt class="cata__term" data-i18n="ui.cataElaboration">Qué se cata</dt>
+              <dd class="cata__text" data-i18n="s3.cataElaboration">Cada tarea que la gente viene a hacer, de principio a fin, con sus titulares, botones y mensajes.</dd>
+            </div>
+            <div class="cata__item">
+              <dt class="cata__term" data-i18n="ui.cataHow">Cómo se cata</dt>
+              <dd class="cata__text" data-i18n="s3.cataHow">Se recorre cada tarea una sola vez, se compara su patrón con el que documenta el sistema y se lee cada texto con la guía de voz al lado.</dd>
+            </div>
+            <div class="cata__item cata__item--point">
+              <dt class="cata__term" data-i18n="ui.cataPoint">En su punto</dt>
+              <dd class="cata__text" data-i18n="s3.cataPoint">El mismo problema se resuelve igual en todas partes, suena a la marca y cada cosa se llama siempre igual.</dd>
+            </div>
+          </dl>
+          <p class="step__refs"><a class="chip" href="#referencias" data-i18n="s3.ref">WCAG-EM 2 · funcionalidad esencial y procesos</a> <a class="step__order" href="#comanda-03"><span data-i18n="ui.orderLink">Su comanda, en el servicio</span> · Nº 03 <span aria-hidden="true">→</span></a></p>
+        </div>
+      </section>
+
+      <!-- ---------- Paso 4 · Baja temperatura ---------- -->
+      <section class="slide slide--sunken" id="baja-temperatura" data-nav-label="4 · Baja temperatura" data-part="Metodología" aria-labelledby="baja-temperatura-title" data-i18n-attr="data-nav-label:nav.bajaTemperatura;data-part:nav.partMethod">
+        <div class="slide__inner step">
+          <div class="step__head">
+            <header class="slide__header reveal">
+              <p class="slide__eyebrow" data-i18n="s4.eyebrow">I · Deconstruir · Paso 4 · Baja temperatura</p>
+              <h2 class="slide__title" id="baja-temperatura-title" data-i18n="s4.title">Comportamiento: estados, accesibilidad y movimiento</h2>
+              <p class="step__metaphor" data-i18n="s4.metaphor">60 ºC durante 30 minutos: lo que pide precisión. <em>¿Funciona para todo el mundo, en todos los estados y tamaños?</em></p>
+            </header>
+            <span class="illustration" data-illustration="termometro"></span>
+          </div>
+          <dl class="cata">
+            <div class="cata__item">
+              <dt class="cata__term" data-i18n="ui.cataElaboration">Qué se cata</dt>
+              <dd class="cata__text" data-i18n="s4.cataElaboration">Cada estado y cada tamaño, con ratón, con teclado y con menos movimiento.</dd>
+            </div>
+            <div class="cata__item">
+              <dt class="cata__term" data-i18n="ui.cataHow">Cómo se cata</dt>
+              <dd class="cata__text" data-i18n="s4.cataHow">Lo que se mide (contraste, alternativas, encabezados, teclado, menos movimiento y móvil) sale de la captura; los estados que hay que tocar, abriendo la web.</dd>
+            </div>
+            <div class="cata__item cata__item--point">
+              <dt class="cata__term" data-i18n="ui.cataPoint">En su punto</dt>
+              <dd class="cata__text" data-i18n="s4.cataPoint">Funciona para todo el mundo, en todos los estados y tamaños.</dd>
+            </div>
+          </dl>
+          <aside class="callout callout--highlight" aria-labelledby="a11y-limit-title">
+            <span class="callout__icon" aria-hidden="true">ℹ️</span>
+            <div class="callout__body">
+              <p class="callout__title" id="a11y-limit-title" data-i18n="s4.limitTitle">Accesibilidad dentro de la receta, con un límite claro</p>
+              <p data-i18n="s4.limit">Aquí se revisan las reglas del sistema y señales rápidas. La conformidad WCAG 2.2 AA pide todos los criterios, tecnologías de apoyo y, mejor aún, personas con discapacidad: estos hallazgos son su punto de partida.</p>
+            </div>
+          </aside>
+          <p class="step__refs"><a class="step__order" href="#comanda-04"><span data-i18n="ui.orderLink">Su comanda, en el servicio</span> · Nº 04 <span aria-hidden="true">→</span></a></p>
+        </div>
+      </section>
+
+      <!-- ---------- Paso 5 · Emplatado ---------- -->
+      <section class="slide slide--inverse slide--sala" id="emplatado" data-nav-label="5 · Emplatado" data-part="Metodología" aria-labelledby="emplatado-title" data-i18n-attr="data-nav-label:nav.emplatado;data-part:nav.partMethod">
+        <div class="slide__inner step">
+          <div class="step__head">
+            <header class="slide__header reveal">
+              <p class="slide__eyebrow" data-i18n="s5.eyebrow">II · Emplatar · Paso 5 · Emplatado</p>
+              <h2 class="slide__title" id="emplatado-title" data-i18n="s5.title">Diagnóstico: informe y salud del sistema</h2>
+              <p class="step__metaphor" data-i18n="s5.metaphor">Después de deconstruir, se vuelve a emplatar: <em>cada hallazgo en su sitio y con su prueba.</em> Es lo que se sirve al equipo para decidir qué arreglar.</p>
+            </header>
+            <span class="illustration" data-illustration="cloche"></span>
+          </div>
+          <dl class="cata">
+            <div class="cata__item">
+              <dt class="cata__term" data-i18n="ui.cataElaboration">Qué se cata</dt>
+              <dd class="cata__text" data-i18n="s5.cataElaboration">Todo lo catado hasta aquí, archivo a archivo.</dd>
+            </div>
+            <div class="cata__item">
+              <dt class="cata__term" data-i18n="ui.cataHow">Cómo se cata</dt>
+              <dd class="cata__text" data-i18n="s5.cataHow">Solo entra lo que se puede demostrar, y el sistema se valora con los cinco criterios de la guía Michelin.</dd>
+            </div>
+            <div class="cata__item cata__item--point">
+              <dt class="cata__term" data-i18n="ui.cataPoint">En su punto</dt>
+              <dd class="cata__text" data-i18n="s5.cataPoint">Hallazgos numerados, con captura y propuesta, listos para que el equipo decida.</dd>
+            </div>
+          </dl>
+          <p class="step__refs"><a class="step__order" href="#comanda-05"><span data-i18n="ui.orderLink">Su comanda, en el servicio</span> · Nº 05 <span aria-hidden="true">→</span></a></p>
+        </div>
+      </section>
+
+      <!-- ---------- Guía Michelin ---------- -->
+      <section class="slide slide--inverse slide--sala" id="michelin" data-nav-label="La guía Michelin" data-part="Metodología" aria-labelledby="michelin-title" data-i18n-attr="data-nav-label:nav.michelin;data-part:nav.partMethod">
+        <div class="slide__inner slide__inner--split michelin">
+          <div class="michelin__intro">
+            <header class="slide__header reveal">
+              <p class="slide__eyebrow" data-i18n="michelin.eyebrow">II · Emplatar · ¿Merece la estrella?</p>
+              <h2 class="slide__title" id="michelin-title" data-i18n="michelin.title">La guía Michelin del sistema</h2>
+              <p class="slide__lead" data-i18n="michelin.lead">Sus 5 criterios oficiales, traducidos al sistema. Cada uno se puntúa de 0 a 3, con su evidencia.</p>
+            </header>
+            <div class="stars-legend">
+              <p class="stars-legend__title" data-i18n="michelin.starsKicker">Las estrellas: merece…</p>
+              <ul class="stars-legend__list" role="list" data-i18n="michelin.starsList">
+                <li class="stars-legend__item"><span class="stars-legend__stars" aria-hidden="true">★</span><span class="u-visually-hidden">Una estrella: merece</span> la parada</li>
+                <li class="stars-legend__item"><span class="stars-legend__stars" aria-hidden="true">★★</span><span class="u-visually-hidden">Dos estrellas: merece</span> el desvío</li>
+                <li class="stars-legend__item"><span class="stars-legend__stars" aria-hidden="true">★★★</span><span class="u-visually-hidden">Tres estrellas: merece</span> el viaje</li>
+              </ul>
+              <p class="stars-legend__note" data-i18n="michelin.starsNote">Una metáfora para priorizar y comunicar.</p>
+            </div>
+          </div>
+          <section class="criteria" aria-labelledby="michelin-caption">
+            <h3 class="criteria__title" id="michelin-caption" data-i18n="michelin.caption">Criterios oficiales y su traducción</h3>
+            <ol class="criteria__list" role="list" data-i18n="michelin.criteria">
+                <li class="criteria__item"><span class="criteria__number" aria-hidden="true">1</span><span class="criteria__body"><span class="criteria__name">La calidad de los ingredientes</span><span class="criteria__text">Tokens y assets con fuente única, tipados y con origen.</span><span class="criteria__steps">Pasos 0 · 1</span></span></li>
+                <li class="criteria__item"><span class="criteria__number" aria-hidden="true">2</span><span class="criteria__body"><span class="criteria__name">El dominio de las técnicas</span><span class="criteria__text">Componentes fieles a sus specs, accesibles y con todos sus estados.</span><span class="criteria__steps">Pasos 2 · 4</span></span></li>
+                <li class="criteria__item"><span class="criteria__number" aria-hidden="true">3</span><span class="criteria__body"><span class="criteria__name">La armonía de sabores</span><span class="criteria__text">El mismo problema, resuelto igual en todas partes.</span><span class="criteria__steps">Pasos 1 · 3</span></span></li>
+                <li class="criteria__item"><span class="criteria__number" aria-hidden="true">4</span><span class="criteria__body"><span class="criteria__name">La personalidad del chef expresada en su cocina</span><span class="criteria__text">La marca se reconoce sin ver el logo.</span><span class="criteria__steps">Pasos 0 · 3</span></span></li>
+                <li class="criteria__item"><span class="criteria__number" aria-hidden="true">5</span><span class="criteria__body"><span class="criteria__name">La regularidad en toda la carta y en el tiempo</span><span class="criteria__text">En toda la muestra y de una auditoría a la siguiente.</span><span class="criteria__steps">Pasos 1 · 6</span></span></li>
+            </ol>
+          </section>
+        </div>
+      </section>
+
+      <!-- ---------- Paso 6 · Rectificar y pase ---------- -->
+      <section class="slide" id="rectificar" data-nav-label="6 · Rectificar y pase" data-part="Metodología" aria-labelledby="rectificar-title" data-i18n-attr="data-nav-label:nav.rectificar;data-part:nav.partMethod">
+        <div class="slide__inner step">
+          <div class="step__head">
+            <header class="slide__header reveal">
+              <p class="slide__eyebrow" data-i18n="s6.eyebrow">III · Rectificar y pase · Paso 6</p>
+              <h2 class="slide__title" id="rectificar-title" data-i18n="s6.title">Dónde se corrige y cómo se queda corregido</h2>
+              <p class="step__metaphor" data-i18n="s6.metaphor">Rectificar es ajustar poco a poco y probar cada vez; en el pase, el chef revisa cada plato antes de que salga. <em>¿Se arregla una vez en el sistema y sigue sabiendo igual en cada despliegue?</em></p>
+            </header>
+            <span class="illustration" data-illustration="salero"></span>
+          </div>
+          <dl class="cata">
+            <div class="cata__item">
+              <dt class="cata__term" data-i18n="ui.cataElaboration">Qué se cata</dt>
+              <dd class="cata__text" data-i18n="s6.cataElaboration">Cada hallazgo del informe y cada corrección que llega a producción.</dd>
+            </div>
+            <div class="cata__item">
+              <dt class="cata__term" data-i18n="ui.cataHow">Cómo se cata</dt>
+              <dd class="cata__text" data-i18n="s6.cataHow">En la receta (sistema), una vez y para todas las pantallas; en el plato (producto), con lo que ofrece el sistema; o en la carta (gobernanza), proponiendo lo que falta. Cada criterio se vuelve a comprobar solo en el pase.</dd>
+            </div>
+            <div class="cata__item cata__item--point">
+              <dt class="cata__term" data-i18n="ui.cataPoint">En su punto</dt>
+              <dd class="cata__text" data-i18n="s6.cataPoint">Cada ajuste tiene su criterio, se hace en rondas pequeñas y sigue sabiendo igual en cada despliegue: el sistema gana estrellas.</dd>
+            </div>
+          </dl>
+          <p class="step__refs"><a class="step__order" href="#comanda-06"><span data-i18n="ui.orderLink">Su comanda, en el servicio</span> · Nº 06 <span aria-hidden="true">→</span></a></p>
+          <p class="slide__text" data-i18n="s6.loop"><strong>Es un ciclo, no una línea:</strong> emplatado → rectificar y pase → nueva cata. Cada vuelta, el sistema debería merecer una estrella más.</p>
+        </div>
+      </section>
+
+      <!-- ---------- Mise en place ---------- -->
+      <section class="slide slide--sunken" id="mise-en-place" data-nav-label="Maridaje" data-part="Metodología" aria-labelledby="mise-title" data-i18n-attr="data-nav-label:nav.miseEnPlace;data-part:nav.partMethod">
+        <div class="slide__inner">
+          <header class="slide__header reveal">
+            <p class="slide__eyebrow" data-i18n="tools.eyebrow">Maridaje</p>
+            <h2 class="slide__title" id="mise-title" data-i18n="tools.title">Con qué se acompaña la receta</h2>
+            <p class="slide__lead" data-i18n="tools.lead">Elige lo que tengas a mano: todas maridan con la receta. Y el gran reserva, para los platos que lo piden.</p>
+          </header>
+          <ul class="pairing" role="list">
+            <li class="pairing__item">
+              <span class="illustration pairing__glass" data-illustration="copa-blanco" aria-hidden="true"></span>
+              <div class="pairing__name">
+                <p class="pairing__kicker" data-i18n="tools.manualKicker">A mano</p>
+                <h3 class="pairing__title" data-i18n="tools.manualTitle">DevTools del navegador</h3>
+                <p class="pairing__price" data-i18n="tools.manualPrice">Gratis</p>
+              </div>
+              <p class="pairing__text" data-i18n="tools.manual">Chrome o Edge: <em>Computed</em>, <em>CSS Overview</em>, <em>Rendering</em> (reduced motion) y <em>Lighthouse</em>. Firefox: inspector de accesibilidad, con contraste y visión del color. Safari: Web Inspector. Y la tecla Tab.</p>
+            </li>
+            <li class="pairing__item">
+              <span class="illustration pairing__glass" data-illustration="copa-cava" aria-hidden="true"></span>
+              <div class="pairing__name">
+                <p class="pairing__kicker" data-i18n="tools.noTerminalKicker">Sin terminal</p>
+                <h3 class="pairing__title" data-i18n="tools.noTerminalTitle">Asistencia IA de DevTools</h3>
+                <p class="pairing__price" data-i18n="tools.noTerminalPrice">Invita la casa</p>
+              </div>
+              <p class="pairing__text" data-i18n="tools.noTerminal">Chrome: clic derecho en un elemento → <em>Ask AI</em> y te explica sus estilos. Edge (experimental): Copilot te explica los errores de la consola con <em>Explain this error</em>. Sirve para comprobar un hallazgo concreto, no para auditar la página entera.</p>
+            </li>
+            <li class="pairing__item">
+              <span class="illustration pairing__glass" data-illustration="copa-rosado" aria-hidden="true"></span>
+              <div class="pairing__name">
+                <p class="pairing__kicker" data-i18n="tools.mobileKicker">Desde el móvil</p>
+                <h3 class="pairing__title" data-i18n="tools.mobileTitle">Capturas + chat de IA</h3>
+                <p class="pairing__price" data-i18n="tools.mobilePrice">Por copas</p>
+              </div>
+              <p class="pairing__text" data-i18n="tools.mobile">Sin archivos: pega el resultado del paso anterior en el chat y lanza el siguiente. Sirve para los pasos de criterio (2, 3, 5 y 6); los valores exactos (paso 1 y el contraste del 4), en escritorio. Anótalo todo en la hoja de cata.</p>
+            </li>
+            <li class="pairing__item">
+              <span class="illustration pairing__glass" data-illustration="copa-tinto" aria-hidden="true"></span>
+              <div class="pairing__name">
+                <p class="pairing__kicker" data-i18n="tools.agentKicker">Con agente</p>
+                <h3 class="pairing__title" data-i18n="tools.agentTitle">Agente de IA + navegador controlado</h3>
+                <p class="pairing__price" data-i18n="tools.agentPrice">Según mercado</p>
+              </div>
+              <p class="pairing__text" data-i18n="tools.agent">Claude Code, GitHub Copilot o Gemini CLI con Playwright MCP, Chrome DevTools MCP, agent-browser o el navegador de VS Code. Que navegue, pruebe móvil y escritorio, lea el árbol de accesibilidad, mida estilos y guarde capturas.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ---------- The house recommends: who cooks what (without AI, your AI, you) ---------- -->
+      <section class="slide slide--accent" id="la-casa" data-nav-label="La casa recomienda" data-part="Metodología" aria-labelledby="house-title" data-i18n-attr="data-nav-label:nav.laCasa;data-part:nav.partMethod">
+        <div class="slide__inner">
+          <div class="house">
+            <header class="slide__header house__intro reveal">
+              <p class="slide__eyebrow" data-i18n="house.eyebrow">Maridaje · la casa recomienda</p>
+              <h2 class="slide__title" id="house-title" data-i18n="house.title">Quién cocina qué</h2>
+              <p class="slide__lead" data-i18n="house.lead">La IA escribe la receta una vez y la cocina la repite sin coste. En cada tiempo: lo que se repite solo, lo que propone tu IA y lo que decides tú.</p>
+            </header>
+            <figure class="board">
+              <div class="board__art">
+                <img class="board__img" src="./characters/alcachofil-whiteboard.png" width="1600" height="1128" alt="" loading="lazy" />
+                <p class="board__label" data-i18n="board.label">De la casa</p>
+              </div>
+              <table class="board__table">
+                <caption class="u-visually-hidden" data-i18n="board.caption">Quién cocina qué en cada tiempo</caption>
+                <thead data-i18n="board.thead">
+                  <tr> <th scope="col"><span class="u-visually-hidden">Quién</span></th> <th scope="col">I · Deconstruir</th> <th scope="col">II · Emplatar</th> <th scope="col">III · Rectificar y pase</th> </tr>
+                </thead>
+                <tbody data-i18n="board.tbody">
+                  <tr> <th scope="row">Sin IA</th> <td>scripts y DevTools</td> <td>el informe se pinta solo</td> <td><a href="#automatiza">el pase automático</a></td> </tr> 
+                  <tr> <th scope="row">Tu IA</th> <td>relaciona y agrupa</td> <td>redacta y prioriza</td> <td>borrador de issues</td> </tr> 
+                  <tr class="board__row--you"> <th scope="row">Tú</th> <td>apruebas la muestra, recorres y compruebas</td> <td>buscas falsos positivos</td> <td>decides dónde se corrige</td> </tr>
+                </tbody>
+              </table>
+              <p class="board__rule" data-i18n="board.duty"><strong>Regla de oro:</strong> tu IA cocina, pero el plato lo pruebas tú. La responsabilidad sigue siendo tuya.</p>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           PARTE 2 · EN PRÁCTICA
+           ================================================================ -->
+
+      <!-- ---------- Why production: incognito, like a MICHELIN inspector ---------- -->
+      <section class="slide slide--sunken incognito" id="incognito" data-nav-label="De incógnito" data-part="En práctica" aria-labelledby="incognito-title" data-i18n-attr="data-nav-label:nav.incognito;data-part:nav.partPractice">
+        <div class="slide__inner slide__inner--split">
+          <div class="slide__header reveal">
+            <p class="slide__eyebrow" data-i18n="incognito.eyebrow">Por qué en producción</p>
+            <h2 class="slide__title" id="incognito-title" data-i18n="incognito.title">Cenamos de incógnito</h2>
+            <p class="slide__lead" data-i18n="incognito.lead">Los inspectores de la guía Michelin reservan con otro nombre, pagan la cuenta y se comportan como cualquier cliente: así viven lo mismo que sus lectores.</p>
+            <ul class="incognito__list" role="list" data-i18n="incognito.list">
+              <li><strong>Lo que llega a la mesa.</strong> Auditamos la web en producción, la que vive la gente.</li>
+              <li><strong>Sin entrar en cocina.</strong> Sin repositorio ni accesos especiales: un navegador y tu IA.</li>
+              <li><strong>Lo puede repetir cualquiera.</strong> Tu equipo, el público o tú mañana.</li>
+            </ul>
+            <p class="incognito__source" data-i18n="incognito.source">Fuente: <a href="https://guide.michelin.com/en/article/features/the-michelin-guide-101">The MICHELIN Guide 101</a></p>
+          </div>
+          <div class="incognito__scene" aria-hidden="true">
+            <div class="inspector">
+              <span class="inspector__shadow"></span>
+              <span class="inspector__legs"><span class="inspector__leg"></span><span class="inspector__leg"></span></span>
+              <span class="inspector__shoes"><span class="inspector__shoe"></span><span class="inspector__shoe"></span></span>
+              <span class="inspector__arm inspector__arm--start"></span>
+              <span class="inspector__arm inspector__arm--end"></span>
+              <span class="inspector__coat">
+                <span class="inspector__split"></span>
+                <span class="inspector__lapel inspector__lapel--start"></span>
+                <span class="inspector__lapel inspector__lapel--end"></span>
+                <span class="inspector__epaulette inspector__epaulette--start"></span>
+                <span class="inspector__epaulette inspector__epaulette--end"></span>
+                <span class="inspector__buttons"><span class="inspector__button"></span><span class="inspector__button"></span><span class="inspector__button"></span><span class="inspector__button"></span><span class="inspector__button"></span><span class="inspector__button"></span></span>
+                <span class="inspector__belt"><span class="inspector__buckle"></span></span>
+              </span>
+              <div class="inspector__portrait"><div class="portrait" aria-hidden="true"><div class="portrait__head"><div class="portrait__hair"><div class="portrait__hair-top"></div><div class="portrait__hair-side portrait__hair-side--l"></div><div class="portrait__hair-side portrait__hair-side--r"></div></div><div class="portrait__ear portrait__ear--l"></div><div class="portrait__ear portrait__ear--r"></div><div class="portrait__glasses"><div class="portrait__glasses-bridge"></div><div class="portrait__glasses-lens portrait__glasses-lens--l"><div class="portrait__glasses-wing portrait__glasses-wing--l"></div><div class="portrait__glasses-triangle portrait__glasses-triangle--l"></div></div><div class="portrait__glasses-lens portrait__glasses-lens--r"><div class="portrait__glasses-wing portrait__glasses-wing--r"></div><div class="portrait__glasses-triangle portrait__glasses-triangle--r"></div></div><div class="portrait__glasses-arm portrait__glasses-arm--l"></div><div class="portrait__glasses-arm portrait__glasses-arm--r"></div></div><div class="portrait__face-eyes"><div class="portrait__eye portrait__eye--l"><div class="portrait__eye-shadow"></div><div class="portrait__eye-white"><div class="portrait__eye-iris"></div><div class="portrait__eye-pupil"></div><div class="portrait__eye-shine"></div><div class="portrait__eye-shine portrait__eye-shine--2"></div></div><div class="portrait__eye-lid"></div><div class="portrait__eye-lashes"></div></div><div class="portrait__eye portrait__eye--r"><div class="portrait__eye-shadow"></div><div class="portrait__eye-white"><div class="portrait__eye-iris"></div><div class="portrait__eye-pupil"></div><div class="portrait__eye-shine"></div><div class="portrait__eye-shine portrait__eye-shine--2"></div></div><div class="portrait__eye-lid"></div><div class="portrait__eye-lashes"></div></div></div><div class="portrait__nose"></div><div class="portrait__mouth"><div class="portrait__lip portrait__lip--upper"></div><div class="portrait__mouth-inner"></div><div class="portrait__lip portrait__lip--lower"></div></div></div><div class="portrait__neck"></div></div></div>
+              <span class="inspector__hat"><span class="inspector__hat-crown"></span><span class="inspector__hat-band"></span><span class="inspector__hat-brim"></span></span>
+            </div>
+            <div class="incognito__table">
+              <div class="incognito__dish">
+                <span class="illustration incognito__plate" data-illustration="plato"></span>
+                <span class="illustration incognito__dome" data-illustration="cupula"></span>
+              </div>
+              <span class="incognito__tabletop"></span>
+              <span class="incognito__table-leg"></span>
+            </div>
+            <img class="incognito__maitre" src="./characters/alcachofil-neutral.png" width="1600" height="1975" alt="" loading="lazy" />
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------- El servicio: the table and the rail of tickets ---------- -->
+      <section class="slide slide--inverse slide--sala service" id="servicio" data-nav-label="El servicio" data-part="En práctica" aria-labelledby="servicio-title" data-i18n-attr="data-nav-label:nav.servicio;data-part:nav.partPractice">
+        <div class="slide__inner">
+          <div class="service__intro">
+            <header class="slide__header reveal">
+              <p class="slide__eyebrow" data-i18n="service.eyebrow">En práctica · el servicio</p>
+              <h2 class="slide__title" id="servicio-title" data-i18n="service.title">Cocinamos con Arcasiles</h2>
+              <p class="slide__lead" data-i18n="service.lead">La misma receta, ahora sobre una web real. Primero, la mesa. Después, cada comanda en su orden: márchala, comprueba lo que sale y márcala como servida.</p>
+              <dl class="card card--inverse service__urls" data-i18n="practice.urls">
+                <div>
+                  <dt class="card__kicker">La web</dt>
+                  <dd><a href="https://arcasiles.com/es">arcasiles.com/es</a></dd>
+                </div>
+                <div>
+                  <dt class="card__kicker">El sistema</dt>
+                  <dd><a href="https://brand.arcasiles.com">brand.arcasiles.com</a></dd>
+                </div>
+              </dl>
+              <aside class="callout" aria-labelledby="demo-scope-title">
+                <span class="callout__icon" aria-hidden="true">⏱️</span>
+                <div class="callout__body">
+                  <p class="callout__title" id="demo-scope-title" data-i18n="practice.scopeTitle">Solo por tiempo de la demo</p>
+                  <p data-i18n="practice.scopeText">En directo, <strong>solo la home</strong> en escritorio y en móvil. En el reto, mínimo 3 páginas + 1 al azar. En tu auditoría, la muestra que apruebes en el paso 1.</p>
+                  <p data-i18n="practice.scopeNote">Si no hay tiempo, cocina antes algunos pasos con estas mismas comandas y márcalos como servidos en el rail.</p>
+                </div>
+              </aside>
+            </header>
+            <form class="card form service__table" action="#" data-slot-form aria-labelledby="mesa-title">
+              <h3 class="card__title" id="mesa-title" data-i18n="service.tableTitle">La mesa</h3>
+              <p data-i18n="service.tableText">Escribe tu web y tu sistema: todas las comandas del rail se rellenan solas. Se guardan solo en tu navegador.</p>
+              <div class="form__row">
+                <div class="field">
+                  <label class="field__label" for="slot-web" data-i18n="service.webLabel">Tu web</label>
+                  <input class="field__input" id="slot-web" name="web" type="url" inputmode="url" autocomplete="url" placeholder="https://tu-web.com" data-slot-input="web" aria-describedby="slot-web-help" data-i18n-attr="placeholder:service.webPlaceholder" />
+                  <p class="field__help" id="slot-web-help" data-i18n="service.webHelp">URL en producción a auditar.</p>
+                </div>
+                <div class="field">
+                  <label class="field__label" for="slot-system" data-i18n="service.systemLabel">Tu sistema de diseño</label>
+                  <input class="field__input" id="slot-system" name="system" type="url" inputmode="url" placeholder="https://tu-sistema.com" data-slot-input="system" aria-describedby="slot-system-help" data-i18n-attr="placeholder:service.systemPlaceholder" />
+                  <p class="field__help" id="slot-system-help" data-i18n="service.systemHelp">Su documentación y tokens.</p>
+                </div>
+              </div>
+              <label class="toggle" hidden>
+                <input class="toggle__input" type="checkbox" data-scope-toggle data-scope-on="Modo demo activado: solo la home, en escritorio y móvil" data-scope-off="Modo demo desactivado" data-i18n-attr="data-scope-text:service.scopeText;data-scope-on:service.scopeOn;data-scope-off:service.scopeOff" data-scope-text=" Solo para esta demo y por tiempo: limita la muestra a la home (en escritorio y en móvil). En una auditoría real usa la muestra completa." />
+                <span data-i18n="service.scopeToggle">Modo demo en las comandas</span>
+              </label>
+              <div class="form__actions">
+                <button
+                  class="button button--accent is-on-accent"
+                  type="button"
+                  hidden
+                  data-slot-preset="arcasiles"
+                  data-preset-web="https://arcasiles.com/es"
+                  data-preset-system="https://brand.arcasiles.com"
+                  data-preset-message="Comandas listas con las URLs de Arcasiles"
+                  data-i18n="service.preset" data-i18n-attr="data-preset-message:service.presetMessage"
+                >Poner las URLs de Arcasiles en todas las comandas</button>
+                <button class="button button--outline" type="button" hidden data-service-reset data-i18n="service.reset">Nueva mesa</button>
+              </div>
+              <p class="field__help" data-i18n="service.resetHelp">«Nueva mesa» vacía la web, el sistema y el estado de todas las comandas.</p>
+            </form>
+          </div>
+
+          <div class="service__pass">
+            <h3 class="service__pass-title" id="rail-title" data-i18n="service.railTitle">El rail de comandas</h3>
+            <p class="service__pass-help" data-i18n="service.railHelp">«Marchar y copiar» la manda a tu IA. «Marcar como servida» lo pulsas tú cuando su archivo esté guardado.</p>
+            <p class="service__legend" data-rail-legend hidden data-i18n="service.legend">○ pendiente · ● marchando · ✓ servida</p>
+            <div
+              class="rail"
+              data-rail
+              hidden
+              data-label-pending="Pendiente"
+              data-label-firing="Marchando"
+              data-label-served="Servida"
+              data-stamp-firing="¡Marchando!"
+              data-stamp-served="Servida"
+              data-msg-served="Comanda {n} servida"
+              data-msg-unserved="Comanda {n} pendiente de servir"
+              data-msg-reset="Nueva mesa: web, sistema y comandas vacíos"
+              data-i18n-attr="data-label-pending:service.pending;data-label-firing:service.firing;data-label-served:service.served;data-stamp-firing:service.stampFiring;data-stamp-served:service.stampServed;data-msg-served:service.msgServed;data-msg-unserved:service.msgUnserved;data-msg-reset:service.msgReset"
+            ></div>
+            <div class="service__tickets">
+              <article class="ticket" id="comanda-00" aria-labelledby="comanda-00-title" data-ticket="00">
+              <header class="ticket__head">
+                <p class="ticket__table"><span data-i18n="service.table">Mesa: auditoría de</span> <span data-ticket-table data-placeholder="[tu web]" data-i18n-attr="data-placeholder:service.tablePlaceholder">[tu web]</span></p>
+                <p class="ticket__course" data-i18n="service.course1">Tiempo I · Deconstruir</p>
+              </header>
+              <h4 class="ticket__title" id="comanda-00-title"><span class="ticket__number">Nº 00</span> <span data-i18n="cycle.s0name">Ingredientes</span> · <span data-i18n="s0.title">El sistema: tokens, assets y guías</span></h4>
+              <div class="ticket__actions">
+                <button class="button button--accent is-on-accent" type="button" data-copy-target="prompt-s0" data-ticket-fire hidden data-i18n="service.fire">Marchar y copiar</button>
+                <button class="button button--outline" type="button" data-ticket-serve aria-pressed="false" hidden data-i18n="service.serve">Marcar como servida</button>
+              </div>
+              <div class="ticket__body">
+                <p class="prompt__text ticket__text" id="prompt-s0" data-i18n="s0.prompt">«Antes de mirar la web, revisa la despensa del sistema de diseño (<span class="prompt__slot" data-slot="system">[sistema]</span>). Trabaja con texto: descarga los archivos de tokens y lee las guías como texto, sin capturas ni navegador. Busca dónde publica sus tokens (idealmente archivos DTCG). Si no los hay, búscalos donde el sistema los defina e indica de dónde sale cada uno; si un dato está en un archivo y en la documentación, prevalece el archivo. Revisa sus dos capas: los primitivos (paleta, familias tipográficas, escalas de medida, duraciones y curvas) y los semánticos (decisiones con intención: texto, superficie, borde, foco, estados…), comprobando si cada semántico apunta a un primitivo o repite un valor a mano. Lista también los assets (logo, iconos, ilustración, fotografía, fuentes) y las guías (componentes, patrones, voz, accesibilidad, movimiento). Para cada ingrediente indica su fuente, si está tipado, si hay duplicados o contradicciones entre documentación y archivo, y si los contrastes están medidos. No mires todavía la web. Guarda el resultado en auditoria/00-ingredientes.md y crea auditoria/pizarra.md con la web, el sistema, lo hecho y lo que sigue.»</p>
+                <div class="ticket__side">
+                  <p class="ticket__out"><span class="ticket__out-label" data-i18n="service.out">Sale a:</span> <span data-i18n="s0.out"><code>auditoria/00-ingredientes.md</code> <code>auditoria/pizarra.md</code></span> <span class="ticket__out-note" data-i18n="s0.note">Ingrediente · fuente · estado (completo, incompleto, contradictorio o ausente).</span></p>
+                  <div class="ticket__check">
+                  <p class="ticket__check-label" data-i18n="service.check">La pruebas tú</p>
+                  <div class="ticket__check-text" data-i18n="s0.test">Abre tú la documentación y el archivo de tokens. ¿Encuentras lo que dice la IA? ¿Falta algo que esperarías en la despensa?</div>
+                  </div>
+                </div>
+              </div>
+              <p class="ticket__foot"><a class="ticket__back" href="#ingredientes"><span aria-hidden="true">←</span> <span data-i18n="service.back">Volver a la metodología:</span> <span data-i18n="cycle.s0name">Ingredientes</span></a></p>
+              <p class="ticket__stamp" data-ticket-stamp hidden></p>
+            </article>
+
+            <article class="ticket" id="comanda-01" aria-labelledby="comanda-01-title" data-ticket="01">
+              <header class="ticket__head">
+                <p class="ticket__table"><span data-i18n="service.table">Mesa: auditoría de</span> <span data-ticket-table data-placeholder="[tu web]" data-i18n-attr="data-placeholder:service.tablePlaceholder">[tu web]</span></p>
+                <p class="ticket__course" data-i18n="service.course1">Tiempo I · Deconstruir</p>
+              </header>
+              <h4 class="ticket__title" id="comanda-01-title"><span class="ticket__number">Nº 01</span> <span data-i18n="cycle.s1name">Cucharadas de caldo</span> · <span data-i18n="s1.title">Muestra, captura única y uso de los tokens</span></h4>
+              <div class="ticket__actions">
+                <button class="button button--accent is-on-accent" type="button" data-copy-target="prompt-s1" data-ticket-fire hidden data-i18n="service.fire">Marchar y copiar</button>
+                <button class="button button--outline" type="button" data-ticket-serve aria-pressed="false" hidden data-i18n="service.serve">Marcar como servida</button>
+              </div>
+              <div class="ticket__body">
+                <p class="prompt__text ticket__text" id="prompt-s1" data-i18n="s1.prompt">«Vamos a auditar <span class="prompt__slot" data-slot="web">[web]</span> frente a su sistema de diseño (<span class="prompt__slot" data-slot="system">[sistema]</span>), con auditoria/00-ingredientes.md.
+1. Muestra. Explora la web y propón una muestra con WCAG-EM 2: las páginas más comunes, un ejemplo de cada tipo, los procesos completos y un 10 % extra al azar. Propónmela en tres tamaños para que elija: la completa, la de una auditoría profesional, o, para que mi IA gaste menos, la mínima (3 páginas estructuradas y 1 al azar) o una sola página. Sortea las páginas al azar en el navegador con aleatoriedad real (crypto.getRandomValues) entre las páginas del sitemap que no estén en la muestra estructurada y anota cómo lo sorteaste.<span class="prompt__slot prompt__slot--scope" data-slot="scope" hidden></span> Anota las tareas principales de la gente y los procesos que las resuelven. Guárdalo en auditoria/01-cucharadas-caldo.md y para: espera a que confirme la muestra.
+2. Captura única. Cuando la confirme, escribe un script de extracción, guárdalo en auditoria/herramientas/ y úsalo en cada página de la muestra, en escritorio (1440 px) y en móvil (360 px). Antes de medir, que pida menos movimiento, espere a que la página esté estable y no acepte cookies. Que escriba en auditoria/datos/&lt;página&gt;/, sin pasar los datos por la conversación: la captura de pantalla (guárdala sin abrirla); los estilos calculados agrupados (color, tipografía, radios, sombras, bordes, duraciones y curvas, con cuántos elementos usan cada valor y si viene de una variable CSS, y del espaciado solo lo que esté fuera de la escala del sistema); landmarks, encabezados y controles con su nombre; el contraste de cada texto, las imágenes sin texto alternativo, las zonas táctiles de menos de 24 px, el recorrido con Tab (orden y estilo del foco), las animaciones que siguen con menos movimiento y el desbordamiento horizontal en móvil; y los textos visibles. Añade un resumen.md por página solo con lo que está fuera del sistema (como mucho 20 valores por categoría, con su recuento). Antes de fiarte de los datos, comprueba en cada página que respondió con estado 200, que la captura no está tapada y que hay elementos medidos.
+3. Caldo. Con los resúmenes y los tokens de 00-ingredientes.md, dime qué valores salen de tokens semánticos, de primitivos usados directamente o están escritos a mano, qué valores no existen en el sistema, qué tokens se duplican y en qué elementos aparecen. Calcula el porcentaje de cada origen: es la cobertura que usará el informe.
+Añade el caldo a auditoria/01-cucharadas-caldo.md y anota en auditoria/pizarra.md lo hecho y lo siguiente.»</p>
+                <div class="ticket__side">
+                  <p class="ticket__note"><span class="ticket__note-label" data-i18n="service.note">Nota de cocina:</span> <span class="ticket__note-text" data-i18n="s1.hint">Tu IA escribe el extractor una vez y lo guarda en herramientas/.</span></p>
+                  <p class="ticket__out"><span class="ticket__out-label" data-i18n="service.out">Sale a:</span> <span data-i18n="s1.out"><code>auditoria/01-cucharadas-caldo.md</code> <code>auditoria/datos/</code> <code>auditoria/herramientas/</code></span> <span class="ticket__out-note" data-i18n="s1.note">Muestra declarada (estructurada, aleatoria y cómo se sorteó), tareas y procesos; y cada valor con su origen (semántico, primitivo o a mano) y el token que debería usar.</span></p>
+                  <div class="ticket__check">
+                  <p class="ticket__check-label" data-i18n="service.check">La pruebas tú</p>
+                  <div class="ticket__check-text" data-i18n="s1.test"><p>Antes de decir «sigue»: ¿falta alguna página que tú usarías? Añádela. ¿Anotó cómo sorteó la parte al azar?</p> <p>Después, abre una captura: ¿se ve la página completa? Inspeccionar → <em>Styles</em>: ¿pone <code>var(--…)</code> o un valor literal? <em>Computed</em> para el valor final y <em>CSS Overview</em> para toda la página.</p> <p><strong>Sin terminal:</strong> clic derecho en el elemento → <em>Ask AI</em> (asistencia IA de DevTools) → «¿De dónde salen el color, la tipografía y la duración de animación de este elemento? ¿Son variables CSS o valores escritos a mano?»</p></div>
+                  </div>
+                </div>
+              </div>
+              <p class="ticket__foot"><a class="ticket__back" href="#cucharadas"><span aria-hidden="true">←</span> <span data-i18n="service.back">Volver a la metodología:</span> <span data-i18n="cycle.s1name">Cucharadas de caldo</span></a></p>
+              <p class="ticket__stamp" data-ticket-stamp hidden></p>
+            </article>
+
+            <article class="ticket" id="comanda-02" aria-labelledby="comanda-02-title" data-ticket="02">
+              <header class="ticket__head">
+                <p class="ticket__table"><span data-i18n="service.table">Mesa: auditoría de</span> <span data-ticket-table data-placeholder="[tu web]" data-i18n-attr="data-placeholder:service.tablePlaceholder">[tu web]</span></p>
+                <p class="ticket__course" data-i18n="service.course1">Tiempo I · Deconstruir</p>
+              </header>
+              <h4 class="ticket__title" id="comanda-02-title"><span class="ticket__number">Nº 02</span> <span data-i18n="cycle.s2name">Puré</span> · <span data-i18n="s2.title">Componentes: anatomía, variantes y tamaños</span></h4>
+              <div class="ticket__actions">
+                <button class="button button--accent is-on-accent" type="button" data-copy-target="prompt-s2" data-ticket-fire hidden data-i18n="service.fire">Marchar y copiar</button>
+                <button class="button button--outline" type="button" data-ticket-serve aria-pressed="false" hidden data-i18n="service.serve">Marcar como servida</button>
+              </div>
+              <div class="ticket__body">
+                <p class="prompt__text ticket__text" id="prompt-s2" data-i18n="s2.prompt">«Con auditoria/datos/ (lee primero el resumen.md de cada página y el detalle solo si lo necesitas), haz un inventario de interfaz con estas categorías: elementos globales, navegación, imágenes, iconos, formularios, botones, encabezados, bloques, listas, componentes interactivos, media, terceros, mensajes, colores y animación. Agrupa lo que debería ser el mismo componente y compáralo con su ficha en <span class="prompt__slot" data-slot="system">[sistema]</span>: anatomía, variantes y tamaños (los estados se revisan más adelante). Dime qué hay en la web que no existe en el sistema y qué variantes no están documentadas, con página y elemento, y separa lo que el sistema no recoge (huérfano: se decide en gobernanza) de lo que define y la web aplica de otra forma (se corrige en el producto). Para cada componente, anota una instancia de referencia (página y selector). Si dudas de algo, recorta solo ese elemento y guárdalo en auditoria/capturas/ con el número del paso y su nombre (por ejemplo, 02-boton-primario.png). Guarda el resultado en auditoria/02-pure.md y anota en auditoria/pizarra.md lo hecho y lo siguiente.»</p>
+                <div class="ticket__side">
+                  <p class="ticket__note"><span class="ticket__note-label" data-i18n="service.note">Nota de cocina:</span> <span class="ticket__note-text" data-i18n="s2.hint">Trabaja sobre la captura del paso 1, sin abrir la web.</span></p>
+                  <p class="ticket__out"><span class="ticket__out-label" data-i18n="service.out">Sale a:</span> <span data-i18n="s2.out"><code>auditoria/02-pure.md</code> <code>auditoria/capturas/02-…</code></span> <span class="ticket__out-note" data-i18n="s2.note">Componente · variantes encontradas · spec del sistema · ¿huérfano? · instancia de referencia.</span></p>
+                  <div class="ticket__check">
+                  <p class="ticket__check-label" data-i18n="service.check">La pruebas tú</p>
+                  <div class="ticket__check-text" data-i18n="s2.test">Pon las capturas una al lado de otra. ¿Lo notaría una persona usuaria?</div>
+                  </div>
+                </div>
+              </div>
+              <p class="ticket__foot"><a class="ticket__back" href="#pure"><span aria-hidden="true">←</span> <span data-i18n="service.back">Volver a la metodología:</span> <span data-i18n="cycle.s2name">Puré</span></a></p>
+              <p class="ticket__stamp" data-ticket-stamp hidden></p>
+            </article>
+
+            <article class="ticket" id="comanda-03" aria-labelledby="comanda-03-title" data-ticket="03">
+              <header class="ticket__head">
+                <p class="ticket__table"><span data-i18n="service.table">Mesa: auditoría de</span> <span data-ticket-table data-placeholder="[tu web]" data-i18n-attr="data-placeholder:service.tablePlaceholder">[tu web]</span></p>
+                <p class="ticket__course" data-i18n="service.course1">Tiempo I · Deconstruir</p>
+              </header>
+              <h4 class="ticket__title" id="comanda-03-title"><span class="ticket__number">Nº 03</span> <span data-i18n="cycle.s3name">Yema y migas</span> · <span data-i18n="s3.title">Patrones, contenido y voz</span></h4>
+              <div class="ticket__actions">
+                <button class="button button--accent is-on-accent" type="button" data-copy-target="prompt-s3" data-ticket-fire hidden data-i18n="service.fire">Marchar y copiar</button>
+                <button class="button button--outline" type="button" data-ticket-serve aria-pressed="false" hidden data-i18n="service.serve">Marcar como servida</button>
+              </div>
+              <div class="ticket__body">
+                <p class="prompt__text ticket__text" id="prompt-s3" data-i18n="s3.prompt">«Con las tareas y procesos de auditoria/01-cucharadas-caldo.md:
+1. Yema. Recorre cada proceso en <span class="prompt__slot" data-slot="web">[web]</span> una sola vez, hasta la validación y sin enviar nada: no pulses el botón final de un formulario ni aceptes nada que guarde datos. Para cada tarea, dime qué patrones usa (navegación, formulario, confirmación, error, estado vacío, carga, consentimiento…), si el mismo problema se resuelve igual en todas partes y si <span class="prompt__slot" data-slot="system">[sistema]</span> documenta ese patrón. Guarda la captura del elemento en cada estado de error o de confirmación que aparezca en auditoria/capturas/ con página, elemento y estado (por ejemplo, 03-contacto-email-error.png).
+2. Migas. Con los textos de auditoria/datos/ y los mensajes que aparecieron en el recorrido, revisa titulares, botones y mensajes frente a la guía de voz de <span class="prompt__slot" data-slot="system">[sistema]</span>: qué cumple, qué no cumple y qué términos se usan de formas distintas para lo mismo. Si la guía trae listas de palabras o expresiones, búscalas con un script en vez de leerlo todo. Propón alternativas.
+Guarda el resultado en auditoria/03-yema-migas.md y anota en auditoria/pizarra.md lo hecho y lo siguiente.»</p>
+                <div class="ticket__side">
+                  <p class="ticket__note"><span class="ticket__note-label" data-i18n="service.note">Nota de cocina:</span> <span class="ticket__note-text" data-i18n="s3.hint">Las tareas ya salen del paso 1; los mensajes de error y de confirmación aparecen al recorrerlas.</span></p>
+                  <p class="ticket__out"><span class="ticket__out-label" data-i18n="service.out">Sale a:</span> <span data-i18n="s3.out"><code>auditoria/03-yema-migas.md</code> <code>auditoria/capturas/03-…</code></span> <span class="ticket__out-note" data-i18n="s3.note">Tarea · patrón · ¿documentado? · inconsistencia. Texto actual · regla · alternativa.</span></p>
+                  <div class="ticket__check">
+                  <p class="ticket__check-label" data-i18n="service.check">La pruebas tú</p>
+                  <div class="ticket__check-text" data-i18n="s3.test">Haz tú una tarea de principio a fin: ¿dónde dudas? Lee sus textos en voz alta: ¿suenan a la marca?</div>
+                  </div>
+                </div>
+              </div>
+              <p class="ticket__foot"><a class="ticket__back" href="#yema"><span aria-hidden="true">←</span> <span data-i18n="service.back">Volver a la metodología:</span> <span data-i18n="cycle.s3name">Yema y migas</span></a></p>
+              <p class="ticket__stamp" data-ticket-stamp hidden></p>
+            </article>
+
+            <article class="ticket" id="comanda-04" aria-labelledby="comanda-04-title" data-ticket="04">
+              <header class="ticket__head">
+                <p class="ticket__table"><span data-i18n="service.table">Mesa: auditoría de</span> <span data-ticket-table data-placeholder="[tu web]" data-i18n-attr="data-placeholder:service.tablePlaceholder">[tu web]</span></p>
+                <p class="ticket__course" data-i18n="service.course1">Tiempo I · Deconstruir</p>
+              </header>
+              <h4 class="ticket__title" id="comanda-04-title"><span class="ticket__number">Nº 04</span> <span data-i18n="cycle.s4name">Baja temperatura</span> · <span data-i18n="s4.title">Comportamiento: estados, accesibilidad y movimiento</span></h4>
+              <div class="ticket__actions">
+                <button class="button button--accent is-on-accent" type="button" data-copy-target="prompt-s4" data-ticket-fire hidden data-i18n="service.fire">Marchar y copiar</button>
+                <button class="button button--outline" type="button" data-ticket-serve aria-pressed="false" hidden data-i18n="service.serve">Marcar como servida</button>
+              </div>
+              <div class="ticket__body">
+                <p class="prompt__text ticket__text" id="prompt-s4" data-i18n="s4.prompt">«Revisa el comportamiento de las páginas de auditoria/01-cucharadas-caldo.md frente a las specs y las reglas de accesibilidad de <span class="prompt__slot" data-slot="system">[sistema]</span>. El contraste, los textos alternativos, los encabezados, las zonas táctiles, el recorrido con Tab, el movimiento reducido y el desbordamiento en móvil ya están medidos en auditoria/datos/: léelos y no los midas otra vez. Los estados de error y de confirmación ya están capturados en el paso 3. Abre <span class="prompt__slot" data-slot="web">[web]</span> solo para hover y activo en la instancia de referencia de cada componente de auditoria/02-pure.md, y para la carga si un proceso la tiene. Para cada fallo, guarda la captura del elemento en ese estado en auditoria/capturas/ con página, elemento y estado (por ejemplo, 04-home-boton-suscribirse-hover.png). Guarda el resultado en auditoria/04-baja-temperatura.md y anota en auditoria/pizarra.md lo hecho y lo siguiente.»</p>
+                <div class="ticket__side">
+                  <p class="ticket__note"><span class="ticket__note-label" data-i18n="service.note">Nota de cocina:</span> <span class="ticket__note-text" data-i18n="s4.hint">Lo medible ya está en la captura; abre la web solo para lo que hay que tocar.</span></p>
+                  <p class="ticket__out"><span class="ticket__out-label" data-i18n="service.out">Sale a:</span> <span data-i18n="s4.out"><code>auditoria/04-baja-temperatura.md</code> <code>auditoria/capturas/04-…</code></span> <span class="ticket__out-note" data-i18n="s4.note">Regla o spec · dónde falla · criterio WCAG si aplica.</span></p>
+                  <div class="ticket__check">
+                  <p class="ticket__check-label" data-i18n="service.check">La pruebas tú</p>
+                  <div class="ticket__check-text" data-i18n="s4.test">Pulsa Tab desde el principio. Emula <em>reduced motion</em> en <em>Rendering</em>, activa el modo responsive y pasa <em>Lighthouse</em> → Accesibilidad.</div>
+                  </div>
+                </div>
+              </div>
+              <p class="ticket__foot"><a class="ticket__back" href="#baja-temperatura"><span aria-hidden="true">←</span> <span data-i18n="service.back">Volver a la metodología:</span> <span data-i18n="cycle.s4name">Baja temperatura</span></a></p>
+              <p class="ticket__stamp" data-ticket-stamp hidden></p>
+            </article>
+
+            <article class="ticket" id="comanda-05" aria-labelledby="comanda-05-title" data-ticket="05">
+              <header class="ticket__head">
+                <p class="ticket__table"><span data-i18n="service.table">Mesa: auditoría de</span> <span data-ticket-table data-placeholder="[tu web]" data-i18n-attr="data-placeholder:service.tablePlaceholder">[tu web]</span></p>
+                <p class="ticket__course" data-i18n="service.course2">Tiempo II · Emplatar</p>
+              </header>
+              <h4 class="ticket__title" id="comanda-05-title"><span class="ticket__number">Nº 05</span> <span data-i18n="cycle.s5name">Emplatado</span> · <span data-i18n="s5.title">Diagnóstico: informe y salud del sistema</span></h4>
+              <div class="ticket__actions">
+                <button class="button button--accent is-on-accent" type="button" data-copy-target="prompt-s5" data-ticket-fire hidden data-i18n="service.fire">Marchar y copiar</button>
+                <button class="button button--outline" type="button" data-ticket-serve aria-pressed="false" hidden data-i18n="service.serve">Marcar como servida</button>
+              </div>
+              <div class="ticket__body">
+                <p class="prompt__text ticket__text" id="prompt-s5" data-i18n="s5.prompt">«Descarga, sin leerla, la plantilla del informe (https://muirogles.github.io/deconstruccion-alcachofas/plantilla-informe.html) y guárdala como auditoria/05-informe.html. Lee el formato del ejemplo de datos (https://muirogles.github.io/deconstruccion-alcachofas/hallazgos-ejemplo.js), sin guardarlo. Lee los archivos 00 a 04 de auditoria/ y saca de los hallazgos lo que no puedas demostrar, y lístalo con su tipo: falso positivo (lo has comprobado y no es un fallo), por comprobar (con lo que faltaría para demostrarlo) o visto de paso (no es del sistema de diseño ni de accesibilidad; di a quién se le pasa). Si un mismo fallo se repite en varias páginas, es un solo hallazgo: usa la página más representativa, nombra las demás en el impacto y captura solo esa página. Numera los hallazgos que queden por impacto: H-01, H-02, H-03… Escribe auditoria/hallazgos.js con el mismo formato que el ejemplo: resumen, guía Michelin de 0 a 3 con evidencia (los criterios y qué vale cada nota están en el ejemplo), salud del sistema (cobertura, deriva, duplicados, huérfanos y paridad), una ficha por hallazgo (página, selector, estado si no es el normal, capa, valor actual, valor del sistema, regla, impacto, esfuerzo, propuesta y sus capturas (el ancho y el texto alternativo de cada una), todas sin verificar: las verifico yo) y los descartados. Para cada hallazgo, guarda la captura de su elemento en cada ancho del paso 1 en que falle, con el ancho al final del nombre: auditoria/capturas/H-01-1440.png, H-01-360.png…, abriendo cada página una sola vez por ancho y sin mirar las capturas; si los pasos 2, 3 o 4 ya capturaron ese elemento en ese ancho, cópiala con ese nombre. Nunca reutilices un nombre para dos hallazgos. Anota en auditoria/pizarra.md lo hecho y lo siguiente.»</p>
+                <div class="ticket__side">
+                  <p class="ticket__note"><span class="ticket__note-label" data-i18n="service.note">Nota de cocina:</span> <a class="ticket__note-text" href="#michelin" data-i18n="s5.hint">Ver la guía Michelin</a></p>
+                  <p class="ticket__out"><span class="ticket__out-label" data-i18n="service.out">Sale a:</span> <span data-i18n="s5.out"><code>auditoria/05-informe.html</code> <code>auditoria/hallazgos.js</code> <code>auditoria/capturas/H-XX-ancho.png</code></span> <span class="ticket__out-note" data-i18n="s5.note">El informe para tu equipo: se pinta solo con hallazgos.js, una ficha por hallazgo con la captura del elemento concreto. Está en «Para llevar».</span></p>
+                  <div class="ticket__check">
+                  <p class="ticket__check-label" data-i18n="service.check">La pruebas tú</p>
+                  <div class="ticket__check-text" data-i18n="s5.test">Abre 05-informe.html y elige un hallazgo. Compruébalo tú: si se sostiene, pídele a tu IA que ponga su «verificado» a true; si no, que lo pase a descartados como falso positivo, con el motivo. Busca al menos un falso positivo.</div>
+                  </div>
+                </div>
+              </div>
+              <p class="ticket__foot"><a class="ticket__back" href="#emplatado"><span aria-hidden="true">←</span> <span data-i18n="service.back">Volver a la metodología:</span> <span data-i18n="cycle.s5name">Emplatado</span></a></p>
+              <p class="ticket__stamp" data-ticket-stamp hidden></p>
+            </article>
+
+            <article class="ticket" id="comanda-06" aria-labelledby="comanda-06-title" data-ticket="06">
+              <header class="ticket__head">
+                <p class="ticket__table"><span data-i18n="service.table">Mesa: auditoría de</span> <span data-ticket-table data-placeholder="[tu web]" data-i18n-attr="data-placeholder:service.tablePlaceholder">[tu web]</span></p>
+                <p class="ticket__course" data-i18n="service.course3">Tiempo III · Rectificar y pase</p>
+              </header>
+              <h4 class="ticket__title" id="comanda-06-title"><span class="ticket__number">Nº 06</span> <span data-i18n="cycle.s6name">Rectificar y pase</span> · <span data-i18n="s6.title">Dónde se corrige y cómo se queda corregido</span></h4>
+              <div class="ticket__actions">
+                <button class="button button--accent is-on-accent" type="button" data-copy-target="prompt-s6" data-ticket-fire hidden data-i18n="service.fire">Marchar y copiar</button>
+                <button class="button button--outline" type="button" data-ticket-serve aria-pressed="false" hidden data-i18n="service.serve">Marcar como servida</button>
+              </div>
+              <div class="ticket__body">
+                <p class="prompt__text ticket__text" id="prompt-s6" data-i18n="s6.prompt">«Lee auditoria/hallazgos.js. Para cada hallazgo, decide dónde se corrige: en el sistema, en el producto o en la gobernanza. Redacta un issue por hallazgo, con su mismo número (H-01, H-02…) y enlace a sus capturas, con evidencia, propuesta y un criterio de aceptación escrito como una comprobación que se pueda repetir sin IA siempre que se pueda (página, selector, valor esperado). Agrupa los que se arreglan con un solo cambio en el sistema y ordénalos en rondas pequeñas. Añade a cada hallazgo de hallazgos.js dónde se corrige, su ronda y su criterio. Guarda los issues en auditoria/06-rectificar.md y anota en auditoria/pizarra.md lo hecho y lo siguiente.»</p>
+                <div class="ticket__side">
+                  <p class="ticket__note"><span class="ticket__note-label" data-i18n="service.note">Nota de cocina:</span> <span class="ticket__note-text" data-i18n="s6.hint">Una persona decide; la IA solo propone. El pase lo hace la cocina: <a href="#automatiza">el pase automático, en «Para llevar»</a>.</span></p>
+                  <p class="ticket__out"><span class="ticket__out-label" data-i18n="service.out">Sale a:</span> <span data-i18n="s6.out"><code>auditoria/06-rectificar.md</code> <code>auditoria/hallazgos.js</code></span> <span class="ticket__out-note" data-i18n="s6.note">Hallazgo · dónde se corrige · propuesta · criterio de aceptación · ronda.</span></p>
+                  <div class="ticket__check">
+                  <p class="ticket__check-label" data-i18n="service.check">La pruebas tú</p>
+                  <div class="ticket__check-text" data-i18n="s6.test">¿Está bien elegido el sitio donde se corrige? Corregir en el sistema arregla todas las pantallas; corregir en una pantalla no arregla nada más.</div>
+                  </div>
+                </div>
+              </div>
+              <p class="ticket__foot"><a class="ticket__back" href="#rectificar"><span aria-hidden="true">←</span> <span data-i18n="service.back">Volver a la metodología:</span> <span data-i18n="cycle.s6name">Rectificar y pase</span></a></p>
+              <p class="ticket__stamp" data-ticket-stamp hidden></p>
+            </article>
+
+            <article class="ticket" id="comanda-menu" aria-labelledby="comanda-menu-title" data-ticket="menu">
+              <header class="ticket__head">
+                <p class="ticket__table"><span data-i18n="service.table">Mesa: auditoría de</span> <span data-ticket-table data-placeholder="[tu web]" data-i18n-attr="data-placeholder:service.tablePlaceholder">[tu web]</span></p>
+                <p class="ticket__course" data-i18n="service.courseAll">Menú completo · tiempos I a III</p>
+              </header>
+              <h4 class="ticket__title" id="comanda-menu-title"><span class="ticket__number">Nº 00–06</span> <span data-i18n="service.menuName">Menú completo · cocción lenta</span></h4>
+              <div class="ticket__actions">
+                <button class="button button--accent is-on-accent" type="button" data-copy-target="prompt-slow" data-ticket-fire hidden data-i18n="service.fire">Marchar y copiar</button>
+                <button class="button button--outline" type="button" data-ticket-serve aria-pressed="false" hidden data-i18n="service.serve">Marcar como servida</button>
+              </div>
+              <div class="ticket__body">
+                <p class="prompt__text ticket__text" id="prompt-slow" data-i18n="takeaway.slowPrompt">«Audita <span class="prompt__slot" data-slot="web">[web]</span> frente a su sistema de diseño (<span class="prompt__slot" data-slot="system">[sistema]</span>). Guarda cada paso en su archivo dentro de auditoria/ y anota en auditoria/pizarra.md lo hecho y lo siguiente:
+0. Ingredientes: lee como texto, sin navegador, los tokens primitivos y semánticos (archivos DTCG si existen; si no, donde el sistema los defina), los assets y las guías, con su fuente, tipos, duplicados y contradicciones → 00-ingredientes.md.
+1. Cucharadas de caldo: propón una muestra con WCAG-EM 2 (páginas comunes, un ejemplo de cada tipo, procesos completos y un 10 % extra sorteado en el navegador con crypto.getRandomValues entre las páginas del sitemap) en tres tamaños para que elija: la completa, la de una auditoría profesional, o, para que mi IA gaste menos, la mínima (3 páginas estructuradas y 1 al azar) o una sola página; anota tareas y procesos, y para hasta que confirme la muestra.<span class="prompt__slot prompt__slot--scope" data-slot="scope" hidden></span> Después escribe en herramientas/ un script de extracción que capture cada página en escritorio y móvil, con la página estable y menos movimiento, sin pasar los datos por la conversación: captura, estilos agrupados con su recuento y su origen, accesibilidad, recorrido con Tab, textos y un resumen.md por página con lo que está fuera del sistema. Dime qué sale de tokens semánticos, de primitivos o está escrito a mano, y en qué porcentaje → 01-cucharadas-caldo.md.
+2. Puré: con los resúmenes, inventario de componentes (anatomía, variantes y tamaños) frente a sus specs, separando huérfanos de diferencias de implementación, con una instancia de referencia de cada uno → 02-pure.md.
+3. Yema y migas: recorre cada proceso una vez, hasta la validación y sin enviar nada; patrones de cada tarea y voz de titulares, botones y mensajes frente a la guía → 03-yema-migas.md.
+4. Baja temperatura: lee lo ya medido; abre la web solo para hover y activo de cada componente y para la carga; captura cada fallo en su estado → 04-baja-temperatura.md.
+5. Emplatado: saca de los hallazgos lo que no puedas demostrar, con su tipo (falso positivo, por comprobar o visto de paso); el fallo que se repite en varias páginas es un solo hallazgo, con la página más representativa; numera los hallazgos H-01, H-02… por impacto; escribe hallazgos.js con el formato de https://muirogles.github.io/deconstruccion-alcachofas/hallazgos-ejemplo.js; guarda la captura del elemento de cada hallazgo en cada ancho en que falle (capturas/H-01-1440.png, H-01-360.png…; nunca el mismo nombre para dos hallazgos) y descarga, sin leerla, la plantilla https://muirogles.github.io/deconstruccion-alcachofas/plantilla-informe.html como 05-informe.html.
+6. Rectificar: para cada hallazgo, dónde se corrige (sistema, producto o gobernanza), un issue con un criterio de aceptación que se pueda comprobar sin IA y su ronda → 06-rectificar.md y hallazgos.js.
+Lo que no puedas demostrar sale de los hallazgos, con su tipo; todo lo demás queda "sin verificar": lo verifico yo. Aparte de la muestra, no me preguntes nada hasta terminar.»</p>
+                <div class="ticket__side">
+                  <p class="ticket__note"><span class="ticket__note-label" data-i18n="service.note">Nota de cocina:</span> <span class="ticket__note-text" data-i18n="takeaway.slowHint">Confirma la muestra, ve a por un café y emplata al volver: el agente trabaja mientras tanto.</span></p>
+                  <p class="ticket__out"><span class="ticket__out-label" data-i18n="service.out">Sale a:</span> <span data-i18n="service.menuFolder"><code>auditoria/</code></span> <span data-i18n="service.menuOut">(archivos 00 a 06, hallazgos.js y pizarra.md)</span></p>
+                </div>
+              </div>
+              <p class="ticket__stamp" data-ticket-stamp hidden></p>
+            </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide slide--pattern" id="reto" data-nav-label="El reto" data-part="En práctica" aria-labelledby="reto-title" data-i18n-attr="data-nav-label:nav.reto;data-part:nav.partPractice">
+        <div class="slide__inner slide__inner--split">
+          <div class="card reveal">
+            <p class="card__kicker" data-i18n="challenge.eyebrow">El reto</p>
+            <h2 class="slide__title" id="reto-title" data-i18n="challenge.title">Ahora cocinas tú</h2>
+            <p class="slide__lead" data-i18n="challenge.lead">Audita la web de Arcasiles con la receta completa, de la comanda Nº 00 a la Nº 06, y encuentra el ingrediente secreto.</p>
+            <p data-i18n="challenge.sample"><strong>Muestra mínima:</strong> 3 páginas estructuradas + 1 aleatoria, para que tu IA gaste menos. Lo profesional es la muestra completa que te propone en el paso 1. Sin máximo: cuantas más, mejor.</p>
+            <p data-i18n="challenge.text">Arcasiles anunciará las bases, el plazo, el premio y cómo enviar tu auditoría.</p>
+            <p class="closing" data-i18n="challenge.closing">Deconstruir no es romper el plato: es entenderlo pieza a pieza.</p>
+            <div class="form__actions">
+              <a class="button button--accent is-on-accent" href="#comanda-00" data-i18n="challenge.start">Cocinar la auditoría</a>
+              <button
+                class="button button--outline"
+                type="button"
+                hidden
+                data-open-qr
+                data-qr-src="./qr/qr-reto.png"
+                data-qr-alt="Código QR que abre el reto en la web de Arcasiles"
+                data-qr-title="El reto"
+                data-qr-caption="arcasiles.com/es/events/diseno-ia/challenge"
+                data-i18n="challenge.qr"
+                data-i18n-attr="data-qr-alt:challenge.qrAlt;data-qr-title:challenge.qrTitle"
+              >Mostrar QR del reto</button>
+            </div>
+          </div>
+          <figure class="slide__figure maitre slide__figure--hide-small">
+            <p class="bubble maitre__bubble" data-i18n="challenge.bubble">¡Oído, cocina!</p>
+            <img src="./characters/alcachofil-dancing.png" width="1600" height="1975" alt="" loading="lazy" />
+          </figure>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           PARTE 3 · PARA LLEVAR
+           ================================================================ -->
+
+      <section class="slide slide--inverse slide--sala" id="automatiza" data-nav-label="La ventanilla" data-part="Para llevar" aria-labelledby="automatiza-title" data-i18n-attr="data-nav-label:nav.automatiza;data-part:nav.partTakeaway">
+        <div class="slide__inner">
+          <div class="hatch">
+            <header class="slide__header hatch__header reveal">
+              <p class="slide__eyebrow" data-i18n="automate.eyebrow">Para llevar · la ventanilla</p>
+              <h2 class="slide__title" id="automatiza-title" data-i18n="automate.title">Automatiza el pase</h2>
+              <p class="slide__lead" data-i18n="automate.windowLead">Pide el pase automático: primero, una comprobación sin IA; la IA, solo cuando haga falta criterio.</p>
+            </header>
+            <div class="hatch__window">
+              <p class="hatch__sign" data-i18n="automate.sign">Pedidos</p>
+              <div class="hatch__opening">
+                <div class="hatch__cook">
+                  <img class="hatch__cook-img" src="./characters/alcachofil-laptop.png" width="1600" height="1975" alt="" loading="lazy" />
+                </div>
+              </div>
+              <span class="illustration hatch__bell" data-illustration="campana"></span>
+            </div>
+            <article class="ticket ticket--takeaway hatch__order" id="comanda-pase-automatico" aria-labelledby="comanda-pase-automatico-title" data-ticket="pase-automatico">
+              <header class="ticket__head">
+                <p class="ticket__table"><span data-i18n="service.table">Mesa: auditoría de</span> <span data-ticket-table data-placeholder="[tu web]" data-i18n-attr="data-placeholder:service.tablePlaceholder">[tu web]</span></p>
+                <p class="ticket__course" data-i18n="service.courseTake">Para llevar · después de rectificar</p>
+              </header>
+              <h3 class="ticket__title" id="comanda-pase-automatico-title"><span data-i18n="automate.gateTitle">El pase automático</span></h3>
+              <div class="ticket__actions">
+                <button class="button button--accent is-on-accent" type="button" data-copy-target="prompt-gate" hidden data-i18n="service.takeawayCopy">Copiar el pedido</button>
+              </div>
+              <p class="prompt__text ticket__text" id="prompt-gate" tabindex="0" data-i18n="automate.gatePrompt">«Con lo que hay en auditoria/, prepara lo necesario para repetir la auditoría de <span class="prompt__slot" data-slot="web">[web]</span> sin empezar de cero. Primero, lo que funciona sin IA; la IA, solo para lo que pide criterio:
+1. Una comprobación sin IA, que dé siempre el mismo resultado: que reutilice el extractor de auditoria/herramientas/, compare los valores de la web con los tokens de 00-ingredientes.md y avise de los que estén escritos a mano, y que repita los criterios de aceptación de hallazgos.js para confirmar que los hallazgos ya corregidos (H-01, H-02…) siguen bien. Explícame cómo lanzarla según lo que tenga: en el navegador, en mi ordenador o en el repositorio tras cada despliegue.
+2. Una skill (SKILL.md, o unas instrucciones reutilizables según mi herramienta) con la receta en dos fases: primero esa comprobación, sin coste; después, la IA solo para lo que pide criterio, como los patrones de las tareas y la voz (paso 3) o revisar en las capturas los cambios visuales que marque la comprobación.
+3. Si tiene sentido, un agente (agente-auditor.md) que lance primero la comprobación, recurra a la IA solo si encuentra algo que la comprobación no sabe juzgar y me deje a mí la decisión final.
+Cada vez que se lance, que guarde la nueva captura de cada hallazgo como capturas/H-01-1440-pase.png, H-01-360-pase.png… (en cada ancho de sus capturas) y anote con la fecha si cumple su criterio, si ha roto algo más y cómo quedan la salud y las estrellas. Guárdalo todo en auditoria/pase-automatico/ y explica en auditoria/pase-automatico/como-se-usa.md, en lenguaje sencillo, para qué sirve cada pieza y cómo se usa.»</p>
+              <p class="ticket__note"><span class="ticket__note-label" data-i18n="service.note">Nota de cocina:</span> <span class="ticket__note-text" data-i18n="automate.gateHint">Empieza por lo que puedas lanzar hoy con lo que ya tienes.</span></p>
+              <p class="ticket__out"><span class="ticket__out-label" data-i18n="service.out">Sale a:</span> <span data-i18n="automate.out"><code>auditoria/pase-automatico/</code></span></p>
+              <p class="ticket__help" data-i18n="service.pickup">Recoger: cada vez que cambie la web.</p>
+              <p class="ticket__stamp ticket__stamp--takeaway" data-i18n="service.takeawayStamp">Para llevar</p>
+            </article>
+            <div class="hatch__counter"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide slide--sunken" id="carpeta" data-nav-label="Tu carpeta" data-part="Para llevar" aria-labelledby="carpeta-title" data-i18n-attr="data-nav-label:nav.carpeta;data-part:nav.partTakeaway">
+        <div class="slide__inner">
+          <div class="files">
+            <div class="files__intro">
+              <div class="step__head">
+                <header class="slide__header reveal">
+                  <p class="slide__eyebrow" data-i18n="takeaway.toolsEyebrow">Para llevar · tu carpeta</p>
+                  <h2 class="slide__title" id="carpeta-title" data-i18n="takeaway.toolsTitle">Tu carpeta y las plantillas</h2>
+                  <p class="slide__lead" data-i18n="takeaway.filesLead">Si se queda en el chat, se pierde. Cada paso deja su archivo y el siguiente lo lee: tu IA no repite trabajo y gasta menos. Cada tiempo, mesa nueva: una sesión limpia que empieza leyendo <code>pizarra.md</code>.</p>
+                </header>
+                <span class="illustration" data-illustration="receta"></span>
+              </div>
+              <div class="card-grid">
+                <article class="card card--highlight">
+                  <p class="card__kicker" data-i18n="takeaway.reportKicker">Con agente · .html</p>
+                  <h3 class="card__title" data-i18n="takeaway.reportTitle">El informe, para tu equipo</h3>
+                  <p data-i18n="takeaway.reportText">El emplatado del paso 5: tu IA escribe los hallazgos y el informe se pinta solo, con una ficha y su captura por hallazgo. Para compartirlo: Imprimir → Guardar como PDF.</p>
+                  <footer class="form__actions"><a class="button button--small" href="./plantilla-informe.html" data-i18n="takeaway.reportOpen" data-i18n-attr="href:takeaway.reportHref">Ver un ejemplo</a> <a class="button button--outline button--small" href="./plantilla-informe.html" download data-i18n="takeaway.reportDownload" data-i18n-attr="href:takeaway.reportHref">Descargar informe</a></footer>
+                </article>
+
+                <article class="card">
+                  <p class="card__kicker" data-i18n="takeaway.templateKicker">Sin agente · .md</p>
+                  <h3 class="card__title" data-i18n="takeaway.templateTitle">La hoja de cata, sin agente</h3>
+                  <p data-i18n="takeaway.templateText">Para anotar a mano, desde el móvil o desde un chat. Los mismos pasos, en un solo archivo fácil de enviar.</p>
+                  <footer class="form__actions"><a class="button button--small" href="./hoja-de-cata.md" download data-i18n="takeaway.templateDownload" data-i18n-attr="href:takeaway.templateHref">Descargar hoja de cata</a></footer>
+                </article>
+              </div>
+            </div>
+            <article class="card files__tree">
+              <h3 class="card__title" data-i18n="takeaway.treeTitle">Así queda tu carpeta</h3>
+<pre class="file-tree" tabindex="0" aria-label="Estructura de la carpeta auditoria" data-i18n="takeaway.tree" data-i18n-attr="aria-label:takeaway.treeLabel">auditoria/
+├── capturas/         <span class="file-tree__comment"># 02…04, H-XX</span>
+├── datos/            <span class="file-tree__comment"># por página</span>
+├── herramientas/     <span class="file-tree__comment"># tus scripts</span>
+├── pase-automatico/  <span class="file-tree__comment"># para llevar</span>
+├── 00-ingredientes.md
+├── 01-cucharadas-caldo.md
+├── 02-pure.md
+├── 03-yema-migas.md
+├── 04-baja-temperatura.md
+├── 05-informe.html
+├── 06-rectificar.md
+├── hallazgos.js
+└── pizarra.md        <span class="file-tree__comment"># qué sigue</span></pre>
+              <p data-i18n="takeaway.treeTip">Cada cambio importante, una carpeta con la fecha: parte del informe anterior, audita solo lo nuevo y compara las estrellas.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide slide--sunken" id="referencias" data-nav-label="Referencias" data-part="Para llevar" aria-labelledby="referencias-title" data-i18n-attr="data-nav-label:nav.referencias;data-part:nav.partTakeaway">
+        <div class="slide__inner">
+          <div class="step__head">
+            <div class="slide__header reveal">
+              <p class="slide__eyebrow" data-i18n="refs.eyebrow">Para llevar · la bodega</p>
+              <h2 class="slide__title" id="referencias-title" data-i18n="refs.title">Referencias</h2>
+              <ul class="card card__list card__list--columns" data-i18n="refs.list">
+                <li><a href="https://www.w3.org/TR/wcag-em-2/">WCAG-EM 2</a> · metodología de evaluación y muestreo (W3C)</li>
+                <li><a href="https://www.w3.org/community/reports/design-tokens/CG-FINAL-format-20251028/">Design Tokens Format Module 2025.10</a> · DTCG</li>
+                <li><a href="https://atomicdesign.bradfrost.com/chapter-4/">Atomic Design, cap. 4</a> · inventario de interfaz (Brad Frost)</li>
+                <li><a href="https://www.w3.org/TR/WCAG22/">WCAG 2.2</a> · pautas de accesibilidad</li>
+                <li><a href="https://guide.michelin.com/en/article/features/the-michelin-guide-101">The MICHELIN Guide 101</a> · los cinco criterios</li>
+                <li><a href="https://developer.chrome.com/docs/devtools/ai-assistance">Asistencia IA de Chrome DevTools</a></li>
+                <li><a href="https://playwright.dev/docs/getting-started-mcp">Playwright MCP</a></li>
+                <li><a href="https://github.com/ChromeDevTools/chrome-devtools-mcp">Chrome DevTools MCP</a></li>
+                <li><a href="https://github.com/vercel-labs/agent-browser">agent-browser</a> · Vercel Labs</li>
+                <li><a href="https://developer.chrome.com/docs/lighthouse/overview">Lighthouse</a></li>
+                <li><a href="https://learn.microsoft.com/en-us/microsoft-edge/devtools/console/copilot-explain-console">Copilot en las DevTools de Edge</a> · explicar errores de la consola</li>
+                <li><a href="https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/">Inspector de accesibilidad de Firefox</a></li>
+                <li><a href="https://alcachofavegabaja.com/receta/alcachofas-de-la-vega-baja-con-jamon/">Alcachofas de la Vega Baja con jamón</a> · Asociación Alcachofa Vega Baja</li>
+                <li><a href="https://www.directoalpaladar.com/chefs/el-diccionario-de-la-cocina-de-ferran-adria">El diccionario de la cocina de Adrià</a> · deconstrucción (Directo al Paladar)</li>
+                <li><a href="https://en.wikipedia.org/wiki/Deconstructed_cuisine">Deconstructed cuisine</a> · Ferran Adrià y la cocina deconstructiva (Wikipedia)</li>
+              </ul>
+            </div>
+            <img class="slide__figure" src="./characters/alcachofil-reading.png" width="1600" height="1975" alt="" loading="lazy" />
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <p class="site-footer__thanks" data-i18n="footer.thanks">Gracias por venir. Aquí la cuenta se paga con una auditoría.</p>
+        <p class="site-footer__credit" data-i18n="footer.credit">
+          Metodología y landing de <a href="https://linkedin.com/in/mariarogles">María Rogles</a>, presentadas en Diseño e IA by <a href="https://arcasiles.com">Arcasiles</a>.
+        </p>
+        <p class="site-footer__legal" data-i18n="footer.legal">
+          Alcachofil, la paleta de color y el contenido de marca pertenecen a Arcasiles Group y se usan en el contexto de esta colaboración. Las ilustraciones de cocina son originales de esta landing. Receta: Asociación Alcachofa Vega Baja, elaborada por la Bodega La Venganza de Orihuela. Tipografía: Lexend (SIL Open Font License 1.1). Se citan los criterios de la Guía Michelin; esta landing no tiene relación con ella.
+        </p>
+      </div>
+    </footer>
+
+    <dialog class="dialog" id="index-dialog" aria-labelledby="index-dialog-title">
+      <div class="dialog__layout">
+        <div class="dialog__header">
+          <h2 class="dialog__title" id="index-dialog-title" data-i18n="ui.index">La carta</h2>
+          <button class="button button--outline button--small" type="button" data-close-dialog data-i18n="ui.close">Cerrar</button>
+        </div>
+        <nav class="index-nav" aria-labelledby="index-dialog-title" data-index-nav></nav>
+      </div>
+    </dialog>
+
+    <dialog class="dialog dialog--qr" id="qr-dialog" aria-labelledby="qr-dialog-title">
+      <div class="dialog__layout">
+        <div class="dialog__header">
+          <h2 class="dialog__title" id="qr-dialog-title" data-qr-title>QR</h2>
+          <button class="button button--outline button--small" type="button" data-close-dialog data-i18n="ui.close">Cerrar</button>
+        </div>
+        <img class="dialog__qr" src="" alt="" width="820" height="820" data-qr-image />
+        <p class="dialog__caption" data-qr-caption></p>
+      </div>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite" data-msg-copied="¡Marchando! Comanda copiada" data-msg-copy-failed="No se ha podido copiar. Selecciona el texto y cópialo a mano." data-i18n-attr="data-msg-copied:ui.msgCopied;data-msg-copy-failed:ui.msgCopyFailed"></div>
+  </body>
+</html>

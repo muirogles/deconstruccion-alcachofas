@@ -1,0 +1,64 @@
+/* Pairing: the tools as a wine list, one row per tool from the simplest to
+   the most powerful: its glass, its label and name, and the full text. */
+.pairing {
+  /* Component tokens */
+  --pairing-rule: var(--color-border);
+  --pairing-kicker: var(--color-text-highlight);
+  --pairing-price: var(--color-text-accent);
+  --pairing-glass: calc(var(--font-size-body) * 3);
+
+  display: grid;
+  padding: 0;
+  list-style: none;
+  border-block-start: 1px solid var(--pairing-rule);
+}
+
+.pairing__item {
+  display: grid;
+  grid-template-columns: var(--pairing-glass) minmax(0, 1fr);
+  gap: var(--space-1) var(--space-2);
+  padding-block: var(--space-2);
+  border-block-end: 1px solid var(--pairing-rule);
+}
+
+/* Wide screens: name | text in one row */
+@media (min-width: 64rem) {
+  .pairing__item {
+    grid-template-columns: var(--pairing-glass) minmax(0, 1fr) minmax(0, 3fr);
+    gap: var(--space-grid);
+    align-items: baseline;
+  }
+}
+
+.pairing__kicker {
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-strong);
+  letter-spacing: var(--letter-spacing-eyebrow);
+  text-transform: uppercase;
+  color: var(--pairing-kicker);
+}
+
+.pairing__title {
+  font-size: var(--font-size-body); /* titles of cards are bold text */
+  font-weight: var(--font-weight-heading);
+  line-height: var(--line-height-heading);
+}
+
+/* The glass sits beside the name; on small screens the text goes below */
+.pairing__item > .pairing__glass {
+  --illustration-size: var(--pairing-glass);
+  grid-row: span 2;
+  align-self: start;
+}
+
+@media (min-width: 64rem) {
+  .pairing__item > .pairing__glass {
+    grid-row: auto;
+  }
+}
+
+/* The price, like on a wine list: in tokens */
+.pairing__price {
+  font-weight: var(--font-weight-strong);
+  color: var(--pairing-price);
+}

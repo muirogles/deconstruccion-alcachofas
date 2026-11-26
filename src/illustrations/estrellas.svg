@@ -1,0 +1,6 @@
+<svg viewBox="0 0 240 240" class="ill ill--estrellas">
+  <!-- Three generic five-point stars (not any guide's logo) -->
+  <g class="ill-part ill-part--stamp" style="--i:0"><path class="ill-amber ill-stroke" d="M50 106 L59 128 L82 129 L64 143 L70 166 L50 153 L30 166 L36 143 L18 129 L41 128Z"/></g>
+  <g class="ill-part ill-part--stamp" style="--i:1"><path class="ill-amber ill-stroke" d="M120 62 L132 92 L164 93 L139 113 L148 144 L120 126 L92 144 L101 113 L76 93 L108 92Z"/></g>
+  <g class="ill-part ill-part--stamp" style="--i:2"><path class="ill-amber ill-stroke" d="M190 106 L199 128 L222 129 L204 143 L210 166 L190 153 L170 166 L176 143 L158 129 L181 128Z"/></g>
+</svg>

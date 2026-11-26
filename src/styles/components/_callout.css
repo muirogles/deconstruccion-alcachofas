@@ -1,0 +1,29 @@
+/* Callout: tip, warning or note. Meaning is never carried by colour alone */
+.callout {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-2);
+  align-items: start;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-card);
+  background-color: var(--color-surface-accent-soft);
+  color: var(--color-text);
+}
+
+.callout--highlight {
+  background-color: var(--color-surface-highlight-soft);
+}
+
+.callout__icon {
+  font-size: var(--font-size-lead);
+  line-height: 1;
+}
+
+.callout__title {
+  font-weight: var(--font-weight-heading);
+}
+
+.callout__body > * + * {
+  margin-block-start: var(--space-1);
+}
+

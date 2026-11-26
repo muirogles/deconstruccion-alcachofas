@@ -1,0 +1,10 @@
+<svg viewBox="0 0 240 240" class="ill ill--yema">
+  <!-- Plate with a yolk dropping onto it -->
+  <ellipse class="ill-smoke ill-stroke" cx="120" cy="178" rx="96" ry="30"/>
+  <ellipse class="ill-paper" cx="120" cy="174" rx="66" ry="18"/>
+  <g class="ill-part ill-part--drop" style="--i:0">
+    <path class="ill-paper ill-stroke" d="M64 160 C52 132 82 112 112 120 C130 106 168 114 172 140 C186 156 166 176 140 172 C116 182 74 182 64 160Z"/>
+    <circle class="ill-amber ill-stroke" cx="118" cy="146" r="22"/>
+    <path class="ill-line ill-line--light" d="M108 138 C110 134 114 132 118 132"/>
+  </g>
+</svg>

@@ -1,0 +1,45 @@
+/* Accessible data table with horizontal scroll on small screens */
+.data-table {
+  inline-size: 100%;
+  overflow-x: auto;
+  border-radius: var(--radius-card);
+  border: 1px solid var(--color-border-subtle);
+  background-color: var(--color-surface-raised);
+  color: var(--color-text);
+}
+
+.data-table:focus-visible {
+  outline-offset: 4px;
+}
+
+.data-table__table {
+  inline-size: 100%;
+  min-inline-size: 40em;
+  border-collapse: collapse;
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-heading);
+}
+
+.data-table__caption {
+  padding: var(--space-2);
+  text-align: start;
+  font-weight: var(--font-weight-heading);
+}
+
+.data-table__table th,
+.data-table__table td {
+  padding: var(--space-1) var(--space-2);
+  text-align: start;
+  vertical-align: top;
+  border-block-start: 1px solid var(--color-border-subtle);
+}
+
+.data-table__table thead th {
+  background-color: var(--color-surface-sunken);
+  font-weight: var(--font-weight-heading);
+}
+
+.data-table__table tbody th {
+  font-weight: var(--font-weight-strong);
+}
+

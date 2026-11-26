@@ -1,0 +1,9 @@
+<svg viewBox="0 0 240 168" class="ill ill--cupula">
+  <!-- Silver cloche (dome only), lifted in the hero reveal -->
+  <rect class="ill-ink" x="112" y="26" width="16" height="22" rx="4"/>
+  <ellipse class="ill-ink" cx="120" cy="24" rx="20" ry="10"/>
+  <path class="ill-mist ill-stroke" d="M24 146 C24 82 66 44 120 44 C174 44 216 82 216 146Z"/>
+  <path class="ill-shine" d="M54 124 C58 96 76 74 104 62"/>
+  <path class="ill-shine ill-shine--thin" d="M60 140 C60 136 60 134 61 130"/>
+  <rect class="ill-stone ill-stroke" x="10" y="140" width="220" height="18" rx="9"/>
+</svg>

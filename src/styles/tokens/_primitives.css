@@ -1,0 +1,43 @@
+/* ==========================================================================
+   PRIMITIVE TOKENS · raw, theme-agnostic values (DTCG layer 1)
+   Base 8: every value is a multiple of 8px (1rem = 16px).
+   Components never read primitives: they read semantic tokens
+   (_semantic.css), which point here. Brand primitives (palette, families,
+   motion, radii) live in the theme (themes/), not here.
+   ========================================================================== */
+
+:root {
+  /* Dimension · spacing (8 × n) */
+  --space-half: 0.25rem; /* 4  · optical adjustments only */
+  --space-1: 0.5rem;     /* 8  */
+  --space-2: 1rem;       /* 16 */
+  --space-3: 1.5rem;     /* 24 */
+  --space-4: 2rem;       /* 32 */
+  --space-5: 2.5rem;     /* 40 */
+  --space-6: 3rem;       /* 48 */
+  --space-8: 4rem;       /* 64 */
+  --space-10: 5rem;      /* 80 */
+  --space-12: 6rem;      /* 96 */
+
+  /* Dimension · font size (named by px value, all multiples of 8) */
+  --font-size-16: 1rem;
+  --font-size-24: 1.5rem;
+  --font-size-32: 2rem;
+  --font-size-40: 2.5rem;
+  --font-size-48: 3rem;
+  --font-size-56: 3.5rem;
+  --font-size-64: 4rem;
+  --font-size-72: 4.5rem;
+  --font-size-80: 5rem;
+  --font-size-96: 6rem;
+  --font-size-128: 8rem;
+
+  /* Number · line height (canon: display 1.1, headings 1.25, body 1.6) */
+  --line-height-110: 1.1;
+  --line-height-125: 1.25;
+  --line-height-160: 1.6;
+
+  /* Dimension · letter spacing */
+  --letter-spacing-tight: -0.02em;
+  --letter-spacing-wide: 0.08em;
+}

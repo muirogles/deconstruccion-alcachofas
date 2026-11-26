@@ -1,0 +1,12 @@
+<svg viewBox="0 0 240 240" class="ill ill--migas">
+  <!-- Crumbs falling onto a small pile -->
+  <g class="ill-part ill-part--drop" style="--i:0"><path class="ill-amber ill-stroke" d="M70 50 L86 44 L92 60 L76 66Z"/></g>
+  <g class="ill-part ill-part--drop" style="--i:1"><path class="ill-amber ill-stroke" d="M118 30 L132 34 L128 48 L114 46Z"/></g>
+  <g class="ill-part ill-part--drop" style="--i:2"><path class="ill-orange ill-stroke" d="M158 58 L174 62 L168 76 L154 72Z"/></g>
+  <g class="ill-part ill-part--drop" style="--i:3"><path class="ill-amber ill-stroke" d="M100 84 L112 80 L116 94 L104 96Z"/></g>
+  <path class="ill-amber ill-stroke" d="M50 196 C64 152 96 140 120 140 C150 140 178 156 192 196Z"/>
+  <circle class="ill-orange" cx="96" cy="170" r="6"/>
+  <circle class="ill-orange" cx="132" cy="160" r="5"/>
+  <circle class="ill-orange" cx="152" cy="180" r="6"/>
+  <circle class="ill-paper" cx="114" cy="182" r="4"/>
+</svg>

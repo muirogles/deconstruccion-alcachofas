@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Informe de auditoría del sistema de diseño</title>
+    <!--
+      INFORME · «Deconstrucción de alcachofas con jamón»
+      This page paints itself from hallazgos.js, saved next to it. No need to edit this file.
+      - Data format: see hallazgos-ejemplo.js (https://muirogles.github.io/deconstruccion-alcachofas/hallazgos-ejemplo.js).
+      - Without hallazgos.js it shows that example, marked as an example. People never write hallazgos.js by hand: their AI writes it in step 5.
+      - Screenshots: one per width where the finding fails, named with that width: capturas/H-01-1440.png,
+        H-01-360.png… (and H-01-1440-contexto.png when that entry has «contexto»). Older data without
+        «capturas» still paints capturas/H-01.png and H-01-contexto.png. An empty list («capturas: []») means
+        there is nothing to capture (a token file, a pattern the system lacks): the card points to its «fuente».
+      - The Arcasiles Group logo appears only when the audited web is arcasiles.com.
+      - Auditing another web: change the colour values in :root to that system's tokens, by hand.
+      - Always keep the method credit (.report__method) and the licence notice: CC BY 4.0 asks for them.
+    -->
+    <!--
+      Licence: method, structure and text of this template, CC BY 4.0 (María Rogles).
+      Arcasiles Group logo and visual styles (colours): © Arcasiles Group, used with
+      permission in the context of the talk at Diseño e IA by Arcasiles; not licensed
+      for reuse.
+      The logo is the official SVG (brand.arcasiles.com/logos/arcasiles-group-dark.svg),
+      embedded unchanged. See LICENSE.md in the repository.
+    -->
+    <style>
+      :root {
+        --ink: #272727; --mute: #5d5d5d; --line: #e9e9e9; --smoke: #f5f5f5; --white: #fff;
+        --amber: #f9be4a; --amber-soft: #fff8e7; --lila: #674a98; --lila-soft: #eae4f8;
+        --green-text: #386848; --danger: #b3362a; --link: #114f82; --focus: #2797c4;
+        --space-1: 0.5rem; --space-2: 1rem; --space-3: 1.5rem; --space-4: 2rem; --space-6: 3rem;
+        --radius: 0.75rem;
+        --font: system-ui, -apple-system, "Segoe UI", sans-serif;
+      }
+      * { box-sizing: border-box; }
+      /* Surfaces, not borders: white panels on a smoke page (no card borders, no side stripes) */
+      body { margin: 0; background: var(--smoke); color: var(--ink); font: 1rem/1.6 var(--font); }
+      a { color: var(--link); }
+      /* Focus: 2px blue ring offset 2px (canon rules.focus), same as the landing */
+      :focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: 0.25rem; }
+      img { max-inline-size: 100%; block-size: auto; display: block; }
+      [hidden] { display: none !important; }
+      .report { max-inline-size: 72rem; margin-inline: auto; padding: var(--space-4) var(--space-2); display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-6); }
+      /* Cover: signed by the logo (the Arcasiles manual: formal documents are signed by the logotype) */
+      .report__cover { display: grid; gap: var(--space-4); padding: var(--space-6) var(--space-4); border-radius: var(--radius); background: var(--white); }
+      .report__title { display: grid; gap: var(--space-1); align-content: center; }
+      /* Wide: the logo signs the cover beside the title; the rest of the cover spans both */
+      @media (min-width: 56em) {
+        .report__cover:has(.report__brand:not([hidden])) { grid-template-columns: auto minmax(0, 1fr); column-gap: var(--space-4); }
+        .report__cover > :not(.report__brand):not(.report__title) { grid-column: 1 / -1; }
+      }
+      /* Official logo, untouched. The SVG box already includes its clear space; nothing else goes inside it.
+         18rem box keeps the visible mark above the 120 pt minimum for web headers. */
+      .report__brand { display: flex; }
+      .report__logo { inline-size: min(18rem, 100%); block-size: auto; }
+      /* Who made the method, at the foot of the cover */
+      .report__method { margin: 0; padding-block-start: var(--space-2); border-block-start: 1px solid var(--line); font-size: 0.875rem; color: var(--mute); }
+      .report__licence { font-size: 0.875rem; color: var(--mute); }
+      .report__eyebrow { margin: 0; font-size: 0.875rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #8d5d27; }
+      h1 { margin: 0; font-size: 2rem; line-height: 1.1; }
+      @media (min-width: 40em) { h1 { font-size: 3rem; } }
+      h2 { margin: 0 0 var(--space-2); font-size: 1.5rem; line-height: 1.25; }
+      h3 { margin: 0; font-size: 1.125rem; line-height: 1.25; }
+      .meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: var(--space-1) var(--space-3); margin: 0; }
+      .meta div { display: grid; align-content: start; }
+      .meta dt { font-size: 0.875rem; font-weight: 600; color: var(--mute); }
+      .meta dd { margin: 0; overflow-wrap: anywhere; }
+      .badge { display: inline-block; padding: 0.125em 0.75em; border-radius: 100px; font-size: 0.875rem; font-weight: 600; background: var(--line); }
+      .badge--high { background: var(--danger); color: var(--white); }
+      .badge--medium { background: var(--amber); color: var(--ink); }
+      .badge--low { background: var(--lila-soft); color: var(--ink); }
+      .badge--ok { background: #dcefdc; color: var(--green-text); }
+      .badge--pending { background: var(--amber-soft); color: #8d5d27; }
+      .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: var(--space-2); }
+      .card { background: var(--white); border-radius: var(--radius); padding: var(--space-3); display: grid; gap: var(--space-1); align-content: start; }
+      .card--demo { background: var(--amber-soft); }
+      .card p { margin: 0; }
+      .metric { font-size: 2rem; font-weight: 800; line-height: 1.1; }
+      .stars { font-size: 1.25rem; letter-spacing: 0.1em; color: #8d5d27; }
+      .table-wrap { overflow-x: auto; background: var(--white); border-radius: var(--radius); }
+      table { inline-size: 100%; min-inline-size: 44rem; border-collapse: collapse; font-size: 0.9375rem; }
+      caption { padding: var(--space-2); text-align: start; font-weight: 700; }
+      th, td { padding: var(--space-1) var(--space-2); text-align: start; vertical-align: top; border-block-start: 1px solid var(--line); }
+      thead th { background: var(--smoke); }
+      .finding { background: var(--white); border-radius: var(--radius); padding: var(--space-4); display: grid; gap: var(--space-3); scroll-margin-block-start: var(--space-2); }
+      .finding__head { display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-2); align-items: center; justify-content: space-between; padding-block-end: var(--space-2); border-block-end: 1px solid var(--line); }
+      .finding__head p { margin: 0; display: flex; flex-wrap: wrap; gap: var(--space-1); }
+      /* The ID of the finding, as a label you can refer to */
+      .finding__id { display: inline-block; margin-inline-end: var(--space-1); padding: 0.125em 0.5em; border-radius: 0.5rem; background: var(--amber); font-variant-numeric: tabular-nums; }
+      .finding__body { display: grid; gap: var(--space-3); grid-template-columns: minmax(0, 1fr); }
+      @media (min-width: 56em) { .finding__body { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); } }
+      .evidence { margin: 0; display: grid; gap: var(--space-1); align-self: start; }
+      .evidence__shots { display: grid; gap: var(--space-2); }
+      /* One screenshot per width, each with its own caption */
+      .evidence__shot { margin: 0; display: grid; gap: var(--space-1); }
+      .evidence img { border-radius: 0.5rem; background: repeating-conic-gradient(#ececec 0 25%, #fff 0 50%) 0 0 / 16px 16px; }
+      /* A screenshot that is not in capturas/ yet: say which file is missing */
+      .evidence__missing, .evidence__note { margin: 0; padding: var(--space-3); border-radius: 0.5rem; background: var(--smoke); color: var(--mute); font-size: 0.875rem; overflow-wrap: anywhere; }
+      .evidence figcaption { font-size: 0.875rem; color: var(--mute); }
+      .facts { display: grid; grid-template-columns: max-content 1fr; gap: var(--space-1) var(--space-2); margin: 0; }
+      .facts dt { font-weight: 600; }
+      .facts dd { margin: 0; overflow-wrap: anywhere; }
+      .pending { color: var(--mute); }
+      code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.9em; background: var(--smoke); padding: 0.1em 0.35em; border-radius: 0.25em; }
+      .discarded li { margin-block-end: var(--space-1); }
+      .discarded__lead, .discarded__next { color: var(--mute); }
+      @media print {
+        body { background: var(--white); }
+        .report__cover, .card, .finding, .table-wrap { background: var(--white); }
+        .finding, .card { break-inside: avoid; }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="report">
+      <aside class="card card--demo" data-notice hidden aria-live="polite"></aside>
+
+      <!-- ============ PORTADA ============ -->
+      <header class="report__cover">
+        <div class="report__brand" data-brand hidden>
+          <img class="report__logo" src="data:image/svg+xml;base64,PHN2ZyBpZD0iQ2FwYV8xIiBkYXRhLW5hbWU9IkNhcGEgMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMTA4MCAxMDgwIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6IzI3MjcyNzt9PC9zdHlsZT48L2RlZnM+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMzczLjUyLDUxNS4xM2EzNS40OCwzNS40OCwwLDAsMS0xNS4zNC0zLjRBMzMuMjksMzMuMjksMCwwLDEsMzQ3LjYyLDUwNGEyLjY3LDIuNjcsMCwwLDAtMy41OS0uMzQsNjcuMjUsNjcuMjUsMCwwLDEtMTcuOTEsOS44MkE3Mi45MSw3Mi45MSwwLDAsMSwzMDMuMzMsNTE4YTU1LjM2LDU1LjM2LDAsMCwxLTIzLTQuMTksNTIuMTksNTIuMTksMCwwLDEtMTkuNzctMTQuMDYsNjAuMTksNjAuMTksMCwwLDEtMTIuMjQtMjAuNzksNzIuOSw3Mi45LDAsMCwxLTQuMTgtMjMuNyw3MC42OSw3MC42OSwwLDAsMSwzLjg4LTIzLjQsNjkuMjYsNjkuMjYsMCwwLDEsMTAuOTEtMjAuNDJBNTEuODMsNTEuODMsMCwwLDEsMjc2Ljg0LDM5Nyw1My4wOCw1My4wOCwwLDAsMSwzMDEsMzkxLjQ4cTEyLDAsMTkuMzMsMy4yN2E0Mi4wOCw0Mi4wOCwwLDAsMSw4Ljc2LDUuMjgsMi43LDIuNywwLDAsMCw0LjQtMi4xaDBhMi42OCwyLjY4LDAsMCwxLDIuNjktMi42OWgzNi41NWEyLjY5LDIuNjksMCwwLDEsMi43LDIuNjl2NzdhMi43LDIuNywwLDAsMCwyLjcsMi43aDMuNTdhMi43LDIuNywwLDAsMSwyLjcsMi43djMyLjA2YTIuNywyLjcsMCwwLDEtMi43LDIuN1ptLTg1LjExLTYxLjU4cTAsMjEuMzMsMjEuODMsMjEuMzNoMS40NXExMS4yNiwwLDE2LjY3LTUuMTV0NS40LTE1LjdxMC0yMS4zMy0yMS44Mi0yMS4zNGgtMS40NnEtMTEuMjgsMC0xNi42Nyw1LjE2VDI4OC40MSw0NTMuNTVaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNTA4LjA4LDUxNi4zNHEtMjUuMDgsMC00Ni4yNy0yOC44OGEyLjcsMi43LDAsMCwwLTQuODksMS41OHYyMi40MmEyLjcsMi43LDAsMCwxLTIuNywyLjdINDE0LjQxYTIuNywyLjcsMCwwLDEtMi43LTIuN1YzNDMuMjZhMi43LDIuNywwLDAsMSwyLjctMi43SDQ2OC44cTYuNTYsMCwxMi4wNi4zNmExMTMuNDQsMTEzLjQ0LDAsMCwxLDEyLjkxLDEuNzYsNzEuMzEsNzEuMzEsMCwwLDEsMTMuMjgsMy43Niw1Ny4xMSw1Ny4xMSwwLDAsMSwxMS44OCw2LjY3QTQxLjM3LDQxLjM3LDAsMCwxLDUyOSwzNjMuMjksNTAuNDksNTAuNDksMCwwLDEsNTM1LjYsMzc4YTcwLjY4LDcwLjY4LDAsMCwxLDIuNTQsMTkuNyw3Ny44Niw3Ny44NiwwLDAsMS0yLjE4LDE5LDU3LjI4LDU3LjI4LDAsMCwxLTUuNTcsMTQuNTUsNDYuNTYsNDYuNTYsMCwwLDEtOC4yNSwxMC40OCw0OS43Miw0OS43MiwwLDAsMS05LjM5LDcuMjIsNTguNzUsNTguNzUsMCwwLDEtOS45NSw0LjQ4LDY4LjI0LDY4LjI0LDAsMCwxLTksMi42MWMtMS4xMS4yMi0yLjIzLjQyLTMuMzQuNTlhMi42OSwyLjY5LDAsMCwwLTEuODgsNC4xYzMuMjUsNS4xOCw4Ljg1LDEyLjc3LDEwLjU2LDE0LjFhMjQsMjQsMCwwLDAsNi40MiwzLjcsOC44NSw4Ljg1LDAsMCwwLDUuOTQuMjQsMTEuOSwxMS45LDAsMCwwLDUtMy4yMSwxNi43NywxNi43NywwLDAsMCwzLjUxLTYuNTUsMzguODYsMzguODYsMCwwLDAsMS40OS03LjU0LDIuNywyLjcsMCwwLDEsMi42OC0yLjRoMzIuMWEyLjcxLDIuNzEsMCwwLDEsMi43LDIuODYsNjkuNzEsNjkuNzEsMCwwLDEtNS4zOSwyMy42OXEtNi4xOSwxNC42Ny0xOC4wNywyMi43M0E0Ny41Nyw0Ny41NywwLDAsMSw1MDguMDgsNTE2LjM0Wk00NTAsMzk5cTAsMjEuMzMsMjEuODIsMjEuMzNoMS40NnExMS4yNiwwLDE2LjY3LTUuMTV0NS4zOS0xNS43cTAtMjEuMzUtMjEuODItMjEuMzRoLTEuNDVxLTExLjI4LDAtMTYuNjcsNS4xNVQ0NTAsMzk5WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTY4My4yMSw1MDkuMTZhMi42OCwyLjY4LDAsMCwxLTEuNTIsMi40M0E3Ni40OCw3Ni40OCwwLDAsMSw2NTMsNTE5LjEzYTY4LjkzLDY4LjkzLDAsMCwxLTI5LjM3LTQuMzksODMsODMsMCwwLDEtMjQuNzctMTUuMDUsNjguMTIsNjguMTIsMCwwLDEtMTcuNS0yNC4zNCw3Ny44NSw3Ny44NSwwLDAsMS02LjQtMzEuNiw3Ni4xMSw3Ni4xMSwwLDAsMSw0LjY4LTI2LjQzLDc4LjYsNzguNiwwLDAsMSwxMi41Mi0yMi40Niw3Ny41OCw3Ny41OCwwLDAsMSwxOC42NS0xNi42Myw3Niw3NiwwLDAsMSwyMi42MS05Ljg2LDY5LjExLDY5LjExLDAsMCwxLDQ4LjM5LDYuMDYsMi43MSwyLjcxLDAsMCwxLDEuNDMsMi40djM5LjIzYTIuNjgsMi42OCwwLDAsMS00LjI3LDIuMThBMzIuNDksMzIuNDksMCwwLDAsNjY3LjczLDQxM2EzOS41LDM5LjUsMCwwLDAtMTguNTgtLjU3LDI3LjMxLDI3LjMxLDAsMCwwLTE1LjU1LDkuOTNxLTYuNTUsOC02LjU1LDIwLjY3YTMxLjQ4LDMxLjQ4LDAsMCwwLDE5LjM3LDI5LjhxOC4yOCwzLjMyLDE4LjQzLDEuMTZhMzQuNCwzNC40LDAsMCwwLDE0LTYuNjYsMi42OSwyLjY5LDAsMCwxLDQuMzEsMi4xNloiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik03MDQuMjgsNTEwLjUzbDUyLjE1LTE0My4wNmEyLjcsMi43LDAsMCwxLDIuNTQtMS43OGgzNy4zN2EyLjcsMi43LDAsMCwxLDIuNTQsMS43OUw4NTAsNTEwLjU1YTIuNywyLjcsMCwwLDEtMi41NCwzLjYxSDgxMi4wNmEyLjcsMi43LDAsMCwxLTIuNTQtMS43OWwtNC4yMy0xMS43OXEtMi40OS02LjU0LTUuNy05LjU0LTcuNDctNi45NC0yMS4yNi03LjI2aC0xLjc2cS0xNCwuMzItMjEuMzYsNi42NGEyNC4wNywyNC4wNywwLDAsMC02LDkuNTNsLTQuNjMsMTIuNDVhMi43LDIuNywwLDAsMS0yLjUzLDEuNzZINzA2LjgyQTIuNywyLjcsMCwwLDEsNzA0LjI4LDUxMC41M1ptNjMuNzgtNTMuOTFoMTguN2EyLjcsMi43LDAsMCwwLDIuNTctMy41M2wtOS4yOC0yOC44N2EyLjcsMi43LDAsMCwwLTUuMTMsMGwtOS40MywyOC44N0EyLjcsMi43LDAsMCwwLDc2OC4wNiw0NTYuNjJaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMzA3LjkyLDc0NC40NWE4Mi41NCw4Mi41NCwwLDAsMS0xNC42Ny0xLjM5LDk4LjQ1LDk4LjQ1LDAsMCwxLTEzLjU4LTMuNHEtNS45NC0yLTEwLjg1LTQuMDZjLTMuMjctMS4zNy01LjgtMi41MS03LjU4LTMuMzlsLTEuMjUtLjY5YTIuNjksMi42OSwwLDAsMS0xLjQxLTIuMzdWNjkxLjdhMi43MSwyLjcxLDAsMCwxLDMuMTEtMi42NywzOS4xMywzOS4xMywwLDAsMSw4LjIyLDIuMTQsOTcuOSw5Ny45LDAsMCwxLDExLjg4LDUuMjEsOTAsOTAsMCwwLDAsMTIuMTMsNS4yMkEzNi40NSwzNi40NSwwLDAsMCwzMDUuNzQsNzA0cTguMzYsMCwxMy4yMS0zLjg4dDQuODUtMTAuNzlxMC0xMC43OC0yMi41NS0xOC41NS02LjktMi40MS0xMi00LjcyYTg0LjE0LDg0LjE0LDAsMCwxLTExLjc2LTYuNzksNTAuNSw1MC41LDAsMCwxLTEwLjkxLTkuNjQsNDYsNDYsMCwwLDEtNy4yOC0xMy4yNyw1MSw1MSwwLDAsMS0zLTE3Ljk0cTAtMjQuNSwxNi44NS00MC4wN3Q0My4yNy0xNS41OGE5Ny42NCw5Ny42NCwwLDAsMSwyMy44MiwzLjA5LDExMy4yLDExMy4yLDAsMCwxLDE4Ljg2LDYuMTJsNS4xMSwyLjQzYTIuNjgsMi42OCwwLDAsMSwxLjU1LDIuNDR2MzcuMzJhMi43MSwyLjcxLDAsMCwxLTMuMSwyLjY4LDQ1LDQ1LDAsMCwxLTExLjItMy40MXEtOC40OS0zLjYzLTE3LjI4LTcuMjd0LTE1LjA5LTMuNjRxLTYuNzksMC0xMC45MSwzLjRBMTEuODEsMTEuODEsMCwwLDAsMzA0LjQ3LDYxOGE3LjkzLDcuOTMsMCwwLDAsMS41LDIuNzljLjc0Ljg5LDEuNDQsMS42OCwyLjEzLDIuMzZhMTUuNDQsMTUuNDQsMCwwLDAsMywyLjE5YzEuMjkuNzcsMi40MywxLjQxLDMuMzksMS45M2EzNS4yNSwzNS4yNSwwLDAsMCw0LjEzLDEuODJjMS43Ny42OSwzLjIxLDEuMjQsNC4zLDEuNjRsNC42NiwxLjc2cTMsMS4xNSw0Ljc0LDEuNzUsMzkuNjMsMTQuNDMsMzkuMjcsNTEuMTZBNjAsNjAsMCwwLDEsMzY5LjY4LDcwMGE2MS42NCw2MS42NCwwLDAsMS02LjU0LDE1LjY0QTU5LjI5LDU5LjI5LDAsMCwxLDM1MS41LDczMHEtNyw2LjMtMTguMywxMC4zNkE3NC43Nyw3NC43NywwLDAsMSwzMDcuOTIsNzQ0LjQ1WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTQwOS44OCw1ODIuODVxMC0yMy4zOSwyNC42MS0yMy4zOUg0MzZxMjQuMzYsMCwyNC4zNywyMy44OCwwLDIzLTI0LjYyLDIzaC0xLjQ1UTQwOS44OSw2MDYuMzcsNDA5Ljg4LDU4Mi44NVptNC4yNCwxNTMuOTNWNjIzLjI2YTIuNywyLjcsMCwwLDEsMi43LTIuN2gzNi41NWEyLjcsMi43LDAsMCwxLDIuNywyLjdWNzM2Ljc4YTIuNywyLjcsMCwwLDEtMi43LDIuN0g0MTYuODJBMi43LDIuNywwLDAsMSw0MTQuMTIsNzM2Ljc4WiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTUwMi4zOSw3MzYuNzhWNTY4LjU4YTIuNywyLjcsMCwwLDEsMi43LTIuN2gzNi41NWEyLjcsMi43LDAsMCwxLDIuNywyLjd2MTY4LjJhMi43LDIuNywwLDAsMS0yLjcsMi43SDUwNS4wOUEyLjcsMi43LDAsMCwxLDUwMi4zOSw3MzYuNzhaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNTkyLjI0LDczNi43OFY1NjguNThhMi43LDIuNywwLDAsMSwyLjctMi43SDY4NC43YTIuNywyLjcsMCwwLDEsMi43LDIuN3YzNS4zNGEyLjY5LDIuNjksMCwwLDEtMi43LDIuNjlINjQ2LjkxUTYzNiw2MDYuNjEsNjM2LDYxOS4xdDEwLjY3LDEyLjYxaDM1LjQ4YTIuNywyLjcsMCwwLDEsMi43LDIuN3YzNS4zM2EyLjcsMi43LDAsMCwxLTIuNywyLjdINjQ2LjkxcS0xMS40LDAtMTEuMzksMTMsMCwxMy4zMywxMS4xNSwxMy4zNGgzOGEyLjcsMi43LDAsMCwxLDIuNywyLjd2MzUuMzNhMi43LDIuNywwLDAsMS0yLjcsMi43SDU5NC45NEEyLjcsMi43LDAsMCwxLDU5Mi4yNCw3MzYuNzhaIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNzgxLjYxLDc0NC40NWE4Mi41NCw4Mi41NCwwLDAsMS0xNC42Ny0xLjM5LDk4LjQ1LDk4LjQ1LDAsMCwxLTEzLjU4LTMuNHEtNS45NC0yLTEwLjg1LTQuMDZjLTMuMjctMS4zNy01LjgtMi41MS03LjU4LTMuMzlsLTEuMjUtLjY5YTIuNjksMi42OSwwLDAsMS0xLjQxLTIuMzdWNjkxLjdhMi43MSwyLjcxLDAsMCwxLDMuMTEtMi42NywzOS4xMywzOS4xMywwLDAsMSw4LjIyLDIuMTQsOTcuMjEsOTcuMjEsMCwwLDEsMTEuODgsNS4yMSw5MCw5MCwwLDAsMCwxMi4xMyw1LjIyQTM2LjQ1LDM2LjQ1LDAsMCwwLDc3OS40Myw3MDRxOC4zNiwwLDEzLjIxLTMuODh0NC44NS0xMC43OXEwLTEwLjc4LTIyLjU1LTE4LjU1LTYuOS0yLjQxLTEyLTQuNzJhODQuMTQsODQuMTQsMCwwLDEtMTEuNzYtNi43OSw1MC41LDUwLjUsMCwwLDEtMTAuOTEtOS42NEE0Niw0NiwwLDAsMSw3MzMsNjM2LjMyYTUxLDUxLDAsMCwxLTMtMTcuOTRxMC0yNC41LDE2Ljg1LTQwLjA3dDQzLjI3LTE1LjU4YTk3LjY0LDk3LjY0LDAsMCwxLDIzLjgyLDMuMDksMTEzLjIsMTEzLjIsMCwwLDEsMTguODYsNi4xMmw1LjEyLDIuNDNhMi42OSwyLjY5LDAsMCwxLDEuNTQsMi40NHYzNy4zMmEyLjcxLDIuNzEsMCwwLDEtMy4xLDIuNjgsNDUsNDUsMCwwLDEtMTEuMi0zLjQxcS04LjQ5LTMuNjMtMTcuMjgtNy4yN3QtMTUuMDktMy42NHEtNi43OSwwLTEwLjkxLDMuNEExMS44MSwxMS44MSwwLDAsMCw3NzguMTYsNjE4YTcuODEsNy44MSwwLDAsMCwxLjUxLDIuNzksMzAuMywzMC4zLDAsMCwwLDIuMTIsMi4zNiwxNS40NCwxNS40NCwwLDAsMCwzLDIuMTljMS4yOS43NywyLjQzLDEuNDEsMy4zOSwxLjkzYTM1LjI1LDM1LjI1LDAsMCwwLDQuMTMsMS44MmMxLjc3LjY5LDMuMjEsMS4yNCw0LjMsMS42NGw0LjY3LDEuNzZxMywxLjE1LDQuNzMsMS43NSwzOS42MywxNC40MywzOS4yNyw1MS4xNkE2MCw2MCwwLDAsMSw4NDMuMzcsNzAwYTYxLjY0LDYxLjY0LDAsMCwxLTYuNTQsMTUuNjRBNTkuMjksNTkuMjksMCwwLDEsODI1LjE5LDczMHEtNyw2LjMtMTguMywxMC4zNkE3NC43Nyw3NC43NywwLDAsMSw3ODEuNjEsNzQ0LjQ1WiIvPjwvc3ZnPg==" alt="Arcasiles Group" width="1080" height="1080" />
+        </div>
+        <div class="report__title">
+          <p class="report__eyebrow">Informe de auditoría del sistema de diseño</p>
+          <h1 data-title>Informe de auditoría</h1>
+        </div>
+        <dl class="meta" data-cover></dl>
+        <aside class="card card--demo" data-demo hidden aria-label="Alcance de la demo">
+          <p><strong>Alcance reducido solo por tiempo de la demo:</strong> la home, en escritorio y en móvil. No es representativo de toda la web.</p>
+        </aside>
+        <p class="report__method">Metodología «Deconstrucción de alcachofas con jamón», de María Rogles, presentada en Diseño e IA by Arcasiles · <a href="https://muirogles.github.io/deconstruccion-alcachofas/">muirogles.github.io/deconstruccion-alcachofas</a></p>
+      </header>
+
+      <noscript>
+        <p class="card card--demo">Este informe se pinta con JavaScript a partir de <code>hallazgos.js</code>. Ábrelo en un navegador con JavaScript activado.</p>
+      </noscript>
+
+      <div data-report hidden></div>
+
+      <!-- ============ ARCHIVOS ============ -->
+      <footer>
+        <h2>Archivos de la auditoría</h2>
+        <p>
+          <a href="00-ingredientes.md">00-ingredientes</a> · <a href="01-cucharadas-caldo.md">01-cucharadas-caldo</a> · <a href="02-pure.md">02-pure</a> ·
+          <a href="03-yema-migas.md">03-yema-migas</a> · <a href="04-baja-temperatura.md">04-baja-temperatura</a> · <a href="06-rectificar.md">06-rectificar</a> ·
+          <a href="hallazgos.js">hallazgos.js</a> · <a href="pizarra.md">pizarra.md</a>
+        </p>
+        <p class="report__licence">Metodología y plantilla: María Rogles · CC BY 4.0. Logo y estilos visuales: © Arcasiles Group, usados con su permiso en el contexto de la charla en Diseño e IA by Arcasiles. El logo solo aparece en auditorías de arcasiles.com; para otra web, cambia los colores por los de su sistema.</p>
+      </footer>
+    </main>
+
+    <!-- Your data: written by your AI in step 5, next to this file -->
+    <script src="hallazgos.js"></script>
+    <script>
+      (function () {
+        'use strict';
+
+        var CRITERIA = [
+          'La calidad de los ingredientes',
+          'El dominio de las técnicas',
+          'La armonía de sabores',
+          'La personalidad del chef',
+          'La regularidad en toda la carta y en el tiempo',
+        ];
+        var IMPACT = {
+          alto: { badge: 'badge--high', label: 'Alto' },
+          medio: { badge: 'badge--medium', label: 'Medio' },
+          bajo: { badge: 'badge--low', label: 'Bajo' },
+        };
+        var PENDING = 'Pendiente (paso 6)';
+        var MISSING = 'Todavía no hay hallazgos: tu IA los escribe en hallazgos.js, en esta misma carpeta, al terminar el paso 5 (emplatado). Vuelve a abrir el informe cuando acabe.';
+
+        // Builds an element. Text always goes in as text, never as HTML.
+        function h(tag, attrs) {
+          var node = document.createElement(tag);
+          Object.keys(attrs || {}).forEach(function (key) {
+            var value = attrs[key];
+            if (value === null || value === undefined || value === false) return;
+            if (key === 'class') node.className = value;
+            else node.setAttribute(key, value === true ? '' : String(value));
+          });
+          for (var i = 2; i < arguments.length; i++) append(node, arguments[i]);
+          return node;
+        }
+        function append(node, child) {
+          if (child === null || child === undefined || child === false || child === '') return;
+          if (Array.isArray(child)) return child.forEach(function (c) { append(node, c); });
+          node.append(child instanceof Node ? child : document.createTextNode(String(child)));
+        }
+        function has(value) {
+          return value !== null && value !== undefined && String(value).trim() !== '';
+        }
+        function text(value, fallback) {
+          return has(value) ? String(value) : (fallback === undefined ? '—' : fallback);
+        }
+        // Only web addresses or files of this folder become links
+        function safeHref(value) {
+          if (typeof value !== 'string') return null;
+          var v = value.trim();
+          if (/^https?:\/\//i.test(v)) return v;
+          if (/^[\w][\w./-]*$/.test(v) && v.indexOf('..') < 0) return v;
+          return null;
+        }
+        function link(href, label) {
+          var safe = safeHref(href);
+          return safe ? h('a', { href: safe }, label) : label;
+        }
+        function pathOf(url) {
+          try { return new URL(url).pathname || '/'; } catch (e) { return text(url); }
+        }
+        function hostOf(url) {
+          try { return new URL(url).hostname.replace(/^www\./, ''); } catch (e) { return ''; }
+        }
+        function stars(points) {
+          var n = Math.max(0, Math.min(3, Math.round(Number(points) || 0)));
+          return '★★★'.slice(0, n) + '☆☆☆'.slice(0, 3 - n);
+        }
+        // Percentages in Spanish: 5,9 %
+        function percent(value) {
+          var n = Number(value);
+          return (String(value).trim() !== '' && isFinite(n) ? n.toLocaleString('es-ES', { maximumFractionDigits: 1 }) : String(value)) + ' %';
+        }
+        function findingId(finding, index) {
+          return /^H-\d{2,3}$/.test(finding.id || '') ? finding.id : 'H-' + String(index + 1).padStart(2, '0');
+        }
+        function impactOf(finding) {
+          return IMPACT[String(finding.impacto || '').toLowerCase()] || { badge: '', label: text(finding.impacto) };
+        }
+        function section(id, title) {
+          var s = h('section', { 'aria-labelledby': id }, h('h2', { id: id }, title));
+          return s;
+        }
+        function tableRegion(captionId, caption, head, rows) {
+          return h('div', { class: 'table-wrap', tabindex: '0', role: 'region', 'aria-labelledby': captionId },
+            h('table', null,
+              h('caption', { id: captionId }, caption),
+              h('thead', null, h('tr', null, head.map(function (col) { return h('th', { scope: 'col' }, col); }))),
+              h('tbody', null, rows)));
+        }
+        // Screenshot, or a clear note about the file that is missing
+        function shot(src, alt) {
+          var img = h('img', { src: src, alt: text(alt, 'Captura ' + src) });
+          img.addEventListener('error', function () {
+            img.replaceWith(h('p', { class: 'evidence__missing' }, 'Falta la captura ', h('code', null, src), '.'));
+          });
+          return img;
+        }
+
+        function renderCover(data) {
+          var web = data.web || {};
+          var system = data.sistema || {};
+          var sample = data.muestra || {};
+          var name = text(web.nombre, hostOf(web.url) || 'Informe de auditoría');
+          document.title = 'Informe de auditoría del sistema de diseño · ' + name;
+          document.querySelector('[data-title]').textContent = name;
+          document.querySelector('[data-brand]').hidden = !/(^|\.)arcasiles\.com$/.test(hostOf(web.url));
+          document.querySelector('[data-demo]').hidden = !data.alcanceDemo;
+          var rows = [
+            ['Web auditada', link(web.url, text(web.url))],
+            ['Sistema de diseño', [link(system.url, text(system.url)), has(system.version) ? ' · versión ' + system.version : '']],
+            ['Fecha', text(data.fecha)],
+            ['Autoría', text(data.autoria)],
+            ['Muestra (WCAG-EM 2)', [text(sample.estructuradas, '?') + ' estructuradas + ' + text(sample.aleatorias, '?') + ' aleatorias · ', link('01-cucharadas-caldo.md', '01-cucharadas-caldo.md')]],
+            ['Viewports', text(data.viewports, 'Escritorio 1440 px · móvil 360 px')],
+          ];
+          var cover = document.querySelector('[data-cover]');
+          rows.forEach(function (row) { cover.append(h('div', null, h('dt', null, row[0]), h('dd', null, row[1]))); });
+        }
+
+        function renderSummary(data, findings) {
+          var summary = data.resumen || {};
+          var verified = findings.filter(function (f) { return f.verificado === true; }).length;
+          var count = function (level) { return findings.filter(function (f) { return String(f.impacto || '').toLowerCase() === level; }).length; };
+          var card = function (metric, label) { return h('div', { class: 'card' }, h('span', { class: 'metric' }, metric), h('span', null, label)); };
+          var s = section('resumen', 'Resumen');
+          s.append(h('div', { class: 'grid' },
+            card(String(findings.length), (findings.length === 1 ? 'hallazgo' : 'hallazgos') + ' · ' + verified + (verified === 1 ? ' verificado a mano' : ' verificados a mano')),
+            card(count('alto') + ' · ' + count('medio') + ' · ' + count('bajo'), 'impacto alto · medio · bajo'),
+            card(has(summary.cobertura) ? percent(summary.cobertura) : '—', 'cobertura: lo visto que sale del sistema'),
+            card(text(summary.deriva), 'valores escritos a mano (deriva)')));
+          return s;
+        }
+
+        function renderMichelin(data) {
+          var scores = Array.isArray(data.michelin) ? data.michelin : [];
+          var rows = CRITERIA.map(function (name, i) {
+            var score = scores[i] || {};
+            var known = has(score.puntos);
+            return h('tr', null,
+              h('th', { scope: 'row' }, name),
+              h('td', null, known ? [h('span', { class: 'stars', 'aria-hidden': 'true' }, stars(score.puntos)), ' ' + score.puntos + '/3'] : '—'),
+              h('td', null, text(score.evidencia)));
+          });
+          var s = section('michelin', 'Guía Michelin del sistema');
+          s.append(tableRegion('michelin-cap', 'Valoración de 0 a 3 con evidencia (1 merece la parada · 2 el desvío · 3 el viaje)', ['Criterio', 'Puntos', 'Evidencia'], rows));
+          return s;
+        }
+
+        function renderHealth(data) {
+          var health = data.salud || {};
+          var items = [
+            ['Cobertura', health.cobertura],
+            ['Deriva', health.deriva],
+            ['Duplicados', health.duplicados],
+            ['Huérfanos', health.huerfanos],
+            ['Paridad', health.paridad],
+          ];
+          var s = section('salud', 'Salud del sistema');
+          s.append(h('dl', { class: 'facts' }, items.map(function (item) { return [h('dt', null, item[0]), h('dd', null, text(item[1]))]; })));
+          return s;
+        }
+
+        function fixedWhere(finding) {
+          return has(finding.dondeSeCorrige) ? String(finding.dondeSeCorrige) : h('span', { class: 'pending' }, PENDING);
+        }
+
+        function renderIndex(findings) {
+          var rows = findings.map(function (f) {
+            var impact = impactOf(f);
+            return h('tr', null,
+              h('td', null, h('a', { href: '#' + f._id }, f._id)),
+              h('td', null, pathOf(f.pagina)),
+              h('td', null, text(f.capa)),
+              h('td', null, text(f.titulo)),
+              h('td', null, h('span', { class: 'badge ' + impact.badge }, impact.label)),
+              h('td', null, text(f.esfuerzo)),
+              h('td', null, fixedWhere(f)));
+          });
+          var s = section('indice', 'Hallazgos');
+          s.append(tableRegion('indice-cap', 'Ordenados por impacto y esfuerzo', ['ID', 'Página', 'Capa', 'Hallazgo', 'Impacto', 'Esfuerzo', 'Dónde se corrige'], rows));
+          return s;
+        }
+
+        // Screenshots of a finding: one per width (capturas/H-01-1440.png…), or the older single one
+        function widthsOf(f) {
+          return (Array.isArray(f.capturas) ? f.capturas : []).filter(function (c) { return c && /\d/.test(String(c.ancho)); });
+        }
+        function shotsOf(f) {
+          var list = widthsOf(f);
+          // An empty list on purpose: nothing visual to capture, the evidence is in its source file
+          if (!list.length && Array.isArray(f.capturas)) {
+            return h('p', { class: 'evidence__note' }, 'Sin captura: la evidencia está en ', has(f.fuente) ? h('code', null, String(f.fuente)) : 'su fuente', '.');
+          }
+          if (!list.length) {
+            var single = h('div', { class: 'evidence__shots' }, shot('capturas/' + f._id + '.png', f.alt));
+            if (has(f.contexto)) single.append(shot('capturas/' + f._id + '-contexto.png', f.contexto));
+            return single;
+          }
+          return h('div', { class: 'evidence__shots' }, list.map(function (c) {
+            var width = String(c.ancho).replace(/\D/g, '');
+            var base = 'capturas/' + f._id + '-' + width;
+            return h('figure', { class: 'evidence__shot' },
+              shot(base + '.png', c.alt),
+              has(c.contexto) ? shot(base + '-contexto.png', c.contexto) : null,
+              h('figcaption', null, width + ' px'));
+          }));
+        }
+
+        function renderFinding(f) {
+          var impact = impactOf(f);
+          var shots = shotsOf(f);
+          var caption = [pathOf(f.pagina), widthsOf(f).length ? null : f.viewport, f.estado].filter(has).join(' · ');
+          var facts = [
+            ['Página', link(f.pagina, pathOf(f.pagina))],
+            ['Elemento', h('code', null, text(f.selector))],
+            has(f.estado) ? ['Estado', text(f.estado)] : null,
+            ['Valor actual', h('code', null, text(f.valorActual))],
+            ['Valor del sistema', h('code', null, text(f.valorSistema))],
+            ['Regla o spec', text(f.regla)],
+            ['Esfuerzo', text(f.esfuerzo)],
+            ['Dónde se corrige', has(f.dondeSeCorrige) ? [String(f.dondeSeCorrige), ' → ', link('06-rectificar.md', 'issue')] : fixedWhere(f)],
+            has(f.criterio) ? ['Criterio de aceptación', text(f.criterio)] : null,
+            has(f.ronda) ? ['Ronda', text(f.ronda)] : null,
+            ['Propuesta', text(f.propuesta)],
+            ['Fuente', has(f.fuente) ? link(f.fuente, String(f.fuente)) : '—'],
+          ].filter(Boolean);
+          return h('article', { class: 'finding', id: f._id, 'aria-labelledby': f._id + '-title' },
+            h('div', { class: 'finding__head' },
+              h('h3', { id: f._id + '-title' }, h('span', { class: 'finding__id' }, f._id), ' ' + text(f.titulo)),
+              h('p', null,
+                h('span', { class: 'badge ' + impact.badge }, 'Impacto ' + impact.label.toLowerCase()),
+                has(f.capa) ? h('span', { class: 'badge' }, String(f.capa)) : null,
+                f.verificado === true
+                  ? h('span', { class: 'badge badge--ok' }, 'Verificado a mano')
+                  : h('span', { class: 'badge badge--pending' }, 'Sin verificar'))),
+            h('div', { class: 'finding__body' },
+              h('figure', { class: 'evidence' }, shots, caption ? h('figcaption', null, caption) : null),
+              h('div', null, h('dl', { class: 'facts' }, facts.map(function (row) { return [h('dt', null, row[0]), h('dd', null, row[1])]; })))));
+        }
+
+        // What the AI proposed and is not a finding, in three groups (by «tipo»)
+        var DISCARD_GROUPS = [
+          { tipo: 'falso positivo', title: 'Falsos positivos', lead: 'La IA lo vio como un fallo; al comprobarlo, no lo es.' },
+          { tipo: 'por comprobar', title: 'Por comprobar', lead: 'Puede ser un fallo, pero no se ha podido demostrar. Cada uno dice cómo se comprobaría.', extra: ['comoComprobar', 'Cómo se comprueba: '] },
+          { tipo: 'visto de paso', title: 'Visto de paso', lead: 'No es del sistema de diseño ni de accesibilidad, pero se ha visto: se le pasa a quien corresponde.', extra: ['para', 'Se le pasa a: '] },
+        ];
+        function discardedList(items, extra) {
+          return h('ul', { class: 'discarded' }, items.map(function (d) {
+            return h('li', null, h('strong', null, text(d.titulo)), ': ' + text(d.motivo),
+              extra && has(d[extra[0]]) ? [' ', h('span', { class: 'discarded__next' }, extra[1] + String(d[extra[0]]))] : null);
+          }));
+        }
+        function renderDiscarded(data) {
+          var list = Array.isArray(data.descartados) ? data.descartados : [];
+          var typed = list.some(function (d) { return d && has(d.tipo); });
+          if (!typed) {
+            // Older data without «tipo»: a single list
+            var old = section('descartados', 'Descartados');
+            old.append(h('p', null, 'Hallazgos de la IA que no se han podido demostrar o que eran falsos positivos.'));
+            old.append(list.length ? discardedList(list) : h('p', { class: 'pending' }, 'Ninguno.'));
+            return old;
+          }
+          var s = section('descartados', 'Fuera de los hallazgos');
+          s.append(h('p', null, 'Lo que la IA propuso y no entra en los hallazgos: lo que resultó falso, lo que falta por comprobar y lo que es de otro equipo.'));
+          var known = DISCARD_GROUPS.map(function (g) { return g.tipo; });
+          var groups = DISCARD_GROUPS.concat([{ tipo: null, title: 'Sin clasificar', lead: '' }]);
+          groups.forEach(function (g) {
+            var items = list.filter(function (d) {
+              var t = String((d && d.tipo) || '').toLowerCase().trim();
+              return g.tipo ? t === g.tipo : known.indexOf(t) < 0;
+            });
+            if (!items.length) { if (g.tipo) s.append(h('h3', null, g.title + ' (0)'), h('p', { class: 'pending' }, 'Ninguno.')); return; }
+            append(s, [h('h3', null, g.title + ' (' + items.length + ')'), g.lead ? h('p', { class: 'discarded__lead' }, g.lead) : null, discardedList(items, g.extra)]);
+          });
+          return s;
+        }
+
+        function notice(message) {
+          var box = document.querySelector('[data-notice]');
+          box.textContent = '';
+          box.append(h('p', null, message));
+          box.hidden = false;
+        }
+
+        function render(data, isExample) {
+          var findings = (Array.isArray(data.hallazgos) ? data.hallazgos : []).map(function (f, i) {
+            var copy = Object.assign({}, f);
+            copy._id = findingId(f, i);
+            return copy;
+          });
+          renderCover(data);
+          var report = document.querySelector('[data-report]');
+          var cards = section('fichas', 'Fichas con evidencia');
+          findings.forEach(function (f) { cards.append(renderFinding(f)); });
+          report.append(renderSummary(data, findings), renderMichelin(data), renderHealth(data), renderIndex(findings), cards, renderDiscarded(data));
+          // The sections sit directly in the report grid, like the cover
+          report.replaceWith.apply(report, Array.prototype.slice.call(report.children));
+          if (isExample) notice('Esto es un informe de ejemplo, con datos inventados. El tuyo se pinta solo cuando tu IA termina el paso 5 (emplatado) y escribe hallazgos.js en tu carpeta auditoria/.');
+        }
+
+        if (window.hallazgos) {
+          render(window.hallazgos, false);
+          return;
+        }
+        // No hallazgos.js next to this file: show the example, marked as such
+        var example = document.createElement('script');
+        example.src = 'hallazgos-ejemplo.js';
+        example.onload = function () {
+          if (window.hallazgos) render(window.hallazgos, true);
+          else notice(MISSING);
+        };
+        example.onerror = function () {
+          notice(MISSING);
+        };
+        document.body.append(example);
+      })();
+    </script>
+  </body>
+</html>

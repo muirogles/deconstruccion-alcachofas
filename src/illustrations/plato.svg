@@ -1,0 +1,15 @@
+<svg viewBox="0 0 240 240" class="ill ill--plato">
+  <!-- Plated dish: purée, yolk, crumbs, artichoke, broth -->
+  <ellipse class="ill-smoke ill-stroke" cx="120" cy="150" rx="104" ry="58"/>
+  <ellipse class="ill-paper" cx="120" cy="146" rx="78" ry="40"/>
+  <ellipse class="ill-orange ill-part ill-part--pop" style="--i:4" cx="120" cy="152" rx="70" ry="30" opacity="0.35"/>
+  <ellipse class="ill-green ill-stroke ill-part ill-part--pop" style="--i:0" cx="120" cy="146" rx="48" ry="22"/>
+  <circle class="ill-amber ill-stroke ill-part ill-part--drop" style="--i:1" cx="120" cy="138" r="16"/>
+  <g class="ill-part ill-part--drop" style="--i:2">
+    <circle class="ill-amber-text" cx="94" cy="136" r="4"/><circle class="ill-amber-text" cx="146" cy="134" r="4"/><circle class="ill-amber-text" cx="108" cy="156" r="3"/><circle class="ill-amber-text" cx="136" cy="156" r="3"/>
+  </g>
+  <g class="ill-part ill-part--drop" style="--i:3">
+    <path class="ill-green-dark ill-stroke" d="M82 114 C88 96 104 92 110 104 C104 116 92 120 82 114Z"/>
+    <path class="ill-green-dark ill-stroke" d="M158 114 C152 96 136 92 130 104 C136 116 148 120 158 114Z"/>
+  </g>
+</svg>

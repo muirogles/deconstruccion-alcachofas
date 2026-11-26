@@ -1,0 +1,11 @@
+<svg viewBox="0 0 240 240" class="ill ill--campana">
+  <!-- Service bell on the pass -->
+  <rect class="ill-ink" x="40" y="176" width="160" height="18" rx="9"/>
+  <g class="ill-part ill-part--ring" style="--i:0">
+    <rect class="ill-ink" x="112" y="62" width="16" height="22" rx="4"/>
+    <circle class="ill-ink" cx="120" cy="58" r="10"/>
+    <path class="ill-amber ill-stroke" d="M56 176 C56 124 84 88 120 88 C156 88 184 124 184 176Z"/>
+    <path class="ill-line ill-line--light" d="M80 150 C84 126 98 110 114 104"/>
+  </g>
+  <path class="ill-line ill-part ill-part--pop" style="--i:1" d="M30 100 L46 110 M210 100 L194 110 M36 70 L52 84 M204 70 L188 84"/>
+</svg>

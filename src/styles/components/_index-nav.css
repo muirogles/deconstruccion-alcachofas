@@ -1,0 +1,47 @@
+/* Grouped index inside the dialog */
+.index-nav {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.index-nav__group {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.index-nav__group-title {
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-strong);
+  letter-spacing: var(--letter-spacing-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-text-accent);
+}
+
+.index-nav__list {
+  display: grid;
+  gap: var(--space-half);
+}
+
+.index-nav__link {
+  display: flex;
+  gap: var(--space-1);
+  align-items: baseline;
+  min-block-size: var(--size-target);
+  padding-block: var(--space-1);
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.index-nav__link:hover {
+  text-decoration: underline;
+}
+
+.index-nav__link[aria-current="true"] {
+  font-weight: var(--font-weight-heading);
+}
+
+.index-nav__number {
+  min-inline-size: 2ch;
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+}

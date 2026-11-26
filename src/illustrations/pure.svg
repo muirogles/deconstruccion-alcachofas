@@ -1,0 +1,10 @@
+<svg viewBox="0 0 240 240" class="ill ill--pure">
+  <!-- Bowl of artichoke purée with pieces falling in -->
+  <g class="ill-part ill-part--drop" style="--i:0"><path class="ill-green ill-stroke" d="M78 40 L98 32 L104 54 L84 60Z"/></g>
+  <g class="ill-part ill-part--drop" style="--i:1"><path class="ill-green-dark ill-stroke" d="M124 28 L146 34 L140 56 L120 50Z"/></g>
+  <g class="ill-part ill-part--drop" style="--i:2"><path class="ill-lila ill-stroke" d="M160 54 L178 60 L170 78 L154 70Z"/></g>
+  <path class="ill-green" d="M52 118 C80 102 160 102 188 118 Z"/>
+  <path class="ill-lila ill-stroke" d="M44 118 H196 C196 166 162 196 120 196 C78 196 44 166 44 118Z"/>
+  <path class="ill-green ill-stroke" d="M56 118 C76 104 98 112 120 104 C142 112 164 104 184 118Z"/>
+  <path class="ill-line ill-line--light" d="M70 140 C78 164 96 178 118 182"/>
+</svg>

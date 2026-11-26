@@ -1,0 +1,14 @@
+<svg viewBox="0 0 240 240" class="ill ill--jamon">
+  <!-- Ham leg with bone -->
+  <g class="ill-part ill-part--pop" style="--i:0">
+    <path class="ill-pink ill-stroke" d="M58 150 C40 104 70 50 122 52 C168 54 196 92 186 128 C178 156 150 160 128 168 C104 176 72 186 58 150Z"/>
+    <path class="ill-paper ill-stroke" d="M72 156 C66 130 82 100 112 96 C96 112 90 136 98 162 C88 166 78 166 72 156Z"/>
+    <path class="ill-line" d="M126 82 C140 86 152 96 156 110"/>
+    <path class="ill-line" d="M118 104 C130 108 138 116 140 126"/>
+  </g>
+  <g class="ill-part ill-part--pop" style="--i:1">
+    <rect class="ill-smoke ill-stroke" x="168" y="138" width="44" height="18" rx="9" transform="rotate(28 190 147)"/>
+    <circle class="ill-smoke ill-stroke" cx="208" cy="172" r="12"/>
+    <circle class="ill-smoke ill-stroke" cx="196" cy="186" r="10"/>
+  </g>
+</svg>

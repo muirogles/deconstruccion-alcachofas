@@ -1,0 +1,12 @@
+<svg viewBox="0 0 240 240" class="ill ill--receta">
+  <!-- Recipe card with a pencil -->
+  <g class="ill-part ill-part--pop" style="--i:0">
+    <rect class="ill-paper ill-stroke" x="46" y="34" width="132" height="172" rx="12" transform="rotate(-6 112 120)"/>
+    <path class="ill-line" d="M70 76 H146 M72 100 H150 M74 124 H134 M76 148 H140 M78 172 H120" transform="rotate(-6 112 120)"/>
+    <circle class="ill-green" cx="152" cy="66" r="12" transform="rotate(-6 112 120)"/>
+  </g>
+  <g class="ill-part ill-part--write" style="--i:1">
+    <rect class="ill-amber ill-stroke" x="150" y="96" width="20" height="110" rx="6" transform="rotate(30 160 150)"/>
+    <path class="ill-ink" d="M184 196 L196 222 L172 208Z"/>
+  </g>
+</svg>

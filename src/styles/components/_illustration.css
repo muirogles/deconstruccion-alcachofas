@@ -1,0 +1,266 @@
+/* ==========================================================================
+   ILLUSTRATION · own SVGs injected by JS (decorative, aria-hidden)
+   Colours come from --color-illustration-* tokens. Animations only run when
+   the section enters the viewport and the user allows motion. Every
+   animation is finite (under 5 s, WCAG 2.2.2) and ends in a visible state.
+   ========================================================================== */
+
+.illustration {
+  display: block;
+  inline-size: 100%;
+  max-inline-size: var(--illustration-size, 14rem);
+  aspect-ratio: 1;
+  pointer-events: none;
+}
+
+.illustration svg {
+  inline-size: 100%;
+  block-size: 100%;
+  overflow: visible;
+}
+
+.illustration--small {
+  --illustration-size: 3rem;
+}
+
+.illustration--medium {
+  --illustration-size: 9rem;
+}
+
+.illustration--large {
+  --illustration-size: 18rem;
+}
+
+/* As big as a figure beside a title (the dish of «La idea») */
+.illustration--figure {
+  --illustration-size: var(--size-figure);
+  justify-self: center;
+}
+
+/* Fills */
+.ill-ink { fill: var(--color-illustration-ink); }
+.ill-green { fill: var(--color-illustration-green); }
+.ill-green-dark { fill: var(--color-illustration-green-dark); }
+.ill-lila { fill: var(--color-illustration-lila); }
+.ill-amber { fill: var(--color-illustration-amber); }
+.ill-amber-text { fill: var(--color-illustration-amber-dark); }
+.ill-pink { fill: var(--color-illustration-pink); }
+.ill-orange { fill: var(--color-illustration-orange); }
+.ill-paper { fill: var(--color-illustration-paper); }
+.ill-smoke { fill: var(--color-illustration-smoke); }
+.ill-stone { fill: var(--color-illustration-stone); }
+.ill-mist { fill: var(--color-illustration-mist); }
+
+/* Highlight on the silver cloche */
+.ill-shine {
+  fill: none;
+  stroke: var(--color-illustration-shine);
+  stroke-width: 10;
+  stroke-linecap: round;
+}
+
+.ill-shine--thin {
+  stroke-width: 6;
+}
+
+/* Strokes */
+.ill-stroke {
+  stroke: var(--color-illustration-ink);
+  stroke-width: 4;
+  stroke-linejoin: round;
+}
+
+.ill-line {
+  fill: none;
+  stroke: var(--color-illustration-ink);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.ill-line--light {
+  stroke: rgb(255 255 255 / 0.65);
+}
+
+.ill-line--soft {
+  stroke: var(--color-illustration-stone);
+}
+
+.ill-line--dash {
+  stroke: var(--color-illustration-stone);
+  stroke-width: 3;
+  stroke-dasharray: 6 8;
+}
+
+.ill-line--steam {
+  stroke: var(--color-illustration-stone);
+  stroke-width: 6;
+}
+
+.ill-label {
+  font-family: var(--font-family-display);
+  font-size: 28px;
+  font-weight: var(--font-weight-display);
+  fill: var(--color-illustration-ink);
+}
+
+.ill-part {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* ---- Animations (only with motion allowed and JS available) ------------- */
+@media (prefers-reduced-motion: no-preference) {
+  .has-js .ill-part,
+  .has-js .ill-line--steam,
+  .has-js .reveal {
+    animation-duration: var(--motion-duration-slow);
+    animation-timing-function: var(--motion-ease);
+    animation-fill-mode: both;
+    animation-delay: calc(var(--i, 0) * 140ms + 120ms);
+    animation-play-state: paused;
+  }
+
+  .has-js .is-in-view .ill-part,
+  .has-js .is-in-view .ill-line--steam,
+  .has-js .is-in-view .reveal,
+  .has-js .reveal.is-in-view {
+    animation-play-state: running;
+  }
+
+  .has-js .ill-part--drop { animation-name: ill-drop; }
+  .has-js .ill-part--pop { animation-name: ill-pop; }
+  .has-js .ill-part--drip { animation-name: ill-drop; animation-delay: var(--motion-duration-slow); }
+  .has-js .ill-part--stamp { animation-name: ill-stamp; animation-delay: calc(var(--i, 0) * 260ms + 200ms); }
+  .has-js .ill-part--slice { animation-name: ill-slice; }
+  .has-js .ill-part--write { animation-name: ill-write; }
+
+  .has-js .ill-part--leaf {
+    animation-name: ill-deconstruct;
+    animation-duration: var(--motion-duration-slow);
+    animation-delay: calc(var(--i, 0) * 90ms + 480ms);
+  }
+
+  .has-js .ill-part--fill {
+    animation-name: ill-fill;
+    animation-duration: var(--motion-duration-slow);
+    transform-origin: bottom;
+  }
+
+  .has-js .ill-part--dip {
+    animation-name: ill-dip;
+    animation-duration: var(--motion-duration-slow);
+    animation-iteration-count: 2;
+    transform-origin: 70% 90%;
+  }
+
+  .has-js .ill-part--shake {
+    animation-name: ill-shake;
+    animation-duration: var(--motion-duration-base);
+    animation-iteration-count: 3;
+    transform-origin: 50% 20%;
+  }
+
+  .has-js .ill-part--ring {
+    animation-name: ill-ring;
+    animation-duration: var(--motion-duration-base);
+    animation-iteration-count: 2;
+    transform-origin: 50% 100%;
+  }
+
+  /* The cloche starts on the plate and lifts to its resting place */
+  .has-js .ill-part--lift {
+    animation-name: ill-lift;
+    animation-duration: var(--motion-duration-slow);
+    animation-delay: 360ms;
+  }
+
+  .has-js .ill-line--steam {
+    stroke-dasharray: 120;
+    animation-name: ill-steam;
+    animation-duration: var(--motion-duration-slow);
+    animation-iteration-count: 4;
+    animation-direction: alternate;
+    animation-delay: calc(var(--i, 0) * 300ms);
+  }
+
+  .has-js .reveal {
+    animation-name: ill-rise;
+    animation-duration: var(--motion-duration-base);
+  }
+}
+
+@keyframes ill-drop {
+  from { opacity: 0; transform: translateY(-48px); }
+}
+
+@keyframes ill-pop {
+  from { opacity: 0; transform: scale(0.6); }
+}
+
+@keyframes ill-stamp {
+  from { opacity: 0; transform: scale(1.8) rotate(-20deg); }
+}
+
+@keyframes ill-slice {
+  from { opacity: 0; transform: translateX(-64px); }
+}
+
+@keyframes ill-write {
+  from { transform: translate(-16px, -16px); }
+}
+
+/* The artichoke ends deconstructed: each leaf moves to its own place */
+@keyframes ill-deconstruct {
+  to { transform: translate(var(--dx, 0), var(--dy, 0)) rotate(var(--r, 0)); }
+}
+
+@keyframes ill-fill {
+  from { transform: scaleY(0); }
+}
+
+@keyframes ill-dip {
+  0%, 100% { transform: rotate(0); }
+  50% { transform: rotate(-14deg) translateY(8px); }
+}
+
+@keyframes ill-shake {
+  0%, 100% { transform: rotate(0); }
+  25% { transform: rotate(-10deg); }
+  75% { transform: rotate(10deg); }
+}
+
+@keyframes ill-ring {
+  0%, 100% { transform: rotate(0); }
+  30% { transform: rotate(-6deg); }
+  70% { transform: rotate(6deg); }
+}
+
+@keyframes ill-steam {
+  0% { stroke-dashoffset: 120; opacity: 0; }
+  40% { opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0.8; }
+}
+
+@keyframes ill-lift {
+  from { transform: translate(34px, 112px) rotate(22deg); }
+}
+
+@keyframes ill-rise {
+  from { opacity: 0; transform: translateY(4px); }
+}
+
+/* Small icons: no deconstruction (keeps them compact); header icon never animates */
+@media (prefers-reduced-motion: no-preference) {
+  .has-js .menu__icon .ill-part--leaf,
+  .has-js .menu__ornament .ill-part--leaf,
+  .has-js .recipe__ingredient .ill-part--leaf,
+  .has-js .hero__float .ill-part--leaf {
+    animation-name: ill-pop;
+  }
+
+  .has-js .site-header .ill-part,
+  .has-js .site-header .ill-line--steam {
+    animation: none;
+  }
+}

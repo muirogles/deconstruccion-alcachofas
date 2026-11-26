@@ -1,0 +1,102 @@
+/* Generic card used by recipe, steps and tools */
+.card {
+  --card-bg: var(--color-surface-raised);
+  --card-fg: var(--color-text);
+  --card-border: var(--color-border-subtle);
+
+  display: grid;
+  align-content: start;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-card);
+  background-color: var(--card-bg);
+  color: var(--card-fg);
+}
+
+.card--accent {
+  --card-bg: var(--color-surface-accent-soft);
+  --card-border: var(--color-surface-accent);
+}
+
+.card--highlight {
+  --card-bg: var(--color-surface-highlight-soft);
+  --card-border: var(--color-surface-highlight);
+}
+
+/* Storage label: «Guárdalo» as a dated container label with tape */
+.card--label {
+  --card-bg: var(--color-surface-label);
+  --card-border: var(--color-border-label);
+  position: relative;
+  border-style: dashed;
+  border-width: 2px;
+}
+
+.card--label::before {
+  content: "";
+  position: absolute;
+  inset-block-start: calc(var(--space-1) * -1);
+  inset-inline-end: var(--space-3);
+  inline-size: var(--space-8);
+  block-size: var(--space-2);
+  background-color: var(--color-decor-tape);
+  opacity: 0.85;
+  transform: rotate(4deg);
+  pointer-events: none;
+}
+
+.card--inverse {
+  --card-bg: var(--color-surface-inverse-raised);
+  --card-fg: var(--color-text-inverse);
+  --card-border: var(--color-surface-inverse-raised);
+}
+
+.card__title {
+  font-size: var(--font-size-body); /* titles of cards are bold text, not another size */
+  font-weight: var(--font-weight-heading);
+  line-height: var(--line-height-heading);
+}
+
+.card__kicker {
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-strong);
+  letter-spacing: var(--letter-spacing-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.card--inverse .card__kicker {
+  color: var(--color-text-inverse-muted);
+}
+
+.card__body > * + * {
+  margin-block-start: var(--space-1);
+}
+
+.card__list {
+  display: grid;
+  gap: var(--space-1);
+  padding-inline-start: 1.25em;
+}
+
+/* A long list (the references) in two columns on wide screens */
+@media (min-width: 64rem) {
+  .card__list--columns {
+    display: block;
+    columns: 2;
+    column-gap: var(--space-6);
+  }
+
+  .card__list--columns > li {
+    padding-block-end: var(--space-1);
+    break-inside: avoid;
+  }
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16em), 1fr));
+  gap: var(--space-grid);
+}
+

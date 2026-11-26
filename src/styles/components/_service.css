@@ -1,0 +1,85 @@
+/* «El servicio»: the web we cook on and the table (web and system) first,
+   then the rail of tickets. Mobile first; containers are fluid with min and
+   max widths. */
+.service__intro {
+  display: grid;
+  gap: var(--space-grid);
+  align-items: start;
+}
+
+.service__table {
+  justify-self: stretch;
+}
+
+/* The web and the system of the demo, side by side when there is room */
+.service__urls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12em), 1fr));
+  gap: var(--space-2);
+}
+
+/* Wide: the web and the demo scope beside the table, on one screen of its
+   own, so the pass below shows up only when you get there */
+@media (min-width: 64rem) {
+  .service__intro {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-content: center;
+    min-block-size: calc(100svh - var(--size-header) - var(--space-section-block) * 2);
+  }
+}
+
+/* The pass is a screen of its own: scrolling snaps to it, with the same
+   air above as any section */
+.service__pass {
+  display: grid;
+  gap: var(--space-stack);
+  padding-block-start: var(--space-section-block);
+  scroll-snap-align: start;
+}
+
+.service__pass-title {
+  font-size: var(--font-size-lead);
+  font-weight: var(--font-weight-heading);
+}
+
+.service__pass-help,
+.service__legend {
+  max-inline-size: var(--size-prose);
+  color: var(--color-text-inverse-muted);
+}
+
+.service__legend {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-label);
+}
+
+/* Without JS: every ticket, one after another */
+.service__tickets {
+  display: grid;
+  gap: var(--space-stack);
+}
+
+/* Wide screens with the rail: rail as a column, the open ticket beside it,
+   so both are on screen at once (projector, laptop) */
+@media (min-width: 64rem) {
+  .service--rail .service__pass {
+    row-gap: var(--space-2); /* title, help, legend and rail close together */
+    grid-template-columns: minmax(14em, 1fr) minmax(0, 2fr);
+    grid-template-rows: auto auto auto 1fr; /* the rail takes the rest, so the left column stays packed */
+    align-items: start;
+  }
+
+  /* Title, help, legend and rail on the left; the open ticket on the right,
+     from the top of the pass, so most orders fit the screen */
+  .service--rail .service__pass-title,
+  .service--rail .service__pass-help,
+  .service--rail .service__legend,
+  .service--rail .rail {
+    grid-column: 1;
+  }
+
+  .service--rail .service__tickets {
+    grid-column: 2;
+    grid-row: 1 / span 4;
+  }
+}

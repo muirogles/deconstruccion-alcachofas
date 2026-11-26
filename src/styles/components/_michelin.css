@@ -1,0 +1,146 @@
+/* MICHELIN guide of the system: the intro and the stars legend on one side,
+   the five official criteria on the other, as the cover of a red guide book.
+   No logo or brand of the guide: only its red, its stars and its words. */
+.michelin__intro {
+  display: grid;
+  align-content: start;
+  gap: var(--space-stack);
+}
+
+@media (min-width: 56em) {
+  .slide__inner--split.michelin {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    align-items: start;
+  }
+}
+
+/* Stars legend: what one, two or three stars mean */
+.stars-legend {
+  /* Component tokens */
+  --stars-bg: var(--color-surface-guide);
+  --stars-color: var(--color-text-on-guide);
+
+  display: grid;
+  gap: var(--space-1);
+}
+
+.stars-legend__title {
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-strong);
+  letter-spacing: var(--letter-spacing-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-text-inverse-muted);
+}
+
+/* Three badges in a row, like the symbols of the guide, each with its words */
+.stars-legend__list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-2);
+  padding: 0;
+  list-style: none;
+}
+
+.stars-legend__item {
+  display: grid;
+  justify-items: start;
+  gap: var(--space-half);
+}
+
+.stars-legend__stars {
+  display: inline-flex;
+  justify-content: center;
+  min-inline-size: 4em;
+  padding-inline: var(--space-1);
+  border-radius: var(--radius-card);
+  background-color: var(--stars-bg);
+  color: var(--stars-color);
+  letter-spacing: 0.1em;
+}
+
+.stars-legend__note {
+  color: var(--color-text-inverse-muted);
+}
+
+/* The five criteria, numbered like a menu */
+/* The red guide: rounded cover, a darker spine and light text */
+.criteria {
+  /* Component tokens */
+  --criteria-bg: var(--color-surface-guide);
+  --criteria-fg: var(--color-text-on-guide);
+  --criteria-number: var(--color-text-on-guide);
+  --criteria-muted: var(--color-text-on-guide);
+  --criteria-rule: var(--color-border-on-guide);
+  --criteria-spine: var(--color-surface-guide-spine);
+
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-3) var(--space-3) var(--space-5);
+  border-radius: var(--radius-card) calc(var(--radius-card) * 2) calc(var(--radius-card) * 2) var(--radius-card);
+  background-color: var(--criteria-bg);
+  color: var(--criteria-fg);
+  box-shadow:
+    inset var(--space-2) 0 0 var(--criteria-spine),
+    0 var(--space-3) var(--space-6) var(--color-shadow);
+}
+
+.criteria__title {
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-strong);
+  letter-spacing: var(--letter-spacing-eyebrow);
+  text-transform: uppercase;
+  color: var(--criteria-muted);
+}
+
+.criteria__list {
+  display: grid;
+  gap: var(--space-2);
+  padding: 0;
+  list-style: none;
+}
+
+.criteria__item {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--space-2);
+  padding-block-end: var(--space-2);
+  border-block-end: 1px solid var(--criteria-rule);
+}
+
+.criteria__item:last-child {
+  padding-block-end: 0;
+  border-block-end: 0;
+}
+
+.criteria__number {
+  min-inline-size: 1.5ch;
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-lead);
+  font-weight: var(--font-weight-display);
+  line-height: var(--line-height-display);
+  color: var(--criteria-number);
+}
+
+.criteria__body {
+  display: grid;
+  /* Name and steps share the first line; the translation goes below */
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: var(--space-2);
+  align-items: baseline;
+}
+
+.criteria__text {
+  grid-column: 1 / -1;
+}
+
+.criteria__name {
+  font-weight: var(--font-weight-heading);
+}
+
+.criteria__steps {
+  grid-row: 1;
+  grid-column: 2;
+  white-space: nowrap;
+  font-size: var(--font-size-label);
+  color: var(--criteria-muted);
+}

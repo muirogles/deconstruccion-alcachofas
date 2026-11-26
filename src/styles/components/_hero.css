@@ -1,0 +1,155 @@
+/* Hero: «sobre el papel» vs «al salir de cocina» */
+.hero {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.hero__title {
+  font-size: var(--font-size-display);
+  font-weight: var(--font-weight-display);
+  line-height: var(--line-height-display);
+  letter-spacing: var(--letter-spacing-display);
+}
+
+.hero__title-mark {
+  padding-inline: 0.1em;
+  border-radius: 0.15em;
+  background-color: var(--color-surface-accent);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.hero__subtitle {
+  font-size: var(--font-size-lead);
+  font-weight: var(--font-weight-strong);
+  line-height: var(--line-height-heading);
+}
+
+.hero__description {
+  max-inline-size: var(--size-prose);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-heading);
+  color: var(--color-text-muted);
+}
+
+/* Hero stage: the cloche lifts and the maître appears on the plate.
+   Base styles are the FINAL state, so without JS or with reduced motion
+   the scene is complete and static. */
+.hero__stage {
+  --stage-pad-top: var(--space-6);
+  container-type: inline-size;
+  position: relative;
+  justify-self: center;
+  /* Fluid: 288 → 768, never wider than 72vw nor taller than the screen allows */
+  inline-size: min(72vw, clamp(18rem, min(28vw, 56vh), 48rem));
+  padding-block: var(--stage-pad-top) var(--space-3);
+}
+
+.hero__character {
+  position: relative;
+  z-index: var(--layer-raised);
+  inline-size: 78%;
+  margin-inline: auto;
+  block-size: auto;
+  transform-origin: 50% 100%;
+}
+
+.hero__stage > .hero__plate {
+  --illustration-size: 100%;
+  position: absolute;
+  inset-inline: 0;
+  /* The plate centre sits under the character's feet */
+  inset-block-end: calc(var(--space-3) - 14cqi);
+  aspect-ratio: 3;
+}
+
+.hero__stage > .hero__dome {
+  --illustration-size: 46%;
+  position: absolute;
+  z-index: calc(var(--layer-raised) + 1);
+  inset-block-start: 0;
+  inset-inline-end: -8%;
+  aspect-ratio: 240 / 168;
+  transform: rotate(16deg);
+}
+
+.hero__bubble {
+  position: absolute;
+  z-index: calc(var(--layer-raised) + 2);
+  inset-block-start: 10%;
+  inset-inline-start: -6%;
+}
+
+.hero__float {
+  position: absolute;
+  z-index: var(--layer-base);
+  --illustration-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+.hero__float--start { inset-block-start: 38%; inset-inline-start: -4%; }
+.hero__float--end { inset-block-start: 52%; inset-inline-end: -6%; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .has-js .hero__dome,
+  .has-js .hero__character,
+  .has-js .hero__bubble {
+    animation-timing-function: var(--motion-ease);
+    animation-fill-mode: both;
+    animation-play-state: paused;
+  }
+
+  .has-js .is-in-view .hero__dome,
+  .has-js .is-in-view .hero__character,
+  .has-js .is-in-view .hero__bubble {
+    animation-play-state: running;
+  }
+
+  /* 1 · The cloche rests on the plate, then lifts */
+  .has-js .hero__dome {
+    animation-name: hero-dome-lift;
+    animation-duration: var(--motion-duration-slow);
+    animation-delay: 480ms;
+  }
+
+  /* 2 · The maître springs up from the plate */
+  .has-js .hero__character {
+    animation-name: hero-character-rise;
+    animation-duration: var(--motion-duration-slow);
+    animation-delay: 720ms;
+  }
+
+  /* 3 · «¿Mesa para auditar?» */
+  .has-js .hero__bubble {
+    animation-name: hero-bubble-pop;
+    animation-duration: var(--motion-duration-base);
+    animation-delay: 1320ms;
+  }
+}
+
+/* Offsets in container units: the dome travels from its resting place
+   (top end) to the centre of the plate, whatever the stage width */
+@keyframes hero-dome-lift {
+  from {
+    transform: translate(-35cqi, calc(73cqi + var(--stage-pad-top))) rotate(0) scale(1.7);
+  }
+}
+
+@keyframes hero-character-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12%) scale(0.2);
+  }
+}
+
+@keyframes hero-bubble-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.4) rotate(-8deg);
+  }
+}
+
+@media (min-width: 56em) {
+  .hero__stage {
+    --stage-pad-top: var(--space-8);
+  }
+}

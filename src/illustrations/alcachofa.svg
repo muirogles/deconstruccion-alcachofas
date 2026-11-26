@@ -1,0 +1,51 @@
+<svg viewBox="0 0 240 240" class="ill ill--alcachofa">
+  <!-- Original artichoke illustration (no face: not the brand character) -->
+  <rect class="ill-green-dark ill-stroke" x="110" y="176" width="20" height="46" rx="10"/>
+  <g class="ill-part ill-part--leaf" style="--i:0;--dx:-54px;--dy:6px;--r:-24deg">
+    <g transform="rotate(-58 120 184)">
+      <path class="ill-green-dark ill-stroke" d="M120 184 C80 160.0 92.0 102.4 120 88 C148.0 102.4 160 160.0 120 184Z"/>
+      <path class="ill-lila" d="M120 88 C110.0 107.19999999999999 110.0 116.80000000000001 120 124.48 C130.0 116.80000000000001 130.0 107.19999999999999 120 88Z"/>
+    </g>
+  </g>
+  <g class="ill-part ill-part--leaf" style="--i:1;--dx:54px;--dy:6px;--r:24deg">
+    <g transform="rotate(58 120 184)">
+      <path class="ill-green-dark ill-stroke" d="M120 184 C80 160.0 92.0 102.4 120 88 C148.0 102.4 160 160.0 120 184Z"/>
+      <path class="ill-lila" d="M120 88 C110.0 107.19999999999999 110.0 116.80000000000001 120 124.48 C130.0 116.80000000000001 130.0 107.19999999999999 120 88Z"/>
+    </g>
+  </g>
+  <g class="ill-part ill-part--leaf" style="--i:2;--dx:-38px;--dy:-22px;--r:-14deg">
+    <g transform="rotate(-30 120 184)">
+      <path class="ill-green-dark ill-stroke" d="M120 184 C80 155.0 92.0 85.4 120 68 C148.0 85.4 160 155.0 120 184Z"/>
+      <path class="ill-lila" d="M120 68 C110.0 91.19999999999999 110.0 102.80000000000001 120 112.08 C130.0 102.80000000000001 130.0 91.19999999999999 120 68Z"/>
+    </g>
+  </g>
+  <g class="ill-part ill-part--leaf" style="--i:3;--dx:38px;--dy:-22px;--r:14deg">
+    <g transform="rotate(30 120 184)">
+      <path class="ill-green-dark ill-stroke" d="M120 184 C80 155.0 92.0 85.4 120 68 C148.0 85.4 160 155.0 120 184Z"/>
+      <path class="ill-lila" d="M120 68 C110.0 91.19999999999999 110.0 102.80000000000001 120 112.08 C130.0 102.80000000000001 130.0 91.19999999999999 120 68Z"/>
+    </g>
+  </g>
+  <g class="ill-part ill-part--leaf" style="--i:4;--dx:0px;--dy:-44px;--r:0deg">
+    <g transform="rotate(0 120 184)">
+      <path class="ill-green ill-stroke" d="M120 184 C78 151.0 90.6 71.8 120 52 C149.4 71.8 162 151.0 120 184Z"/>
+      <path class="ill-lila" d="M120 52 C109.5 78.39999999999999 109.5 91.60000000000001 120 102.16 C130.5 91.60000000000001 130.5 78.39999999999999 120 52Z"/>
+    </g>
+  </g>
+  <g class="ill-part ill-part--leaf" style="--i:5;--dx:-22px;--dy:-6px;--r:-10deg">
+    <g transform="rotate(-16 120 188)">
+      <path class="ill-green ill-stroke" d="M120 188 C82 162.0 93.4 99.60000000000001 120 84 C146.6 99.60000000000001 158 162.0 120 188Z"/>
+      <path class="ill-lila" d="M120 84 C110.5 104.8 110.5 115.2 120 123.52 C129.5 115.2 129.5 104.8 120 84Z"/>
+    </g>
+  </g>
+  <g class="ill-part ill-part--leaf" style="--i:6;--dx:22px;--dy:-6px;--r:10deg">
+    <g transform="rotate(16 120 188)">
+      <path class="ill-green ill-stroke" d="M120 188 C82 162.0 93.4 99.60000000000001 120 84 C146.6 99.60000000000001 158 162.0 120 188Z"/>
+      <path class="ill-lila" d="M120 84 C110.5 104.8 110.5 115.2 120 123.52 C129.5 115.2 129.5 104.8 120 84Z"/>
+    </g>
+  </g>
+  <g class="ill-part ill-part--leaf" style="--i:7;--dx:0px;--dy:10px;--r:0deg">
+    <g transform="rotate(0 120 190)">
+      <path class="ill-green ill-stroke" d="M120 190 C86 170.5 96.2 123.7 120 112 C143.8 123.7 154 170.5 120 190Z"/>
+    </g>
+  </g>
+</svg>

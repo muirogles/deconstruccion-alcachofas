@@ -1,0 +1,13 @@
+<svg viewBox="0 0 240 240" class="ill ill--olla">
+  <!-- Pot with rising steam (broth) -->
+  <g class="ill-steam">
+    <path class="ill-line ill-line--steam" style="--i:0" d="M92 92 C80 76 104 64 92 46"/>
+    <path class="ill-line ill-line--steam" style="--i:1" d="M120 86 C108 70 132 56 120 36"/>
+    <path class="ill-line ill-line--steam" style="--i:2" d="M148 92 C136 76 160 64 148 46"/>
+  </g>
+  <rect class="ill-ink" x="58" y="102" width="124" height="14" rx="7"/>
+  <path class="ill-orange ill-stroke" d="M64 116 H176 V174 C176 192 162 204 144 204 H96 C78 204 64 192 64 174Z"/>
+  <path class="ill-ink" d="M40 128 H64 V142 H40 C34 142 34 128 40 128Z"/>
+  <path class="ill-ink" d="M200 128 H176 V142 H200 C206 142 206 128 200 128Z"/>
+  <path class="ill-line ill-line--light" d="M80 136 V172"/>
+</svg>

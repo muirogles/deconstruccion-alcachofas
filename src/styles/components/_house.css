@@ -1,0 +1,19 @@
+/* «La casa recomienda»: who cooks what. The explanation on one side,
+   Alcachofil's whiteboard, as large as the screen allows, on the other.
+   Mobile first; fluid columns. */
+.house {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-grid);
+  align-items: center;
+}
+
+.house__intro {
+  gap: var(--space-stack);
+}
+
+@media (min-width: 64rem) {
+  .house {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
+  }
+}

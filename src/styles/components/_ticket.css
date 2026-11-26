@@ -1,0 +1,289 @@
+/* Ticket («comanda») as it comes out of the kitchen printer: thermal paper,
+   torn edges, printer header and a stamp with the real time it was fired or
+   served. The prompt itself is a snippet in the text face, at body size, so
+   it can be read on a projector. Mobile first, fluid width with a text measure. */
+.ticket {
+  /* Component tokens */
+  --ticket-bg: var(--color-surface-ticket);
+  --ticket-fg: var(--color-text);
+  --ticket-muted: var(--color-text-muted);
+  --ticket-rule: var(--color-border-ticket);
+  --ticket-edge: var(--space-1);
+  --ticket-pad: var(--space-3);
+  --ticket-stamp-firing: var(--color-text-accent);
+  --ticket-stamp-served: var(--color-text-success);
+
+  position: relative;
+  display: grid;
+  gap: var(--space-2);
+  justify-self: center;
+  inline-size: 100%;
+  max-inline-size: min(100%, 72ch);
+  margin-block: var(--ticket-edge); /* room for both torn edges */
+  padding: var(--ticket-pad);
+  background-color: var(--ticket-bg);
+  color: var(--ticket-fg);
+  filter: drop-shadow(0 var(--space-1) var(--space-2) var(--color-shadow));
+}
+
+/* Torn (zigzag) edges, top and bottom, drawn with the paper colour */
+.ticket::before,
+.ticket::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  block-size: var(--ticket-edge);
+  pointer-events: none;
+}
+
+.ticket::before {
+  inset-block-end: 100%;
+  background: conic-gradient(from 135deg at 50% 0%, var(--ticket-bg) 90deg, transparent 0) 0 0 / var(--space-2) 100% repeat-x;
+}
+
+.ticket::after {
+  inset-block-start: 100%;
+  background: conic-gradient(from -45deg at 50% 100%, var(--ticket-bg) 90deg, transparent 0) 0 0 / var(--space-2) 100% repeat-x;
+}
+
+.ticket:focus-visible {
+  outline-offset: var(--space-2);
+}
+
+/* Printer header: monospace, one line per field, like a kitchen ticket */
+.ticket__head {
+  display: grid;
+  gap: var(--space-half);
+  padding-block-end: var(--space-2);
+  border-block-end: 2px dashed var(--ticket-rule);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-label);
+  color: var(--ticket-muted);
+}
+
+.ticket__table {
+  overflow-wrap: anywhere;
+}
+
+.ticket__title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-1) var(--space-2);
+  font-size: var(--font-size-lead);
+  line-height: var(--line-height-heading);
+}
+
+.ticket__number {
+  font-family: var(--font-family-mono);
+  font-weight: var(--font-weight-display);
+}
+
+.ticket__text {
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+}
+
+.ticket__out-note {
+  flex-basis: 100%;
+  color: var(--ticket-muted);
+}
+
+/* «La pruebas tú»: the hands-on check that goes with each order */
+.ticket__check {
+  display: grid;
+  gap: var(--space-half);
+  padding: var(--space-2);
+  border-radius: var(--radius-field);
+  background-color: var(--color-surface-sunken);
+}
+
+.ticket__check-label {
+  font-weight: var(--font-weight-heading);
+}
+
+.ticket__check-text > * + * {
+  margin-block-start: var(--space-1);
+}
+
+.ticket__note,
+.ticket__out,
+.ticket__help {
+  font-size: var(--font-size-body);
+}
+
+.ticket__note-label,
+.ticket__out-label {
+  font-weight: var(--font-weight-heading);
+}
+
+.ticket__out {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1);
+  padding-block-start: var(--space-2);
+  border-block-start: 2px dashed var(--ticket-rule);
+}
+
+.ticket__out code {
+  padding: 0.125em 0.5em;
+  border-radius: var(--radius-field);
+  background-color: var(--color-surface-highlight-soft);
+  color: var(--color-text-highlight);
+  font-weight: var(--font-weight-strong);
+  overflow-wrap: anywhere;
+}
+
+.ticket__help {
+  color: var(--ticket-muted);
+}
+
+/* Back to the method, at the foot of the ticket */
+.ticket__foot {
+  padding-block-start: var(--space-1);
+}
+
+.ticket__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.ticket__back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-block-size: var(--size-target);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-strong);
+}
+
+/* Stamp: text, colour and a double border, never colour alone */
+.ticket__stamp {
+  justify-self: start;
+  padding: 0.25em 0.75em;
+  border: 4px double currentColor;
+  border-radius: var(--radius-field);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-display);
+  letter-spacing: var(--letter-spacing-eyebrow);
+  text-transform: uppercase;
+  transform: rotate(-4deg);
+}
+
+.ticket[data-state="firing"] .ticket__stamp {
+  color: var(--ticket-stamp-firing);
+}
+
+.ticket[data-state="served"] .ticket__stamp {
+  color: var(--ticket-stamp-served);
+}
+
+/* Takeaway order: kraft-like paper and a fixed «Para llevar» stamp */
+.ticket--takeaway {
+  --ticket-bg: var(--color-surface-label);
+}
+
+.ticket__stamp--takeaway {
+  color: var(--color-text-accent);
+}
+
+/* Wider screens: the stamp sits on the header, like an inked mark;
+   the header keeps room for it so no line runs under the stamp */
+@media (min-width: 37.5rem) {
+  .ticket__head {
+    padding-inline-end: 12em;
+  }
+
+  .ticket__stamp {
+    position: absolute;
+    inset-block-start: var(--ticket-pad);
+    inset-inline-end: var(--ticket-pad);
+  }
+}
+
+/* «Served» button keeps its label; the pressed state adds a mark */
+.ticket [data-ticket-serve][aria-pressed="true"] {
+  --button-bg: var(--color-text-success);
+  --button-fg: var(--color-surface-raised);
+  --button-border: var(--color-text-success);
+}
+
+.ticket [data-ticket-serve][aria-pressed="true"]::before {
+  content: "✓";
+}
+
+/* A ticket chosen in the rail drops in from the printer */
+@media (prefers-reduced-motion: no-preference) {
+  .service--rail .service__ticket-panel:not([hidden]) .ticket {
+    animation: ticket-drop var(--motion-duration-fast) var(--motion-ease) both;
+  }
+}
+
+@keyframes ticket-drop {
+  from {
+    opacity: 0;
+    transform: translateY(calc(var(--space-2) * -1));
+  }
+}
+
+/* Body: the order text, and beside it where it goes and how you check it */
+.ticket__body {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.ticket__side {
+  display: grid;
+  align-content: start;
+  gap: var(--space-2);
+}
+
+@media (min-width: 64rem) {
+  .ticket__body {
+    grid-template-columns: minmax(0, 2fr) minmax(12em, 1fr);
+  }
+
+  .ticket__side .ticket__out {
+    padding-block-start: 0;
+    border-block-start: 0;
+  }
+}
+
+/* The order text as a snippet: a sunken panel, so it reads as the text you
+   send. Long URLs wrap inside it */
+.ticket__body > .ticket__text,
+.ticket--takeaway > .ticket__text {
+  padding: var(--space-2);
+  border-radius: var(--radius-field);
+  background-color: var(--color-surface-sunken);
+  overflow-wrap: anywhere;
+}
+
+/* In the pass, every open order is exactly one screen tall, so switching
+   orders never jumps: head, title, buttons and the way back stay in place,
+   and the body (order text and side column) scrolls as one when it needs to */
+@media (min-width: 64rem) {
+  .service--rail .service__tickets .ticket {
+    block-size: calc(100svh - var(--size-header) - var(--space-section-block) * 2 - var(--ticket-edge) * 2);
+    grid-template-rows: auto auto auto minmax(0, 1fr) auto;
+  }
+
+  .service--rail .ticket__body {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    align-items: start;
+    min-block-size: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;
+  }
+}
+
+/* Where it goes and the format of the file, in smaller print */
+.ticket__side .ticket__out,
+.ticket__side .ticket__note {
+  font-size: var(--font-size-label);
+}

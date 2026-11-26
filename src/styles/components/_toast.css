@@ -1,0 +1,18 @@
+/* Polite live region used for copy feedback */
+.toast {
+  position: fixed;
+  inset-block-end: max(var(--space-3), env(safe-area-inset-bottom));
+  inset-inline-start: 50%;
+  z-index: var(--layer-toast);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-pill);
+  background-color: var(--color-surface-inverse);
+  color: var(--color-text-inverse);
+  font-weight: var(--font-weight-strong);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.toast:empty {
+  display: none;
+}

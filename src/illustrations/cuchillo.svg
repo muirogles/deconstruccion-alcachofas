@@ -1,0 +1,8 @@
+<svg viewBox="0 0 240 240" class="ill ill--cuchillo">
+  <!-- Chef knife: deconstruction -->
+  <g class="ill-part ill-part--slice" style="--i:0">
+    <path class="ill-smoke ill-stroke" d="M34 132 C80 104 150 96 206 104 L206 130 C150 136 90 144 34 132Z"/>
+    <rect class="ill-ink" x="172" y="106" width="56" height="22" rx="8" transform="rotate(-4 200 117)"/>
+    <path class="ill-line ill-line--light" d="M60 128 C100 114 140 110 180 110"/>
+  </g>
+</svg>

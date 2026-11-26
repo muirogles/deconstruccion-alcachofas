@@ -1,0 +1,12 @@
+/* ==========================================================================
+   Z-INDEX SCALE · tokenised stacking layers (no magic numbers)
+   ========================================================================== */
+
+:root {
+  --layer-base: 0;
+  --layer-raised: 10;
+  --layer-nav: 100;
+  --layer-header: 200;
+  --layer-toast: 300;
+  --layer-dialog: 400; /* native <dialog> uses the top layer; kept for fallbacks */
+}

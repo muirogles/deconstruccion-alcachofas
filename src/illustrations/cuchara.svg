@@ -1,0 +1,9 @@
+<svg viewBox="0 0 240 240" class="ill ill--cuchara">
+  <!-- Tasting spoon -->
+  <g class="ill-part ill-part--dip" style="--i:0">
+    <rect class="ill-ink" x="110" y="96" width="20" height="120" rx="10" transform="rotate(-32 120 156)"/>
+    <ellipse class="ill-smoke ill-stroke" cx="88" cy="74" rx="34" ry="44" transform="rotate(-32 88 74)"/>
+    <ellipse class="ill-amber" cx="86" cy="76" rx="20" ry="26" transform="rotate(-32 86 76)"/>
+  </g>
+  <circle class="ill-amber ill-part ill-part--drip" style="--i:1" cx="62" cy="150" r="8"/>
+</svg>

@@ -1,0 +1,166 @@
+/* ==========================================================================
+   LAYOUT · page and slides (one section per screen with scroll-snap)
+   Layout spacing comes from the parent (gap), never from negative margins.
+   ========================================================================== */
+
+.page {
+  display: block;
+}
+
+.page__part-intro {
+  display: none; /* Group labels are only used by the index dialog */
+}
+
+.slide {
+  position: relative;
+  display: grid;
+  align-content: center;
+  /* A snapped section starts below the fixed header (scroll-padding on html),
+     so it fills the rest of the screen */
+  min-block-size: calc(100vh - var(--size-header));
+  min-block-size: calc(100svh - var(--size-header));
+  padding-block: var(--space-section-block);
+  padding-inline: max(var(--space-section-inline), env(safe-area-inset-left)) max(var(--space-section-inline), env(safe-area-inset-right));
+  scroll-snap-align: start;
+  overflow-clip-margin: var(--space-3);
+}
+
+/* The opening section sits at the very top, under the header */
+.slide--opening {
+  min-block-size: 100vh;
+  min-block-size: 100svh;
+  padding-block-start: calc(var(--size-header) + var(--space-section-block));
+}
+
+.slide--inverse {
+  background-color: var(--color-surface-inverse);
+  color: var(--color-text-inverse);
+}
+
+.slide--inverse a:not(.button) {
+  color: var(--color-link-inverse);
+}
+
+/* Light surfaces inside a dark section keep the default link colour */
+.slide--inverse .card:not(.card--inverse) a:not(.button),
+.slide--inverse .prompt a:not(.button),
+.slide--inverse .ticket a:not(.button),
+.slide--inverse .menu a:not(.button) {
+  color: var(--color-link);
+}
+
+.slide--inverse .menu a.menu__link {
+  color: inherit;
+}
+
+/* «Sala»: the dining room. A warm spotlight on the dark table */
+.slide--sala {
+  background-color: var(--color-surface-sala);
+  background-image: radial-gradient(ellipse 70% 60% at 50% 35%, var(--color-surface-sala-glow), transparent 70%);
+}
+
+.slide--sunken {
+  background-color: var(--color-surface-sunken);
+}
+
+.slide--accent {
+  background-color: var(--color-surface-accent);
+  color: var(--color-text-on-accent);
+}
+
+.slide--accent .slide__eyebrow {
+  color: var(--color-text-on-accent);
+}
+
+.slide--pattern {
+  background-color: var(--color-surface-pattern);
+  background-image: url("../../../assets/images/alcachofil-pattern.png");
+  background-size: 50rem auto;
+  background-position: center;
+}
+
+.slide__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr); /* never wider than the screen, whatever the content */
+  gap: var(--space-stack);
+  inline-size: 100%;
+  max-inline-size: var(--size-content);
+  margin-inline: auto;
+}
+
+.slide__inner--split {
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+}
+
+@media (min-width: 56em) {
+  .slide__inner--split {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    gap: var(--space-8);
+  }
+}
+
+.slide__header {
+  display: grid;
+  gap: var(--space-2);
+  max-inline-size: var(--size-heading);
+}
+
+.slide__eyebrow {
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-strong);
+  letter-spacing: var(--letter-spacing-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-text-accent);
+}
+
+.slide--inverse .slide__eyebrow {
+  color: var(--color-link-inverse);
+}
+
+.slide__title {
+  font-size: var(--font-size-title);
+  font-weight: var(--font-weight-display);
+  line-height: var(--line-height-display);
+  letter-spacing: var(--letter-spacing-display);
+}
+
+.slide__lead {
+  font-size: var(--font-size-lead);
+  line-height: var(--line-height-heading);
+  max-inline-size: var(--size-prose);
+}
+
+.slide__text {
+  max-inline-size: var(--size-prose);
+}
+
+.slide__text--center {
+  justify-self: center;
+  max-inline-size: var(--size-heading);
+  text-align: center;
+}
+
+.slide__text > * + * {
+  margin-block-start: var(--space-2);
+}
+
+.slide__figure {
+  justify-self: center;
+  max-inline-size: min(var(--size-figure), 70vw);
+}
+
+.slide__figure img {
+  inline-size: 100%;
+  block-size: auto;
+}
+
+.slide__figure--hide-small {
+  display: none;
+}
+
+@media (min-width: 56em) {
+  .slide__figure--hide-small {
+    display: block;
+  }
+}

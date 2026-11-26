@@ -1,0 +1,1052 @@
+/* Portrait: the speaker’s head, hair, face and glasses, exported as computed CSS
+   from the reanimated character of Disaster System (same author). Pure HTML and
+   CSS, decorative (aria-hidden). Lengths are in cqi of the .portrait container,
+   so it scales with its box at any size. Generated: re-export instead of editing. */
+
+.portrait {
+  /* Component tokens: face colours of the character */
+  --portrait-c01: var(--character-face-01);
+  --portrait-c02: var(--character-face-02);
+  --portrait-c03: var(--character-face-03);
+  --portrait-c04: var(--character-face-04);
+  --portrait-c05: var(--character-face-05);
+  --portrait-c06: var(--character-face-06);
+  --portrait-c07: var(--character-face-07);
+  --portrait-c08: var(--character-face-08);
+  --portrait-c09: var(--character-face-09);
+  --portrait-c10: var(--character-face-10);
+  --portrait-c11: var(--character-face-11);
+  --portrait-c12: var(--character-face-12);
+  --portrait-c13: var(--character-face-13);
+  --portrait-c14: var(--character-face-14);
+  --portrait-c15: var(--character-face-15);
+  --portrait-c16: var(--character-face-16);
+  --portrait-c17: var(--character-face-17);
+  --portrait-c18: var(--character-face-18);
+  --portrait-c19: var(--character-face-19);
+  --portrait-c20: var(--character-face-20);
+  --portrait-c21: var(--character-face-21);
+  --portrait-c22: var(--character-face-22);
+  --portrait-c23: var(--character-face-23);
+  --portrait-c24: var(--character-face-24);
+  --portrait-c25: var(--character-face-25);
+  --portrait-c26: var(--character-face-26);
+  --portrait-c27: var(--character-face-27);
+  --portrait-c28: var(--character-face-28);
+  --portrait-c29: var(--character-face-29);
+  --portrait-c30: var(--character-face-30);
+  --portrait-c31: var(--character-face-31);
+  --portrait-c32: var(--character-face-32);
+  --portrait-c33: var(--character-face-33);
+  --portrait-c34: var(--character-face-34);
+  --portrait-c35: var(--character-face-35);
+  --portrait-c36: var(--character-face-36);
+  --portrait-c37: var(--character-face-37);
+  --portrait-c38: var(--character-face-38);
+  --portrait-c39: var(--character-face-39);
+  --portrait-c40: var(--character-face-40);
+  --portrait-c41: var(--character-face-41);
+  --portrait-c42: var(--character-face-42);
+  --portrait-c43: var(--character-face-43);
+  --portrait-c44: var(--character-face-44);
+  --portrait-c45: var(--character-face-45);
+  --portrait-c46: var(--character-face-46);
+  --portrait-c47: var(--character-face-47);
+  --portrait-c48: var(--character-face-48);
+  --portrait-c49: var(--character-face-49);
+  --portrait-c50: var(--character-face-50);
+  --portrait-c51: var(--character-face-51);
+  --portrait-c52: var(--character-face-52);
+  --portrait-c53: var(--character-face-53);
+  --portrait-c54: var(--character-face-54);
+  --portrait-c55: var(--character-face-55);
+  --portrait-c56: var(--character-face-56);
+  --portrait-c57: var(--character-face-57);
+  --portrait-c58: var(--character-face-58);
+  --portrait-c59: var(--character-face-59);
+  --portrait-c60: var(--character-face-60);
+  --portrait-c61: var(--character-face-61);
+  --portrait-c62: var(--character-face-62);
+  --portrait-c63: var(--character-face-63);
+  --portrait-c64: var(--character-face-64);
+  --portrait-c65: var(--character-face-65);
+  --portrait-c66: var(--character-face-66);
+  --portrait-c67: var(--character-face-67);
+  --portrait-c68: var(--character-face-68);
+  --portrait-c69: var(--character-face-69);
+  --portrait-c70: var(--character-face-70);
+  --portrait-c71: var(--character-face-71);
+  --portrait-c72: var(--character-face-72);
+  --portrait-c73: var(--character-face-73);
+  --portrait-c74: var(--character-face-74);
+  --portrait-c75: var(--character-face-75);
+  --portrait-c76: var(--character-face-76);
+  --portrait-c77: var(--character-face-77);
+  --portrait-c78: var(--character-face-78);
+  --portrait-c79: var(--character-face-79);
+  --portrait-c80: var(--character-face-80);
+  --portrait-c81: var(--character-face-81);
+  --portrait-c82: var(--character-face-82);
+  --portrait-c83: var(--character-face-83);
+  --portrait-c84: var(--character-face-84);
+  --portrait-c85: var(--character-face-85);
+  --portrait-c86: var(--character-face-86);
+  --portrait-c87: var(--character-face-87);
+  --portrait-c88: var(--character-face-88);
+
+  container-type: inline-size;
+  position: relative;
+  display: flex;
+  inline-size: 100%;
+  aspect-ratio: 480 / 720;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  transform-origin: 50cqi 75cqi;
+}
+
+.portrait > .portrait__head {
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 67.5cqi;
+  height: 90cqi;
+  z-index: 2;
+  transform-origin: 33.75cqi 45cqi;
+  border-top-left-radius: 47% 40%;
+  border-top-right-radius: 47% 40%;
+  border-bottom-right-radius: 50% 62%;
+  border-bottom-left-radius: 50% 62%;
+  background-image: radial-gradient(34% 22% at 50% 14%, var(--portrait-c01) 0%, var(--portrait-c02) 70%), radial-gradient(6% 20% at 50% 46%, var(--portrait-c03) 0%, var(--portrait-c02) 70%), radial-gradient(4% 12% at 43% 49%, var(--portrait-c04) 0%, var(--portrait-c02) 70%), radial-gradient(4% 12% at 57% 49%, var(--portrait-c04) 0%, var(--portrait-c02) 70%), radial-gradient(15% 10% at 26% 59%, var(--portrait-c05) 0%, var(--portrait-c02) 70%), radial-gradient(15% 10% at 74% 59%, var(--portrait-c05) 0%, var(--portrait-c02) 70%), radial-gradient(18% 8% at 25% 51%, var(--portrait-c06) 0%, var(--portrait-c02) 70%), radial-gradient(18% 8% at 75% 51%, var(--portrait-c06) 0%, var(--portrait-c02) 70%), radial-gradient(12% 14% at 10% 70%, var(--portrait-c07) 0%, var(--portrait-c02) 70%), radial-gradient(12% 14% at 90% 70%, var(--portrait-c07) 0%, var(--portrait-c02) 70%), radial-gradient(10% 16% at 6% 34%, var(--portrait-c08) 0%, var(--portrait-c02) 70%), radial-gradient(10% 16% at 94% 34%, var(--portrait-c08) 0%, var(--portrait-c02) 70%), radial-gradient(14% 20% at 16% 84%, var(--portrait-c09) 0%, var(--portrait-c02) 70%), radial-gradient(14% 20% at 84% 84%, var(--portrait-c09) 0%, var(--portrait-c02) 70%), radial-gradient(50% 18% at 50% 100%, var(--portrait-c10) 0%, var(--portrait-c02) 70%), linear-gradient(var(--portrait-c11) 0%, var(--portrait-c12) 45%, var(--portrait-c12) 80%, var(--portrait-c13) 100%);
+  background-size: auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto;
+  background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  background-repeat: repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat;
+  box-shadow: var(--portrait-c14) 1.5cqi 0 5cqi 0 inset, var(--portrait-c14) -1.5cqi 0 5cqi 0 inset, var(--portrait-c10) 0 -3.5cqi 7.5cqi 0 inset, var(--portrait-c15) 2cqi 4.5cqi 12cqi 0;
+}
+
+.portrait > .portrait__head > .portrait__hair {
+  position: absolute;
+  top: -26.999cqi;
+  right: -45.898cqi;
+  bottom: 45cqi;
+  left: 33.75cqi;
+  width: 79.649cqi;
+  height: 71.999cqi;
+  z-index: 3;
+  transform-origin: 39.824cqi 35.999cqi;
+  translate: -39.824cqi 0;
+}
+
+.portrait > .portrait__head > .portrait__hair > .portrait__hair-top {
+  position: absolute;
+  top: 0;
+  right: -39.824cqi;
+  bottom: 21.601cqi;
+  left: 39.824cqi;
+  width: 79.649cqi;
+  height: 50.397cqi;
+  z-index: 3;
+  transform-origin: 39.824cqi 25.198cqi;
+  background-image: linear-gradient(90deg, var(--portrait-c02) 37.3%, var(--portrait-c16) 37.6%, var(--portrait-c16) 38.4%, var(--portrait-c02) 38.7%), radial-gradient(16% 22% at 26% 26%, var(--portrait-c17) 0%, var(--portrait-c02) 70%), radial-gradient(26% 26% at 60% 24%, var(--portrait-c18) 0%, var(--portrait-c02) 70%), radial-gradient(9% 36% at 38% 18%, var(--portrait-c19) 0%, var(--portrait-c02) 70%), linear-gradient(var(--portrait-c20), var(--portrait-c21) 40%, var(--portrait-c22), var(--portrait-c23));
+  background-size: 100% 62%, auto, auto, auto, auto;
+  background-position: 0 0, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  background-repeat: no-repeat, repeat, repeat, repeat, repeat;
+  clip-path: polygon(2% 100%, 0% 80%, 2% 58%, 7% 38%, 15% 22%, 26% 11%, 38% 5%, 50% 3%, 62% 5%, 74% 11%, 85% 22%, 93% 38%, 98% 58%, 100% 80%, 98% 100%, 85% 100%, 83% 82%, 79% 73%, 72% 67%, 62% 63%, 52% 61%, 41% 59.5%, 38% 63%, 35% 60%, 28% 63%, 21% 70%, 17% 80%, 15% 100%);
+  filter: drop-shadow(var(--portrait-c24) 0 0.607cqi 0.945cqi);
+  translate: -39.824cqi 0;
+}
+
+.portrait > .portrait__head > .portrait__hair > .portrait__hair-side--l {
+  position: absolute;
+  top: 24.479cqi;
+  right: 62.127cqi;
+  bottom: -69.117cqi;
+  left: 0;
+  width: 17.522cqi;
+  height: 116.636cqi;
+  z-index: 2;
+  transform-origin: 8.761cqi 58.318cqi;
+  border-top-left-radius: 30% 6%;
+  border-top-right-radius: 60% 10%;
+  border-bottom-right-radius: 45% 10%;
+  border-bottom-left-radius: 55% 12%;
+  background-image: radial-gradient(30% 40% at 60% 30%, var(--portrait-c25) 0%, var(--portrait-c02) 70%), linear-gradient(var(--portrait-c02) 55%, var(--portrait-c26) 100%), linear-gradient(90deg, var(--portrait-c20), var(--portrait-c21) 40%, var(--portrait-c22) 75%, var(--portrait-c21));
+  background-size: auto, auto, auto;
+  background-position: 0% 0%, 0% 0%, 0% 0%;
+  background-repeat: repeat, repeat, repeat;
+}
+
+.portrait > .portrait__head > .portrait__hair > .portrait__hair-side--r {
+  position: absolute;
+  top: 24.479cqi;
+  right: 0;
+  bottom: -69.117cqi;
+  left: 62.127cqi;
+  width: 17.522cqi;
+  height: 116.636cqi;
+  z-index: 2;
+  transform-origin: 8.761cqi 58.318cqi;
+  border-top-left-radius: 60% 10%;
+  border-top-right-radius: 30% 6%;
+  border-bottom-right-radius: 55% 12%;
+  border-bottom-left-radius: 45% 10%;
+  background-image: radial-gradient(30% 40% at 40% 30%, var(--portrait-c25) 0%, var(--portrait-c02) 70%), linear-gradient(var(--portrait-c02) 55%, var(--portrait-c26) 100%), linear-gradient(270deg, var(--portrait-c20), var(--portrait-c21) 40%, var(--portrait-c22) 75%, var(--portrait-c21));
+  background-size: auto, auto, auto;
+  background-position: 0% 0%, 0% 0%, 0% 0%;
+  background-repeat: repeat, repeat, repeat;
+}
+
+.portrait > .portrait__head > .portrait__ear--l {
+  position: absolute;
+  top: 35.998cqi;
+  right: 60.076cqi;
+  bottom: 40.504cqi;
+  left: -6.074cqi;
+  width: 13.498cqi;
+  height: 13.498cqi;
+  z-index: 4;
+  transform-origin: 6.749cqi 6.749cqi;
+  border-top-left-radius: 50% 45%;
+  border-top-right-radius: 15% 12%;
+  border-bottom-right-radius: 15% 12%;
+  border-bottom-left-radius: 50% 45%;
+  background-image: radial-gradient(60% 50% at 50% 35%, var(--portrait-c11) 0%, var(--portrait-c02) 65%), radial-gradient(40% 30% at 50% 70%, var(--portrait-c27) 0%, var(--portrait-c02) 60%), linear-gradient(var(--portrait-c12) 0%, var(--portrait-c13) 60%, var(--portrait-c27) 100%);
+  background-size: auto, auto, auto;
+  background-position: 0% 0%, 0% 0%, 0% 0%;
+  background-repeat: repeat, repeat, repeat;
+  box-shadow: var(--portrait-c28) 0 0.125cqi 0.5cqi 0 inset, var(--portrait-c29) 0 -0.25cqi 0.625cqi 0 inset, var(--portrait-c30) 0.188cqi 0.313cqi 0.875cqi 0;
+}
+
+.portrait > .portrait__head > .portrait__ear--l::before {
+  display: block;
+  position: absolute;
+  top: 1.619cqi;
+  right: 1.747cqi;
+  bottom: 2.153cqi;
+  left: 2.7cqi;
+  width: 8.774cqi;
+  height: 9.449cqi;
+  transform-origin: 4.526cqi 4.863cqi;
+  border-top-width: 0.139cqi;
+  border-right-width: 0.139cqi;
+  border-bottom-width: 0.139cqi;
+  border-left-width: 0.139cqi;
+  border-top-style: solid;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-top-color: var(--portrait-c31);
+  border-right-color: var(--portrait-c31);
+  border-bottom-color: var(--portrait-c31);
+  border-left-color: var(--portrait-c31);
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 45% 50%;
+  border-bottom-left-radius: 45% 50%;
+  box-shadow: var(--portrait-c32) 0.125cqi 0.125cqi 0.375cqi 0 inset, var(--portrait-c33) -0.062cqi -0.062cqi 0.25cqi 0 inset;
+  content: "";
+}
+
+.portrait > .portrait__head > .portrait__ear--r {
+  position: absolute;
+  top: 35.998cqi;
+  right: -6.074cqi;
+  bottom: 40.504cqi;
+  left: 60.076cqi;
+  width: 13.498cqi;
+  height: 13.498cqi;
+  z-index: 4;
+  transform-origin: 6.749cqi 6.749cqi;
+  border-top-left-radius: 15% 12%;
+  border-top-right-radius: 50% 45%;
+  border-bottom-right-radius: 50% 45%;
+  border-bottom-left-radius: 15% 12%;
+  background-image: radial-gradient(60% 50% at 50% 35%, var(--portrait-c11) 0%, var(--portrait-c02) 65%), radial-gradient(40% 30% at 50% 70%, var(--portrait-c27) 0%, var(--portrait-c02) 60%), linear-gradient(var(--portrait-c12) 0%, var(--portrait-c13) 60%, var(--portrait-c27) 100%);
+  background-size: auto, auto, auto;
+  background-position: 0% 0%, 0% 0%, 0% 0%;
+  background-repeat: repeat, repeat, repeat;
+  box-shadow: var(--portrait-c28) 0 0.125cqi 0.5cqi 0 inset, var(--portrait-c29) 0 -0.25cqi 0.625cqi 0 inset, var(--portrait-c30) 0.188cqi 0.313cqi 0.875cqi 0;
+}
+
+.portrait > .portrait__head > .portrait__ear--r::before {
+  display: block;
+  position: absolute;
+  top: 1.619cqi;
+  right: 2.7cqi;
+  bottom: 2.153cqi;
+  left: 1.747cqi;
+  width: 8.774cqi;
+  height: 9.449cqi;
+  transform-origin: 4.526cqi 4.863cqi;
+  border-top-width: 0.139cqi;
+  border-right-width: 0.139cqi;
+  border-bottom-width: 0.139cqi;
+  border-left-width: 0.139cqi;
+  border-top-style: solid;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-top-color: var(--portrait-c31);
+  border-right-color: var(--portrait-c31);
+  border-bottom-color: var(--portrait-c31);
+  border-left-color: var(--portrait-c31);
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 45% 50%;
+  border-bottom-left-radius: 45% 50%;
+  box-shadow: var(--portrait-c32) 0.125cqi 0.125cqi 0.375cqi 0 inset, var(--portrait-c33) -0.062cqi -0.062cqi 0.25cqi 0 inset;
+  content: "";
+}
+
+.portrait > .portrait__head > .portrait__glasses {
+  position: absolute;
+  top: 26.999cqi;
+  right: -26.999cqi;
+  bottom: 40.501cqi;
+  left: 33.75cqi;
+  width: 60.749cqi;
+  height: 22.5cqi;
+  z-index: 9;
+  transform-origin: 30.374cqi 11.25cqi;
+  translate: -30.374cqi 0;
+}
+
+.portrait > .portrait__head > .portrait__glasses > .portrait__glasses-bridge {
+  position: absolute;
+  top: 9.449cqi;
+  right: 25.922cqi;
+  bottom: 11.567cqi;
+  left: 30.373cqi;
+  width: 4.453cqi;
+  height: 1.484cqi;
+  transform-origin: 2.227cqi 0.742cqi;
+  border-top-left-radius: 50% 0%;
+  border-top-right-radius: 50% 0%;
+  border-bottom-right-radius: 50% 100%;
+  border-bottom-left-radius: 50% 100%;
+  background-image: linear-gradient(var(--portrait-c34), var(--portrait-c35));
+  translate: -2.227cqi 0;
+}
+
+.portrait > .portrait__head > .portrait__glasses > .portrait__glasses-lens--l {
+  position: absolute;
+  top: 0;
+  right: 31.86cqi;
+  bottom: 0;
+  left: 0;
+  width: 28.889cqi;
+  height: 22.5cqi;
+  opacity: 0.8;
+  transform-origin: 14.444cqi 11.25cqi;
+  border-top-width: 1.389cqi;
+  border-right-width: 1.389cqi;
+  border-bottom-width: 1.389cqi;
+  border-left-width: 1.389cqi;
+  border-top-style: solid;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-top-color: var(--portrait-c35);
+  border-right-color: var(--portrait-c35);
+  border-bottom-color: var(--portrait-c35);
+  border-left-color: var(--portrait-c35);
+  border-top-left-radius: 80% 0%;
+  border-top-right-radius: 40% 60%;
+  border-bottom-right-radius: 40% 60%;
+  border-bottom-left-radius: 40% 100%;
+  box-shadow: var(--portrait-c36) 0 0 0.625cqi 0, var(--portrait-c37) 0 0 1.562cqi 0, var(--portrait-c38) 0 0 0.938cqi 0 inset, var(--portrait-c33) 0 0.125cqi 0.25cqi 0 inset;
+}
+
+.portrait > .portrait__head > .portrait__glasses > .portrait__glasses-lens--l::after {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 21.656cqi;
+  bottom: 15.269cqi;
+  left: -2.97cqi;
+  width: 7.424cqi;
+  height: 4.453cqi;
+  transform-origin: 3.712cqi 2.227cqi;
+  background-color: var(--portrait-c39);
+  clip-path: polygon(100% 0%, 0% 0%, 0% 100%, 45% 100%, 45% 60%, 60% 25%, 100% 0%);
+  content: "";
+}
+
+.portrait > .portrait__head > .portrait__glasses > .portrait__glasses-lens--l > .portrait__glasses-wing--l {
+  width: 26.111cqi;
+  transform-origin: 13.056cqi 0;
+}
+
+.portrait > .portrait__head > .portrait__glasses > .portrait__glasses-lens--l > .portrait__glasses-triangle--l {
+  width: 26.111cqi;
+  transform-origin: 13.056cqi 0;
+}
+
+.portrait > .portrait__head > .portrait__glasses > .portrait__glasses-lens--r {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 31.86cqi;
+  width: 28.889cqi;
+  height: 22.5cqi;
+  transform-origin: 14.444cqi 11.25cqi;
+  border-top-width: 1.389cqi;
+  border-right-width: 1.389cqi;
+  border-bottom-width: 1.389cqi;
+  border-left-width: 1.389cqi;
+  border-top-style: solid;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-top-color: var(--portrait-c35);
+  border-right-color: var(--portrait-c35);
+  border-bottom-color: var(--portrait-c35);
+  border-left-color: var(--portrait-c35);
+  border-top-left-radius: 40% 60%;
+  border-top-right-radius: 80% 0%;
+  border-bottom-right-radius: 40% 100%;
+  border-bottom-left-radius: 40% 60%;
+  box-shadow: var(--portrait-c36) 0 0 0.625cqi 0, var(--portrait-c37) 0 0 1.562cqi 0, var(--portrait-c38) 0 0 0.938cqi 0 inset, var(--portrait-c33) 0 0.125cqi 0.25cqi 0 inset;
+}
+
+.portrait > .portrait__head > .portrait__glasses > .portrait__glasses-lens--r::after {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: -2.97cqi;
+  bottom: 15.269cqi;
+  left: 21.656cqi;
+  width: 7.424cqi;
+  height: 4.453cqi;
+  transform-origin: 3.712cqi 2.227cqi;
+  background-color: var(--portrait-c39);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 55% 100%, 55% 60%, 40% 25%, 0% 0%);
+  content: "";
+}
+
+.portrait > .portrait__head > .portrait__glasses > .portrait__glasses-lens--r > .portrait__glasses-wing--r {
+  width: 26.111cqi;
+  transform-origin: 13.056cqi 0;
+}
+
+.portrait > .portrait__head > .portrait__glasses > .portrait__glasses-lens--r > .portrait__glasses-triangle--r {
+  width: 26.111cqi;
+  transform-origin: 13.056cqi 0;
+}
+
+.portrait > .portrait__head > .portrait__glasses > .portrait__glasses-arm--l {
+  position: absolute;
+  top: 8.548cqi;
+  right: 59.533cqi;
+  bottom: 13.21cqi;
+  left: -10.8cqi;
+  width: 12.014cqi;
+  height: 0.742cqi;
+  transform: matrix(0.996195, 0.0871557, -0.0871557, 0.996195, 0, 0);
+  transform-origin: 6.007cqi 0.371cqi;
+  border-top-left-radius: 0.125cqi;
+  border-top-right-radius: 0.125cqi;
+  border-bottom-right-radius: 0.125cqi;
+  border-bottom-left-radius: 0.125cqi;
+  background-image: linear-gradient(to left, var(--portrait-c35), var(--portrait-c40));
+}
+
+.portrait > .portrait__head > .portrait__glasses > .portrait__glasses-arm--r {
+  position: absolute;
+  top: 8.548cqi;
+  right: -10.8cqi;
+  bottom: 13.21cqi;
+  left: 59.533cqi;
+  width: 12.014cqi;
+  height: 0.742cqi;
+  transform: matrix(0.996195, -0.0871557, 0.0871557, 0.996195, 0, 0);
+  transform-origin: 6.007cqi 0.371cqi;
+  border-top-left-radius: 0.125cqi;
+  border-top-right-radius: 0.125cqi;
+  border-bottom-right-radius: 0.125cqi;
+  border-bottom-left-radius: 0.125cqi;
+  background-image: linear-gradient(to right, var(--portrait-c35), var(--portrait-c40));
+}
+
+.portrait > .portrait__head > .portrait__face-eyes {
+  display: flex;
+  position: absolute;
+  top: 29.698cqi;
+  right: -20.25cqi;
+  bottom: 49.503cqi;
+  left: 33.75cqi;
+  width: 54cqi;
+  height: 10.798cqi;
+  justify-content: center;
+  gap: 9.45cqi;
+  z-index: 8;
+  transform-origin: 27cqi 5.399cqi;
+  translate: -27cqi 0;
+}
+
+.portrait > .portrait__head > .portrait__face-eyes > .portrait__eye--l {
+  display: flex;
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 16.198cqi;
+  height: 10.798cqi;
+  flex-direction: column;
+  align-items: center;
+  transform-origin: 8.099cqi 5.399cqi;
+}
+
+.portrait > .portrait__head > .portrait__face-eyes > .portrait__eye--l::before {
+  display: block;
+  position: absolute;
+  top: -9.069cqi;
+  right: -0.323cqi;
+  bottom: 13.822cqi;
+  left: -1.619cqi;
+  width: 18.14cqi;
+  height: 6.046cqi;
+  z-index: 5;
+  transform: matrix(-1, 0, 0, 1, 0, 0);
+  transform-origin: 9.07cqi 3.023cqi;
+  background-image: repeating-linear-gradient(70deg, var(--portrait-c02) 0%, var(--portrait-c02) 4%, var(--portrait-c41) 4%, var(--portrait-c41) 6%), linear-gradient(90deg, var(--portrait-c42), var(--portrait-c43) 55%, var(--portrait-c44));
+  background-size: auto, auto;
+  background-position: 0% 0%, 0% 0%;
+  background-repeat: repeat, repeat;
+  clip-path: polygon(0% 40%, 20% 32%, 42% 23%, 62% 14%, 70% 14%, 86% 32%, 100% 68%, 97% 74%, 84% 44%, 68% 32%, 44% 40%, 20% 50%, 2% 70%);
+  content: "";
+}
+
+.portrait > .portrait__head > .portrait__face-eyes > .portrait__eye--l > .portrait__eye-shadow {
+  position: absolute;
+  top: -3.023cqi;
+  right: -19.436cqi;
+  bottom: -4.536cqi;
+  left: 8.099cqi;
+  width: 27.535cqi;
+  height: 18.357cqi;
+  z-index: -1;
+  transform-origin: 13.767cqi 9.178cqi;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  background-image: radial-gradient(55% 32% at 50% 38%, var(--portrait-c45) 0%, var(--portrait-c02) 70%), radial-gradient(60% 45%, var(--portrait-c46) 0%, var(--portrait-c02) 70%);
+  background-size: auto, auto;
+  background-position: 0% 0%, 0% 0%;
+  background-repeat: repeat, repeat;
+  translate: -13.767cqi 0;
+}
+
+.portrait > .portrait__head > .portrait__face-eyes > .portrait__eye--l > .portrait__eye-white {
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 16.198cqi;
+  height: 10.798cqi;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  transform-origin: 8.099cqi 5.399cqi;
+  border-top-color: var(--portrait-c02);
+  border-right-color: var(--portrait-c02);
+  border-bottom-color: var(--portrait-c02);
+  border-left-color: var(--portrait-c02);
+  border-top-left-radius: 62% 90%;
+  border-top-right-radius: 58% 90%;
+  border-bottom-right-radius: 50% 62%;
+  border-bottom-left-radius: 54% 62%;
+  background-image: radial-gradient(circle at 50% 45%, var(--portrait-c47) 0%, var(--portrait-c48) 55%, var(--portrait-c49) 100%);
+  box-shadow: var(--portrait-c50) 0 0.675cqi 0 0 inset;
+}
+
+.portrait > .portrait__head > .portrait__face-eyes > .portrait__eye--l > .portrait__eye-white::after {
+  display: block;
+  position: absolute;
+  top: 9.503cqi;
+  right: -0.809cqi;
+  bottom: -1.079cqi;
+  left: -0.809cqi;
+  width: 17.817cqi;
+  height: 2.374cqi;
+  z-index: 4;
+  transform-origin: 8.909cqi 1.187cqi;
+  border-top-left-radius: 50% 100%;
+  border-top-right-radius: 50% 100%;
+  background-color: var(--portrait-c51);
+  content: "";
+}
+
+.portrait > .portrait__head > .portrait__face-eyes > .portrait__eye--l > .portrait__eye-white > .portrait__eye-iris {
+  position: absolute;
+  top: 5.831cqi;
+  right: 0.649cqi;
+  bottom: -2.482cqi;
+  left: 8.099cqi;
+  width: 7.45cqi;
+  height: 7.45cqi;
+  z-index: 1;
+  transform-origin: 3.725cqi 3.725cqi;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  background-image: repeating-conic-gradient(var(--portrait-c52) 0deg, var(--portrait-c52) 3deg, var(--portrait-c02) 3deg, var(--portrait-c02) 8deg), radial-gradient(circle, var(--portrait-c53), var(--portrait-c53) 24%, var(--portrait-c54) 30%, var(--portrait-c55) 38%, var(--portrait-c56) 50%, var(--portrait-c57), var(--portrait-c58), var(--portrait-c59) 92%, var(--portrait-c60));
+  background-size: auto, auto;
+  background-position: 0% 0%, 0% 0%;
+  background-repeat: repeat, repeat;
+  box-shadow: var(--portrait-c15) 0 0 0.337cqi 0 inset;
+  translate: -3.725cqi -3.725cqi;
+}
+
+.portrait > .portrait__head > .portrait__face-eyes > .portrait__eye--l > .portrait__eye-white > .portrait__eye-pupil {
+  position: absolute;
+  top: 5.831cqi;
+  right: 4.536cqi;
+  bottom: 2.593cqi;
+  left: 8.099cqi;
+  width: 3.563cqi;
+  height: 2.374cqi;
+  z-index: 2;
+  transform-origin: 1.782cqi 1.187cqi;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  background-image: radial-gradient(circle at 45% 40%, var(--portrait-c61), var(--portrait-c62) 40%, var(--portrait-c63));
+  box-shadow: var(--portrait-c64) 0 0 0.25cqi 0;
+  translate: -1.782cqi -1.187cqi;
+}
+
+.portrait > .portrait__head > .portrait__face-eyes > .portrait__eye--l > .portrait__eye-white > .portrait__eye-shine {
+  position: absolute;
+  top: 3.023cqi;
+  right: 9.557cqi;
+  bottom: 6.265cqi;
+  left: 4.859cqi;
+  width: 1.782cqi;
+  height: 1.51cqi;
+  z-index: 3;
+  transform-origin: 0.891cqi 0.755cqi;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  background-color: var(--portrait-c65);
+  filter: blur(0.031cqi);
+}
+
+.portrait > .portrait__head > .portrait__face-eyes > .portrait__eye--l > .portrait__eye-white > .portrait__eye-shine--2 {
+  position: absolute;
+  top: 3.023cqi;
+  right: 9.557cqi;
+  bottom: 6.265cqi;
+  left: 4.859cqi;
+  width: 1.782cqi;
+  height: 1.51cqi;
+  z-index: 3;
+  transform-origin: 0.891cqi 0.755cqi;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  background-color: var(--portrait-c66);
+  filter: blur(0.019cqi);
+}
+
+.portrait > .portrait__head > .portrait__face-eyes > .portrait__eye--l > .portrait__eye-lid {
+  position: absolute;
+  top: -3.238cqi;
+  right: -12.958cqi;
+  bottom: 10.582cqi;
+  left: 8.099cqi;
+  width: 21.057cqi;
+  height: 3.455cqi;
+  z-index: 4;
+  transform: matrix(0.999391, -0.0348995, 0.0348995, 0.999391, 0, 0);
+  transform-origin: 10.528cqi 1.727cqi;
+  border-top-left-radius: 50% 100%;
+  border-top-right-radius: 50% 100%;
+  background-image: linear-gradient(var(--portrait-c67) 0%, var(--portrait-c51) 60%, var(--portrait-c02) 100%);
+  translate: -10.528cqi 0;
+}
+
+.portrait > .portrait__head > .portrait__face-eyes > .portrait__eye--l > .portrait__eye-lashes {
+  position: absolute;
+  top: 3.67cqi;
+  right: 15.549cqi;
+  bottom: 4.755cqi;
+  left: -1.942cqi;
+  width: 2.591cqi;
+  height: 2.374cqi;
+  z-index: 5;
+  transform: matrix(-1, 0, 0, 1, 0, 0);
+  transform-origin: 1.296cqi 1.187cqi;
+  background-color: var(--portrait-c50);
+  clip-path: polygon(0% 45%, 100% 0%, 0% 100%);
+}
+
+.portrait > .portrait__head > .portrait__face-eyes > .portrait__eye--r {
+  display: flex;
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 16.198cqi;
+  height: 10.798cqi;
+  flex-direction: column;
+  align-items: center;
+  transform-origin: 8.099cqi 5.399cqi;
+}
+
+.portrait > .portrait__head > .portrait__face-eyes > .portrait__eye--r::before {
+  display: block;
+  position: absolute;
+  top: -9.069cqi;
+  right: -1.619cqi;
+  bottom: 13.822cqi;
+  left: -0.323cqi;
+  width: 18.14cqi;
+  height: 6.046cqi;
+  z-index: 5;
+  transform-origin: 9.07cqi 3.023cqi;
+  background-image: repeating-linear-gradient(70deg, var(--portrait-c02) 0%, var(--portrait-c02) 4%, var(--portrait-c41) 4%, var(--portrait-c41) 6%), linear-gradient(90deg, var(--portrait-c42), var(--portrait-c43) 55%, var(--portrait-c44));
+  background-size: auto, auto;
+  background-position: 0% 0%, 0% 0%;
+  background-repeat: repeat, repeat;
+  clip-path: polygon(0% 40%, 20% 32%, 42% 23%, 62% 14%, 70% 14%, 86% 32%, 100% 68%, 97% 74%, 84% 44%, 68% 32%, 44% 40%, 20% 50%, 2% 70%);
+  content: "";
+}
+
+.portrait > .portrait__head > .portrait__face-eyes > .portrait__eye--r > .portrait__eye-shadow {
+  position: absolute;
+  top: -3.023cqi;
+  right: -19.436cqi;
+  bottom: -4.536cqi;
+  left: 8.099cqi;
+  width: 27.535cqi;
+  height: 18.357cqi;
+  z-index: -1;
+  transform-origin: 13.767cqi 9.178cqi;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  background-image: radial-gradient(55% 32% at 50% 38%, var(--portrait-c45) 0%, var(--portrait-c02) 70%), radial-gradient(60% 45%, var(--portrait-c46) 0%, var(--portrait-c02) 70%);
+  background-size: auto, auto;
+  background-position: 0% 0%, 0% 0%;
+  background-repeat: repeat, repeat;
+  translate: -13.767cqi 0;
+}
+
+.portrait > .portrait__head > .portrait__face-eyes > .portrait__eye--r > .portrait__eye-white {
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 16.198cqi;
+  height: 10.798cqi;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  transform-origin: 8.099cqi 5.399cqi;
+  border-top-color: var(--portrait-c02);
+  border-right-color: var(--portrait-c02);
+  border-bottom-color: var(--portrait-c02);
+  border-left-color: var(--portrait-c02);
+  border-top-left-radius: 62% 90%;
+  border-top-right-radius: 58% 90%;
+  border-bottom-right-radius: 50% 62%;
+  border-bottom-left-radius: 54% 62%;
+  background-image: radial-gradient(circle at 50% 45%, var(--portrait-c47) 0%, var(--portrait-c48) 55%, var(--portrait-c49) 100%);
+  box-shadow: var(--portrait-c50) 0 0.675cqi 0 0 inset;
+}
+
+.portrait > .portrait__head > .portrait__face-eyes > .portrait__eye--r > .portrait__eye-white::after {
+  display: block;
+  position: absolute;
+  top: 9.503cqi;
+  right: -0.809cqi;
+  bottom: -1.079cqi;
+  left: -0.809cqi;
+  width: 17.817cqi;
+  height: 2.374cqi;
+  z-index: 4;
+  transform-origin: 8.909cqi 1.187cqi;
+  border-top-left-radius: 50% 100%;
+  border-top-right-radius: 50% 100%;
+  background-color: var(--portrait-c51);
+  content: "";
+}
+
+.portrait > .portrait__head > .portrait__face-eyes > .portrait__eye--r > .portrait__eye-white > .portrait__eye-iris {
+  position: absolute;
+  top: 5.831cqi;
+  right: 0.649cqi;
+  bottom: -2.482cqi;
+  left: 8.099cqi;
+  width: 7.45cqi;
+  height: 7.45cqi;
+  z-index: 1;
+  transform-origin: 3.725cqi 3.725cqi;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  background-image: repeating-conic-gradient(var(--portrait-c52) 0deg, var(--portrait-c52) 3deg, var(--portrait-c02) 3deg, var(--portrait-c02) 8deg), radial-gradient(circle, var(--portrait-c53), var(--portrait-c53) 24%, var(--portrait-c54) 30%, var(--portrait-c55) 38%, var(--portrait-c56) 50%, var(--portrait-c57), var(--portrait-c58), var(--portrait-c59) 92%, var(--portrait-c60));
+  background-size: auto, auto;
+  background-position: 0% 0%, 0% 0%;
+  background-repeat: repeat, repeat;
+  box-shadow: var(--portrait-c15) 0 0 0.337cqi 0 inset;
+  translate: -3.725cqi -3.725cqi;
+}
+
+.portrait > .portrait__head > .portrait__face-eyes > .portrait__eye--r > .portrait__eye-white > .portrait__eye-pupil {
+  position: absolute;
+  top: 5.831cqi;
+  right: 4.536cqi;
+  bottom: 2.593cqi;
+  left: 8.099cqi;
+  width: 3.563cqi;
+  height: 2.374cqi;
+  z-index: 2;
+  transform-origin: 1.782cqi 1.187cqi;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  background-image: radial-gradient(circle at 45% 40%, var(--portrait-c61), var(--portrait-c62) 40%, var(--portrait-c63));
+  box-shadow: var(--portrait-c64) 0 0 0.25cqi 0;
+  translate: -1.782cqi -1.187cqi;
+}
+
+.portrait > .portrait__head > .portrait__face-eyes > .portrait__eye--r > .portrait__eye-white > .portrait__eye-shine {
+  position: absolute;
+  top: 3.023cqi;
+  right: 9.557cqi;
+  bottom: 6.265cqi;
+  left: 4.859cqi;
+  width: 1.782cqi;
+  height: 1.51cqi;
+  z-index: 3;
+  transform-origin: 0.891cqi 0.755cqi;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  background-color: var(--portrait-c65);
+  filter: blur(0.031cqi);
+}
+
+.portrait > .portrait__head > .portrait__face-eyes > .portrait__eye--r > .portrait__eye-white > .portrait__eye-shine--2 {
+  position: absolute;
+  top: 3.023cqi;
+  right: 9.557cqi;
+  bottom: 6.265cqi;
+  left: 4.859cqi;
+  width: 1.782cqi;
+  height: 1.51cqi;
+  z-index: 3;
+  transform-origin: 0.891cqi 0.755cqi;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  background-color: var(--portrait-c66);
+  filter: blur(0.019cqi);
+}
+
+.portrait > .portrait__head > .portrait__face-eyes > .portrait__eye--r > .portrait__eye-lid {
+  position: absolute;
+  top: -3.238cqi;
+  right: -12.958cqi;
+  bottom: 10.582cqi;
+  left: 8.099cqi;
+  width: 21.057cqi;
+  height: 3.455cqi;
+  z-index: 4;
+  transform-origin: 10.528cqi 1.727cqi;
+  border-top-left-radius: 50% 100%;
+  border-top-right-radius: 50% 100%;
+  background-image: linear-gradient(var(--portrait-c67) 0%, var(--portrait-c51) 60%, var(--portrait-c02) 100%);
+  translate: -10.528cqi 0;
+}
+
+.portrait > .portrait__head > .portrait__face-eyes > .portrait__eye--r > .portrait__eye-lashes {
+  position: absolute;
+  top: 3.67cqi;
+  right: -1.942cqi;
+  bottom: 4.755cqi;
+  left: 15.549cqi;
+  width: 2.591cqi;
+  height: 2.374cqi;
+  z-index: 5;
+  transform-origin: 1.296cqi 1.187cqi;
+  background-color: var(--portrait-c50);
+  clip-path: polygon(0% 45%, 100% 0%, 0% 100%);
+}
+
+.portrait > .portrait__head > .portrait__nose {
+  position: absolute;
+  top: 48.598cqi;
+  right: 23.626cqi;
+  bottom: 34.653cqi;
+  left: 33.75cqi;
+  width: 10.124cqi;
+  height: 6.749cqi;
+  z-index: 8;
+  transform-origin: 5.062cqi 3.375cqi;
+  border-top-left-radius: 40% 30%;
+  border-top-right-radius: 40% 30%;
+  border-bottom-right-radius: 50% 60%;
+  border-bottom-left-radius: 50% 60%;
+  background-image: radial-gradient(26% 22% at 50% 52%, var(--portrait-c68) 0%, var(--portrait-c02) 70%), radial-gradient(55% 50% at 22% 55%, var(--portrait-c11) 0%, var(--portrait-c02) 60%), radial-gradient(55% 50% at 80% 55%, var(--portrait-c13) 0%, var(--portrait-c02) 60%), linear-gradient(var(--portrait-c12) 0%, var(--portrait-c12) 55%, var(--portrait-c13) 100%);
+  background-size: auto, auto, auto, auto;
+  background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  background-repeat: repeat, repeat, repeat, repeat;
+  box-shadow: var(--portrait-c69) 0 -0.337cqi 1.012cqi 0 inset, var(--portrait-c70) 0.337cqi 0.675cqi 1.35cqi 0;
+  translate: -5.062cqi 0;
+}
+
+.portrait > .portrait__head > .portrait__nose::before {
+  display: block;
+  position: absolute;
+  top: 4.592cqi;
+  right: 5.872cqi;
+  bottom: 1.079cqi;
+  left: 1.417cqi;
+  width: 2.834cqi;
+  height: 1.079cqi;
+  opacity: 0.3;
+  transform: matrix(0.996195, -0.0871557, 0.0871557, 0.996195, 0, 0);
+  transform-origin: 1.417cqi 0.539cqi;
+  border-top-left-radius: 45% 40%;
+  border-top-right-radius: 45% 40%;
+  border-bottom-right-radius: 50% 60%;
+  border-bottom-left-radius: 50% 60%;
+  background-image: radial-gradient(var(--portrait-c71) 0%, var(--portrait-c72) 50%, var(--portrait-c73) 80%, var(--portrait-c02) 100%);
+  content: "";
+}
+
+.portrait > .portrait__head > .portrait__nose::after {
+  display: block;
+  position: absolute;
+  top: 4.592cqi;
+  right: 1.417cqi;
+  bottom: 1.079cqi;
+  left: 5.872cqi;
+  width: 2.834cqi;
+  height: 1.079cqi;
+  opacity: 0.3;
+  transform: matrix(0.996195, 0.0871557, -0.0871557, 0.996195, 0, 0);
+  transform-origin: 1.417cqi 0.539cqi;
+  border-top-left-radius: 45% 40%;
+  border-top-right-radius: 45% 40%;
+  border-bottom-right-radius: 50% 60%;
+  border-bottom-left-radius: 50% 60%;
+  background-image: radial-gradient(var(--portrait-c71) 0%, var(--portrait-c72) 50%, var(--portrait-c73) 80%, var(--portrait-c02) 100%);
+  content: "";
+}
+
+.portrait > .portrait__head > .portrait__mouth {
+  display: flex;
+  position: absolute;
+  top: 61.198cqi;
+  right: 5.401cqi;
+  bottom: 10.803cqi;
+  left: 33.75cqi;
+  width: 28.349cqi;
+  height: 17.999cqi;
+  flex-direction: column;
+  align-items: center;
+  z-index: 8;
+  transform-origin: 14.174cqi 9cqi;
+  border-bottom-right-radius: 48% 60%;
+  border-bottom-left-radius: 48% 60%;
+  translate: -14.174cqi 0;
+}
+
+.portrait > .portrait__head > .portrait__mouth > .portrait__lip--upper {
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 28.349cqi;
+  height: 3.958cqi;
+  z-index: 2;
+  transform-origin: 14.174cqi 1.979cqi;
+  background-image: radial-gradient(10% 30% at 40% 20%, var(--portrait-c74) 0%, var(--portrait-c02) 70%), radial-gradient(10% 30% at 60% 20%, var(--portrait-c75) 0%, var(--portrait-c02) 70%), linear-gradient(var(--portrait-c76) 0%, var(--portrait-c77) 100%);
+  background-size: auto, auto, auto;
+  background-position: 0% 0%, 0% 0%, 0% 0%;
+  background-repeat: repeat, repeat, repeat;
+  clip-path: polygon(0% 78%, 6% 60%, 18% 38%, 31% 16%, 42% 4%, 50% 24%, 58% 4%, 69% 16%, 82% 38%, 94% 60%, 100% 78%, 88% 88%, 70% 97%, 50% 100%, 30% 97%, 12% 88%);
+}
+
+.portrait > .portrait__head > .portrait__mouth > .portrait__mouth-inner {
+  display: flex;
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 25.512cqi;
+  height: 6.118cqi;
+  margin-top: -0.848cqi;
+  padding-top: 0.566cqi;
+  padding-right: 1.133cqi;
+  padding-bottom: 0.566cqi;
+  padding-left: 1.133cqi;
+  justify-content: center;
+  gap: 2%;
+  transform-origin: 12.756cqi 3.059cqi;
+  border-top-left-radius: 4% 8%;
+  border-top-right-radius: 4% 8%;
+  border-bottom-right-radius: 50% 100%;
+  border-bottom-left-radius: 50% 100%;
+  background-image: repeating-linear-gradient(90deg, var(--portrait-c02) 0, var(--portrait-c02) calc(12.5% - 0.062cqi), var(--portrait-c78) calc(12.5% - 0.062cqi), var(--portrait-c78) 12.5%), linear-gradient(var(--portrait-c79), var(--portrait-c80) 78%, var(--portrait-c81) 92%, var(--portrait-c82));
+  background-size: 100% 75%, auto;
+  background-position: 0 0, 0% 0%;
+  background-repeat: no-repeat, repeat;
+  box-shadow: var(--portrait-c83) 0 0.125cqi 0.25cqi 0 inset;
+}
+
+.portrait > .portrait__head > .portrait__mouth > .portrait__lip--lower {
+  position: absolute;
+  top: 2.88cqi;
+  right: 0;
+  bottom: 3.961cqi;
+  left: 0;
+  width: 28.349cqi;
+  height: 11.159cqi;
+  z-index: 3;
+  transform-origin: 14.174cqi 5.579cqi;
+  background-image: radial-gradient(18% 14% at 50% 80%, var(--portrait-c84) 0%, var(--portrait-c02) 70%), linear-gradient(var(--portrait-c77) 0%, var(--portrait-c77) 55%, var(--portrait-c76) 75%, var(--portrait-c85) 100%);
+  background-size: auto, auto;
+  background-position: 0% 0%, 0% 0%;
+  background-repeat: repeat, repeat;
+  clip-path: polygon(0% 0%, 5% 2%, 15% 26%, 25% 38%, 35% 45%, 50% 48%, 65% 45%, 75% 38%, 85% 26%, 95% 2%, 100% 0%, 97% 18%, 92% 40%, 84% 62%, 74% 80%, 62% 93%, 50% 98%, 38% 93%, 26% 80%, 16% 62%, 8% 40%, 3% 18%);
+}
+
+.portrait > .portrait__neck {
+  position: relative;
+  top: -5.998cqi;
+  right: 0;
+  bottom: 6cqi;
+  left: 0;
+  width: 35.977cqi;
+  height: 21.584cqi;
+  margin-bottom: -13.5cqi;
+  transform-origin: 17.988cqi 10.792cqi;
+  background-image: linear-gradient(var(--portrait-c86) 0%, var(--portrait-c02) 35%), radial-gradient(60% 80% at 40% 60%, var(--portrait-c11) 0%, var(--portrait-c02) 60%), linear-gradient(to right, var(--portrait-c87) 0%, var(--portrait-c02) 22%, var(--portrait-c02) 78%, var(--portrait-c88) 100%), linear-gradient(var(--portrait-c13) 0%, var(--portrait-c12) 45%, var(--portrait-c12) 100%);
+  background-size: auto, auto, auto, auto;
+  background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  background-repeat: repeat, repeat, repeat, repeat;
+  clip-path: polygon(16% 0%, 84% 0%, 83% 40%, 85% 62%, 90% 80%, 100% 100%, 0% 100%, 10% 80%, 15% 62%, 17% 40%);
+}

@@ -1,0 +1,14 @@
+<svg viewBox="0 0 240 240" class="ill ill--comanda">
+  <!-- Kitchen ticket: the prompt is an order for your AI -->
+  <rect class="ill-ink" x="96" y="18" width="48" height="20" rx="6"/>
+  <path class="ill-paper ill-stroke" d="M56 30 H184 V206 L176 216 L168 206 L160 216 L152 206 L144 216 L136 206 L128 216 L120 206 L112 216 L104 206 L96 216 L88 206 L80 216 L72 206 L64 216 L56 206 Z"/>
+  <path class="ill-line" d="M72 60 H168"/>
+  <rect class="ill-amber ill-part ill-part--pop" style="--i:1" x="72" y="76" width="44" height="14" rx="4"/>
+  <path class="ill-line ill-line--soft ill-part ill-part--slice" style="--i:2" d="M124 83 H168"/>
+  <path class="ill-line ill-line--soft ill-part ill-part--slice" style="--i:3" d="M72 108 H168"/>
+  <path class="ill-line ill-line--soft ill-part ill-part--slice" style="--i:4" d="M72 128 H140"/>
+  <rect class="ill-lila ill-part ill-part--pop" style="--i:5" x="146" y="121" width="22" height="14" rx="4"/>
+  <path class="ill-line ill-line--soft ill-part ill-part--slice" style="--i:6" d="M72 148 H160"/>
+  <path class="ill-line ill-line--dash" d="M64 172 H176"/>
+  <path class="ill-line ill-part ill-part--slice" style="--i:7" d="M72 188 H112"/>
+</svg>
